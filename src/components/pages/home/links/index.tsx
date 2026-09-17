@@ -39,12 +39,12 @@ export function Links() {
 
             <div className="flex gap-3 pt-2 mb-2">
               <SocialLink
-                href="https://github.com/sampaiogabriel"
+                href="https://github.com/gabriel-codesampaio"
                 icon={<Github size={18} />}
                 label="GitHub Profile"
               />
               <SocialLink
-                href="https://www.linkedin.com/in/gabrielsampaiolimadearaujo/"
+                href="https://www.linkedin.com/in/gabriel-codesampaio/"
                 icon={<Linkedin size={18} />}
                 label="LinkedIn Profile"
               />

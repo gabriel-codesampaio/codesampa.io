@@ -53,7 +53,7 @@ export function Header() {
             asChild
           >
             <a
-              href="https://github.com/sampaiogabriel"
+              href="https://github.com/gabriel-codesampaio"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
@@ -122,7 +122,7 @@ export function Header() {
                       asChild
                     >
                       <a
-                        href="https://github.com/sampaiogabriel"
+                        href="https://github.com/gabriel-codesampaio"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -141,7 +141,7 @@ export function Header() {
                       asChild
                     >
                       <a
-                        href="https://www.linkedin.com/in/gabrielsampaiolimadearaujo/"
+                        href="https://www.linkedin.com/in/gabriel-codesampaio/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

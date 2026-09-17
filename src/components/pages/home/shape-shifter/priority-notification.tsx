@@ -58,7 +58,7 @@ export function PriorityNotification({
                   {/* Container da imagem com overflow-hidden e borda */}
                   <div className="relative h-full w-full overflow-hidden rounded-full border border-white/10 shadow-sm">
                     <Image
-                      src="https://github.com/sampaiogabriel.png"
+                      src="https://github.com/gabriel-codesampaio.png"
                       alt="Gabriel Sampaio"
                       fill
                       className="object-cover"

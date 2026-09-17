@@ -19,7 +19,7 @@ export function Comments() {
       <div className="bg-card/30 rounded-2xl border border-white/5 p-6 md:p-8">
         <Giscus
           id="comments"
-          repo="sampaiogabriel/codesampa.io"
+          repo="gabriel-codesampaio/codesampa.io"
           repoId="R_kgDOQeHEIQ"
           category="Announcements"
           categoryId="DIC_kwDOQeHEIc4CzWt-"

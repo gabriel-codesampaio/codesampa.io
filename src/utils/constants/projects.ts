@@ -120,7 +120,7 @@ export const LIST_PROJECTS = [
     color: 'from-primary to-blue-600',
     icon: FaDesktop,
     link: '#',
-    repo: 'https://github.com/sampaiogabriel/codesampa.io',
+    repo: 'https://github.com/gabriel-codesampaio/codesampa.io',
     metrics: ['metric_1', 'metric_2', 'metric_3']
   },
   {
@@ -162,7 +162,7 @@ export const LIST_SECONDARY_PROJECTS = [
     ],
     icon: FaCode,
     link: '#',
-    repo: 'https://github.com/sampaiogabriel/codelab'
+    repo: 'https://github.com/gabriel-codesampaio/codelab'
   },
   {
     key: 'finance_ai',
@@ -182,7 +182,7 @@ export const LIST_SECONDARY_PROJECTS = [
     ],
     icon: FaLayerGroup,
     link: '#',
-    repo: 'https://github.com/sampaiogabriel/finance-ai'
+    repo: 'https://github.com/gabriel-codesampaio/finance-ai'
   },
   {
     key: 'lonewolf',
@@ -190,7 +190,7 @@ export const LIST_SECONDARY_PROJECTS = [
     tags: ['React', 'TypeScript', 'Styled-Components', 'Vite', 'SEO'],
     icon: FaDesktop,
     link: '#',
-    repo: 'https://github.com/sampaiogabriel/landpage-lonewolf'
+    repo: 'https://github.com/gabriel-codesampaio/landpage-lonewolf'
   }
 ];
 

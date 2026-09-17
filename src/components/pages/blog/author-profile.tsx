@@ -9,7 +9,7 @@ export function AuthorProfile() {
     <div className="flex flex-row gap-2 items-center">
       <Avatar className="h-12 w-12 border-2 border-primary/20 bg-background">
         <AvatarImage
-          src="https://github.com/sampaiogabriel.png"
+          src="https://github.com/gabriel-codesampaio.png"
           alt="Gabriel Sampaio"
         />
         <AvatarFallback>GS</AvatarFallback>

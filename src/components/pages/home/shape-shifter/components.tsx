@@ -372,7 +372,7 @@ export const ChatView = ({ isMobile }: { isMobile: boolean }) => (
       >
         <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10">
           <Image
-            src="https://github.com/sampaiogabriel.png"
+            src="https://github.com/gabriel-codesampaio.png"
             alt="Gabriel Sampaio"
             fill
             className="object-cover"
@@ -405,7 +405,7 @@ export const ChatView = ({ isMobile }: { isMobile: boolean }) => (
       >
         <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10">
           <Image
-            src="https://github.com/sampaiogabriel.png"
+            src="https://github.com/gabriel-codesampaio.png"
             alt="Gabriel Sampaio"
             fill
             className="object-cover"
