@@ -407,54 +407,23 @@
     },
     "Contact": {
       "Hub": {
-        "badge": "Booking new projects",
-        "title_prefix": "Let's talk about",
-        "title_highlight": "your project.",
-        "subtitle": "Tell us what you need. After a 30-minute call, you get a proposal with scope, timeline and investment within 3 business days.",
+        "badge": "Open for Opportunities",
+        "title_prefix": "Let's build the",
+        "title_highlight": "Impossible.",
+        "subtitle": "Have a project in mind or just want to chat about tech? Our channel is open.",
         "email": {
           "label": "Email",
-          "action": "Copy email address",
-          "toast_success": "Email copied.",
-          "toast_error": "Couldn't copy. Select the address and copy it manually.",
-          "response_time": "Prefer writing? Tell us as much as you can about the project."
+          "action": "Copy Address",
+          "toast_success": "Email copied to clipboard!"
+        },
+        "whatsapp": {
+          "label": "WhatsApp",
+          "sub": "Fast response"
         },
         "schedule": {
-          "title": "Book a call",
-          "desc": "Pick a time for a 30-minute conversation about the project."
-        }
-      },
-      "Form": {
-        "title": "Send a message",
-        "subtitle": "We reply to the email address you provide.",
-        "name": "Name",
-        "name_placeholder": "Your name",
-        "email": "Email",
-        "email_placeholder": "you@company.com",
-        "company": "Company",
-        "company_placeholder": "Company name",
-        "optional": "optional",
-        "project_type": "Project type",
-        "project_types": {
-          "system": "System or SaaS",
-          "landing": "Landing page",
-          "ai": "AI automation",
-          "other": "Other"
-        },
-        "message": "About the project",
-        "message_placeholder": "What you want to build, for whom, and whether something exists today…",
-        "submit": "Send message",
-        "sending": "Sending…",
-        "success_title": "Message sent",
-        "success": "We got your message and will reply to the email you provided.",
-        "honeypot_label": "Leave this field empty",
-        "errors": {
-          "invalid": "Please check the highlighted fields.",
-          "name": "Enter your name.",
-          "email": "Enter a valid email, like you@company.com.",
-          "project_type": "Choose a project type.",
-          "message": "Tell us a bit more about the project (at least 10 characters).",
-          "rate_limited": "Too many messages in a row. Wait a bit or write to gabriel@codesampa.io.",
-          "send": "We couldn't send it right now. Try again in a few minutes or write to gabriel@codesampa.io."
+          "badge": "Schedule",
+          "title": "Book a Call",
+          "desc": "Let's talk about your project in a 30 min meeting."
         }
       }
     },

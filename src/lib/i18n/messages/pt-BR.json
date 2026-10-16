@@ -407,54 +407,23 @@
     },
     "Contact": {
       "Hub": {
-        "badge": "Agenda aberta para novos projetos",
-        "title_prefix": "Vamos conversar sobre",
-        "title_highlight": "o seu projeto.",
-        "subtitle": "Conte o que você precisa. Depois de uma call de 30 minutos, você recebe uma proposta com escopo, prazo e investimento em até 3 dias úteis.",
+        "badge": "Disponível para Projetos",
+        "title_prefix": "Vamos construir o",
+        "title_highlight": "Impossível.",
+        "subtitle": "Tem um projeto em mente ou quer apenas trocar uma ideia sobre tech? Nosso canal está aberto.",
         "email": {
-          "label": "E-mail",
-          "action": "Copiar endereço de e-mail",
-          "toast_success": "E-mail copiado.",
-          "toast_error": "Não foi possível copiar. Selecione o endereço e copie manualmente.",
-          "response_time": "Prefere escrever? Conte o máximo que puder sobre o projeto."
+          "label": "Email",
+          "action": "Copiar Endereço",
+          "toast_success": "Email copiado para a área de transferência!"
+        },
+        "whatsapp": {
+          "label": "WhatsApp",
+          "sub": "Resposta rápida"
         },
         "schedule": {
-          "title": "Agendar uma call",
-          "desc": "Escolha um horário para uma conversa de 30 minutos sobre o projeto."
-        }
-      },
-      "Form": {
-        "title": "Envie uma mensagem",
-        "subtitle": "Respondemos pelo e-mail que você informar.",
-        "name": "Nome",
-        "name_placeholder": "Seu nome",
-        "email": "E-mail",
-        "email_placeholder": "voce@empresa.com",
-        "company": "Empresa",
-        "company_placeholder": "Nome da empresa",
-        "optional": "opcional",
-        "project_type": "Tipo de projeto",
-        "project_types": {
-          "system": "Sistema ou SaaS",
-          "landing": "Landing page",
-          "ai": "Automação com IA",
-          "other": "Outro"
-        },
-        "message": "Sobre o projeto",
-        "message_placeholder": "O que você quer construir, para quem e se já existe algo hoje…",
-        "submit": "Enviar mensagem",
-        "sending": "Enviando…",
-        "success_title": "Mensagem enviada",
-        "success": "Recebemos sua mensagem e vamos responder no e-mail que você informou.",
-        "honeypot_label": "Não preencha este campo",
-        "errors": {
-          "invalid": "Confira os campos destacados.",
-          "name": "Informe seu nome.",
-          "email": "Informe um e-mail válido, como voce@empresa.com.",
-          "project_type": "Escolha o tipo de projeto.",
-          "message": "Conte um pouco mais sobre o projeto (pelo menos 10 caracteres).",
-          "rate_limited": "Muitas mensagens seguidas. Aguarde um pouco ou escreva para gabriel@codesampa.io.",
-          "send": "Não conseguimos enviar agora. Tente de novo em alguns minutos ou escreva para gabriel@codesampa.io."
+          "badge": "Agenda",
+          "title": "Agendar uma Call",
+          "desc": "Vamos conversar sobre seu projeto em uma reunião de 30 min."
         }
       }
     },
