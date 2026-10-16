@@ -76,10 +76,10 @@ export const LIST_PROJECTS = [
     ],
     color: 'from-[#FF6900] to-orange-600',
     icon: FaMobileAlt,
-    link: '#',
+    link: 'https://kingfix.ca/',
     repo: '#',
     metrics: ['metric_1', 'metric_2', 'metric_3'],
-    image: '/assets/projects/kingfix-cover.png'
+    image: '/assets/projects/kingfix-cover.webp'
   },
   {
     key: 'devrex',
@@ -90,8 +90,7 @@ export const LIST_PROJECTS = [
     icon: FaLayerGroup,
     link: '#',
     repo: '#',
-    metrics: ['metric_1', 'metric_2', 'metric_3'],
-    image: '/assets/projects/devrex-cover.png'
+    metrics: ['metric_1', 'metric_2', 'metric_3']
   },
   {
     key: 'psialexia',
@@ -103,6 +102,7 @@ export const LIST_PROJECTS = [
     link: 'https://psialexiamarques.com.br/',
     repo: '#',
     metrics: ['metric_1', 'metric_2', 'metric_3'],
+    image: '/assets/projects/psialexia-cover.webp',
     interviewLink: '/blog/interview-alexia'
   },
   {
@@ -119,9 +119,10 @@ export const LIST_PROJECTS = [
     ],
     color: 'from-primary to-blue-600',
     icon: FaDesktop,
-    link: '#',
+    link: 'https://codesampa.io',
     repo: 'https://github.com/gabriel-codesampaio/codesampa.io',
-    metrics: ['metric_1', 'metric_2', 'metric_3']
+    metrics: ['metric_1', 'metric_2', 'metric_3'],
+    image: '/assets/projects/codesampa-cover.webp'
   },
   {
     key: 'mycard4you',
@@ -140,7 +141,7 @@ export const LIST_PROJECTS = [
     link: 'https://mycard4you.com',
     repo: '#',
     metrics: ['metric_1', 'metric_2', 'metric_3'],
-    image: '/assets/projects/mycard4you-cover.png',
+    image: '/assets/projects/mycard4you-cover.webp',
     interviewLink: '/blog/case-mycard4you'
   }
 ];

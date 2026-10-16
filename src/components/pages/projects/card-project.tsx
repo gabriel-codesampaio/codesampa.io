@@ -15,8 +15,9 @@ import {
   Newspaper
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import { StatusDot } from '@/components/ui/status-dot';
 import { LIST_PROJECTS, TECH_ICONS } from '@/utils/constants/projects';
@@ -26,7 +27,7 @@ const CardProject = ({
   project,
   index
 }: {
-  project: (typeof LIST_PROJECTS)[0] & { interviewLink?: string }; // Adicionando tipagem opcional aqui
+  project: (typeof LIST_PROJECTS)[number]; // Adicionando tipagem opcional aqui
   index: number;
 }) => {
   const t = useTranslations('Pages.Projects');
@@ -59,6 +60,13 @@ const CardProject = ({
   // Verifica se existe link de entrevista
   const hasInterview =
     project.interviewLink && project.interviewLink.trim() !== '';
+
+  // Print do site; cai no placeholder se não existir ou falhar ao carregar
+  const [imageError, setImageError] = useState(false);
+  const hasImage = !!project.image && !imageError;
+  const hostname = hasLink
+    ? new URL(project.link).hostname.replace(/^www\./, '')
+    : t(`projects.${project.key}.title`);
 
   return (
     <motion.article
@@ -245,11 +253,10 @@ const CardProject = ({
             project.color
           )}
         />
-        <div className="absolute inset-0 z-20 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
-
+        {/* Parallax só no fundo: transformar o print o deixaria borrado */}
         <motion.div
-          style={{ y: finalY, scale: 1.05 }}
-          className="absolute inset-0 z-10 h-[120%] w-full"
+          style={{ y: finalY }}
+          className="absolute inset-x-0 -top-[15%] z-0 h-[130%] w-full"
         >
           <div
             className={cn(
@@ -257,15 +264,41 @@ const CardProject = ({
               project.color
             )}
           />
-
-          <div className="absolute bottom-[-5%] left-[10%] right-[10%] top-[10%] rounded-t-xl border border-white/10 bg-[#0B0C10] p-4 shadow-2xl transition-transform duration-500 group-hover:-translate-y-4">
-            <div className="relative h-full w-full overflow-hidden rounded bg-slate-900/80 flex items-center justify-center">
-              <span className="text-white/20 font-mono text-sm">
-                Project Preview
-              </span>
-            </div>
-          </div>
         </motion.div>
+
+        {/* Janela de navegador com o print do site */}
+        <div className="absolute -bottom-px left-[6%] right-[6%] top-[8%] z-10 flex flex-col overflow-hidden rounded-t-xl border border-b-0 border-white/10 bg-[#0B0C10] shadow-2xl transition-transform duration-500 group-hover:-translate-y-3 md:left-[8%] md:right-[8%]">
+          <div className="flex h-8 shrink-0 items-center gap-1.5 border-b border-white/5 px-3">
+            <span className="size-2.5 rounded-full bg-white/15" />
+            <span className="size-2.5 rounded-full bg-white/15" />
+            <span className="size-2.5 rounded-full bg-white/15" />
+            <span className="mx-auto truncate rounded bg-white/5 px-3 py-0.5 font-mono text-[10px] text-white/40">
+              {hostname}
+            </span>
+          </div>
+
+          <div className="relative flex-1 overflow-hidden bg-slate-900/80">
+            {hasImage ? (
+              <Image
+                src={project.image!}
+                alt={t(`projects.${project.key}.title`)}
+                width={1280}
+                height={1600}
+                quality={90}
+                sizes="(min-width: 1024px) 560px, (min-width: 768px) 85vw, 90vw"
+                className="h-auto w-full"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <span className="absolute inset-0 flex items-center justify-center gap-2 font-mono text-sm uppercase tracking-widest text-white/30">
+                <Timer size={16} />
+                {t('cta_coming_soon')}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-16 bg-linear-to-t from-black/50 to-transparent" />
       </div>
     </motion.article>
   );
