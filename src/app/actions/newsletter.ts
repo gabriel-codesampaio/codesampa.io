@@ -2,12 +2,11 @@
 
 import { getTranslations } from 'next-intl/server';
 import { headers } from 'next/headers';
-import { Resend } from 'resend';
 import { z } from 'zod';
 
 import { isRateLimited } from '@/lib/rate-limit';
+import { getResend } from '@/lib/resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const audienceId = process.env.RESEND_AUDIENCE_ID;
 
 // Envios mais rápidos que isso a partir do carregamento do formulário são de robôs
@@ -55,8 +54,10 @@ export async function subscribeToNewsletter(
   }
 
   try {
-    if (!audienceId) {
-      throw new Error('Audience ID not configured.');
+    const resend = getResend();
+    if (!resend || !audienceId) {
+      if (!audienceId) console.error('RESEND_AUDIENCE_ID não configurada.');
+      return { success: false, message: t('actions.error_server') };
     }
 
     // 3. Criar contato no Resend

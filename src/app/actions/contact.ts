@@ -2,13 +2,11 @@
 
 import { getTranslations } from 'next-intl/server';
 import { headers } from 'next/headers';
-import { Resend } from 'resend';
 import { z } from 'zod';
 
 import { isRateLimited } from '@/lib/rate-limit';
+import { getResend } from '@/lib/resend';
 import { CONTACT_EMAIL, PROJECT_TYPES } from '@/utils/constants/contact';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const MIN_FILL_TIME_MS = 3000;
 
@@ -111,6 +109,11 @@ export async function sendContactMessage(
   const oneLine = (v: string) => v.replace(/[\r\n]+/g, ' ');
 
   try {
+    const resend = getResend();
+    if (!resend) {
+      return { success: false, message: t('errors.send'), values };
+    }
+
     const { error } = await resend.emails.send({
       from: `Site codesampa.io <${CONTACT_EMAIL}>`,
       to: CONTACT_EMAIL,
