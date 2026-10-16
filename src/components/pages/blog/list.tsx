@@ -59,6 +59,7 @@ export function List({ posts }: { posts: Post[] }) {
           categories={blogCategories}
           activeCategory={activeCategory}
           onCategoryChange={setActiveCategory}
+          searchQuery={searchQuery}
           onSearch={setSearchQuery}
           placeholder={t('search_placeholder')}
           className="mb-0"
@@ -89,7 +90,7 @@ export function List({ posts }: { posts: Post[] }) {
                     setSearchQuery('');
                     setActiveCategory('all');
                   }}
-                  className="mt-4 text-primary hover:underline text-xs font-bold uppercase tracking-widest"
+                  className="mt-4 min-h-11 px-4 text-primary-text hover:underline text-sm font-bold"
                 >
                   {t('clear_filters')}
                 </button>
@@ -106,7 +107,7 @@ export function List({ posts }: { posts: Post[] }) {
           animate={{ opacity: 1 }}
           className="flex items-center gap-3 opacity-60 px-1"
         >
-          <Hash size={16} className="text-primary" />
+          <Hash size={16} className="text-primary-text" />
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground">
             Latest Entries
           </span>

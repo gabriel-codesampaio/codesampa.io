@@ -1,0 +1,16 @@
+# codesampa.io
+
+> Software House & Design. Desenvolvemos sistemas web e mobile sob medida, plataformas SaaS, landing pages de alta conversão e automações com IA para empresas no Brasil e no exterior.
+
+## Páginas
+
+- [Início (pt-BR)](https://codesampa.io/pt-BR): serviços, processo de trabalho e contato
+- [Home (en-US)](https://codesampa.io/en-US): services, process and contact
+- [Projetos](https://codesampa.io/pt-BR/projects): cases de clientes (KingFix, Psi Aléxia Marques, MyCard4You)
+- [Blog](https://codesampa.io/pt-BR/blog): artigos sobre engenharia, design e tecnologia
+- [Contato](https://codesampa.io/pt-BR/contact): e-mail e agendamento de reunião
+
+## Contato
+
+- E-mail: gabriel@codesampa.io
+- Agenda: https://cal.com/codesampa.io

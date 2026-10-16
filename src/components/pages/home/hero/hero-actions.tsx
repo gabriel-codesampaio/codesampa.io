@@ -34,7 +34,7 @@ export function HeroActions() {
         className="group w-full sm:w-auto h-12 px-8 text-base 
         bg-background/50 backdrop-blur-sm border-muted-foreground/20 
         hover:border-primary/50 hover:bg-primary/5 
-        text-muted-foreground hover:text-primary transition-all duration-300"
+        text-muted-foreground hover:text-primary-text transition-all duration-300"
       >
         <Link
           href="/projects"

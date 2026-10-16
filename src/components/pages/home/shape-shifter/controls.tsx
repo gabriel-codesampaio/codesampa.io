@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Monitor, Smartphone, RotateCcw, Lock, ArrowRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { cn } from '@/utils/functions/tw-merge';
 import { useHomeStore } from '@/utils/stores/home-store'; // Importando a store
@@ -22,10 +23,11 @@ export function ShapeShifterControls({
   isMobileDevice,
   isVisible
 }: ControlsProps) {
+  const t = useTranslations('Components.Pages.Home.ShapeShifter.Controls');
   const { mode, toggleMode } = useHomeStore();
 
   const suggestionLabel =
-    mode === 'systems' ? 'Landing Page' : 'System Architecture';
+    mode === 'systems' ? t('suggest_landing') : t('suggest_systems');
 
   if (!isVisible) {
     return null;
@@ -45,7 +47,7 @@ export function ShapeShifterControls({
             onClick={() => !isMobileDevice && setMode('desktop')}
             disabled={isMobileDevice}
             aria-pressed={currentMode === 'desktop'}
-            aria-label="Desktop"
+            aria-label={t('desktop')}
             className={cn(
               'relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all duration-300',
               currentMode === 'desktop'
@@ -78,7 +80,7 @@ export function ShapeShifterControls({
           <button
             onClick={() => setMode('mobile')}
             aria-pressed={currentMode === 'mobile'}
-            aria-label="Mobile"
+            aria-label={t('mobile')}
             className={cn(
               'relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all duration-300',
               currentMode === 'mobile'
@@ -101,8 +103,8 @@ export function ShapeShifterControls({
         <button
           onClick={onReplay}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/80 text-slate-400 backdrop-blur-xl transition-all hover:bg-white/10 hover:text-white active:scale-95 group"
-          title="Replay Animation"
-          aria-label="Replay Animation"
+          title={t('replay')}
+          aria-label={t('replay')}
         >
           <RotateCcw
             size={16}
@@ -113,9 +115,9 @@ export function ShapeShifterControls({
 
       <button
         onClick={toggleMode}
-        className="group flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-4 py-1.5 text-[10px] font-medium uppercase tracking-widest text-slate-400 transition-all hover:border-white/20 hover:bg-white/10 hover:text-white"
+        className="group flex items-center gap-2 rounded-full border border-white/5 bg-white/5 min-h-11 px-4 text-xs font-medium text-slate-300 transition-all hover:border-white/20 hover:bg-white/10 hover:text-white"
       >
-        <span>See also:</span>
+        <span>{t('see_also')}</span>
         <span className="text-white underline decoration-white/30 underline-offset-4 group-hover:decoration-white/80 transition-all">
           {suggestionLabel}
         </span>

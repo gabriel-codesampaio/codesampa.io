@@ -1,10 +1,14 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform
+} from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
 
-import { StatusDot } from '@/components/ui/status-dot';
 import { cn } from '@/utils/functions/tw-merge';
 
 export function ManifestoSection() {
@@ -16,6 +20,10 @@ export function ManifestoSection() {
     offset: ['start 0.4', 'end 0.7']
   });
 
+  // Com movimento reduzido o texto aparece inteiro (sem revelação por rolagem,
+  // que deixaria as palavras com 10% de opacidade até o usuário rolar)
+  const reduceMotion = useReducedMotion();
+
   // Texto dividido em palavras para animação individual
   const words = t('text').split(' ');
 
@@ -26,30 +34,30 @@ export function ManifestoSection() {
     >
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
-          {/* Badge Centralizado */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 mb-4"
-          >
-            <StatusDot />
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              {t('badge')}
+          <h2 className="relative text-2xl md:text-4xl font-bold font-space leading-snug text-center">
+            {/* Frase inteira para leitor de tela: os spans animados não têm
+                espaços no texto e eram lidos como uma palavra só */}
+            <span className="sr-only">{t('text').replace(/\*/g, '')}</span>
+            <span
+              aria-hidden="true"
+              className="flex flex-wrap justify-center gap-x-2 gap-y-1 md:gap-x-3 md:gap-y-2"
+            >
+              {words.map((word, i) => {
+                const start = i / words.length;
+                const end = start + 1 / words.length;
+
+                return (
+                  <Word
+                    key={i}
+                    range={[start, end]}
+                    progress={scrollYProgress}
+                    static={!!reduceMotion}
+                  >
+                    {word}
+                  </Word>
+                );
+              })}
             </span>
-          </motion.div>
-
-          <h2 className="flex flex-wrap justify-center gap-x-2 gap-y-1 md:gap-x-3 md:gap-y-2 text-2xl md:text-4xl font-bold font-space leading-snug text-center">
-            {words.map((word, i) => {
-              const start = i / words.length;
-              const end = start + 1 / words.length;
-
-              return (
-                <Word key={i} range={[start, end]} progress={scrollYProgress}>
-                  {word}
-                </Word>
-              );
-            })}
           </h2>
         </div>
       </div>
@@ -61,10 +69,12 @@ export function ManifestoSection() {
 const Word = ({
   children,
   range,
-  progress
+  progress,
+  static: isStatic
 }: {
   children: string;
   range: [number, number];
+  static: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   progress: any;
 }) => {
@@ -78,10 +88,10 @@ const Word = ({
   return (
     <span className="relative inline-block">
       <motion.span
-        style={{ opacity, y }}
+        style={isStatic ? undefined : { opacity, y }}
         className={cn(
           'transition-colors duration-200',
-          isHighlight ? 'text-primary font-black' : 'text-foreground'
+          isHighlight ? 'text-primary-text font-black' : 'text-foreground'
         )}
       >
         {text}

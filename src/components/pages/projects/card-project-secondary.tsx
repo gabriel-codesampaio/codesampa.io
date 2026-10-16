@@ -29,11 +29,14 @@ export const CardProjectSecondary = ({
     >
       <div>
         <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-3 text-muted-foreground group-hover:text-primary transition-colors">
-            <FolderGit2 size={20} />
-            <ProjectIcon size={16} />
+          <div className="flex items-center gap-3 text-muted-foreground group-hover:text-primary-text transition-colors">
+            <FolderGit2 size={20} aria-hidden="true" />
+            <ProjectIcon size={16} aria-hidden="true" />
           </div>
-          <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div
+            aria-hidden="true"
+            className="flex gap-2 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity"
+          >
             {project.link !== '#' && (
               <span className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white">
                 <ArrowUpRight size={14} />
@@ -45,9 +48,9 @@ export const CardProjectSecondary = ({
           </div>
         </div>
 
-        <h4 className="mb-2 font-space text-xl font-bold text-white">
+        <h3 className="mb-2 font-space text-xl font-bold text-white">
           {t(`projects.${project.key}.title`)}
-        </h4>
+        </h3>
         <p className="mb-6 text-sm leading-relaxed text-muted-foreground line-clamp-3">
           {t(`projects.${project.key}.description`)}
         </p>
@@ -55,10 +58,7 @@ export const CardProjectSecondary = ({
 
       <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-white/5">
         {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground/60"
-          >
+          <span key={tag} className="text-xs font-mono text-muted-foreground">
             {tag}
           </span>
         ))}

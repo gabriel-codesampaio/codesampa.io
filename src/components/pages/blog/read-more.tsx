@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl';
 
 import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/utils/functions/tw-merge';
+import { postDate } from '@/utils/functions/post-date';
 
 interface ReadMoreProps {
   currentSlug: string;
@@ -50,7 +51,7 @@ export function ReadMore({ currentSlug, currentTags, locale }: ReadMoreProps) {
         </h3>
         <Link
           href="/blog"
-          className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-primary-text transition-colors"
         >
           {t('view_all')}
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -72,15 +73,15 @@ export function ReadMore({ currentSlug, currentTags, locale }: ReadMoreProps) {
             >
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
-                  <Calendar size={12} className="text-primary/70" />
+                  <Calendar size={12} className="text-primary-text/70" />
                   <time dateTime={post.date}>
-                    {format(new Date(post.date), 'MMM dd, yyyy', {
+                    {format(postDate(post.date), 'MMM dd, yyyy', {
                       locale: dateLocale
                     })}
                   </time>
                 </div>
 
-                <h4 className="mb-3 font-space text-lg font-bold leading-tight text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                <h4 className="mb-3 font-space text-lg font-bold leading-tight text-foreground group-hover:text-primary-text transition-colors line-clamp-2">
                   {post.title}
                 </h4>
 

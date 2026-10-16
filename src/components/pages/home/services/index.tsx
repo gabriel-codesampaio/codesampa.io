@@ -3,9 +3,8 @@
 import { motion, Variants } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 
-import { StatusDot } from '@/components/ui/status-dot';
+import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/utils/functions/tw-merge';
 
 import {
@@ -23,23 +22,32 @@ export function ServicesSection() {
       visual: <SystemDevVisual />,
       accent: 'blue',
       delay: 0,
-      link: '/blog/chaos-to-control-systems'
+      link: '/projects?category=saas'
     },
     {
       key: 'landing',
       visual: <LandingPageVisual />,
       accent: 'emerald',
       delay: 0.1,
-      link: '/blog/landing-page-sell'
+      link: '/projects?category=web'
     },
     {
       key: 'ai',
       visual: <AiIntegrationVisual />,
       accent: 'purple',
       delay: 0.2,
+      // Ainda sem case de IA publicado: o CTA leva ao artigo e diz isso no texto
       link: '/blog/automating-reports-with-ai'
     }
   ];
+
+  // Classes estáticas (o Tailwind não gera classes montadas com template string).
+  // Tons 400: os 500 ficavam abaixo de 4,5:1 sobre o card escuro.
+  const accentText: Record<string, string> = {
+    blue: 'text-blue-400',
+    emerald: 'text-emerald-400',
+    purple: 'text-purple-400'
+  };
 
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -66,18 +74,6 @@ export function ServicesSection() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header da Seção */}
         <div className="mb-16 text-center max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 mb-4"
-          >
-            <StatusDot />
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              {t('badge')}
-            </span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,25 +88,22 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-lg"
+            className="mx-auto max-w-2xl text-muted-foreground text-lg"
           >
             {t('subtitle')}
           </motion.p>
         </div>
 
         {/* Grid de Serviços */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
           {services.map((service) => {
             const title = t(`cards.${service.key}.title`);
             const desc = t(`cards.${service.key}.description`);
 
-            const features = [
-              t(`cards.${service.key}.feature1`),
-              t(`cards.${service.key}.feature2`),
-              t(`cards.${service.key}.feature3`),
-              t(`cards.${service.key}.feature4`),
-              t(`cards.${service.key}.feature5`)
-            ];
+            // 4 itens por card: com 5, os três cards lado a lado viravam um muro de texto
+            const features = [1, 2, 3, 4].map((n) =>
+              t(`cards.${service.key}.feature${n}`)
+            );
 
             const colorMap: Record<string, string> = {
               blue: 'group-hover:border-blue-500/50 hover:shadow-blue-500/10',
@@ -160,7 +153,7 @@ export function ServicesSection() {
                           size={16}
                           className={cn(
                             'mt-0.5 shrink-0',
-                            `text-${service.accent}-500`
+                            accentText[service.accent]
                           )}
                         />
                         {feature}
@@ -173,8 +166,8 @@ export function ServicesSection() {
                     <Link
                       href={service.link}
                       className={cn(
-                        'flex items-center gap-2 text-sm font-bold uppercase tracking-wide transition-colors',
-                        `text-${service.accent}-500 group-hover:text-${service.accent}-400`
+                        'flex min-h-11 items-center gap-2 text-sm font-bold underline-offset-4 transition-colors hover:underline',
+                        accentText[service.accent]
                       )}
                     >
                       {t(`cards.${service.key}.cta`)} <ArrowRight size={16} />

@@ -12,6 +12,8 @@
   --popover-foreground: oklch(0.2781 0.0296 256.848);
   --primary: oklch(0.4859 0.2339 262.5015);
   --primary-foreground: oklch(1 0 0);
+  /* Azul para TEXTO e ícones; --primary fica para fundos (botões) */
+  --primary-text: oklch(0.4859 0.2339 262.5015);
   --secondary: oklch(0.9276 0.0058 264.5313);
   --secondary-foreground: oklch(0.2781 0.0296 256.848);
   --muted: oklch(0.967 0.0029 264.5419);
@@ -74,6 +76,8 @@
   --popover-foreground: oklch(0.9276 0.0058 264.5313);
   --primary: oklch(0.4859 0.2339 262.5015);
   --primary-foreground: oklch(1 0 0);
+  /* #004be0 como texto dá 2,96:1 no fundo escuro; este dá 6,4:1 */
+  --primary-text: oklch(0.66 0.17 262.5);
   --secondary: oklch(0.2781 0.0296 256.848);
   --secondary-foreground: oklch(0.9276 0.0058 264.5313);
   --muted: oklch(0.2504 0.0274 259.9705);
@@ -86,7 +90,7 @@
   --success-foreground: oklch(1 0 0);
   --border: oklch(0.3351 0.0331 260.912);
   --input: oklch(0.2504 0.0274 259.9705);
-  --ring: oklch(0.4859 0.2339 262.5015);
+  --ring: oklch(0.66 0.17 262.5);
   --chart-1: oklch(0.4859 0.2339 262.5015);
   --chart-2: oklch(0.6201 0.1764 264.4036);
   --chart-3: oklch(0.765 0.1082 263.619);
@@ -130,6 +134,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-text: var(--primary-text);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -175,7 +180,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
 
   body {

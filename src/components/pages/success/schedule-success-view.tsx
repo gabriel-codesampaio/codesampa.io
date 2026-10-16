@@ -63,9 +63,7 @@ export function ScheduleSuccessView() {
           transition={{ delay: 0.3 }}
           className="font-space text-4xl md:text-5xl font-black tracking-tight mb-4"
         >
-          <span className="bg-linear-to-r from-emerald-400 via-teal-300 to-cyan-500 bg-clip-text text-transparent drop-shadow-sm">
-            {t('title')}
-          </span>
+          {t('title')}
         </motion.h1>
 
         {/* Subtítulo */}

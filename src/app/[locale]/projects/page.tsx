@@ -1,7 +1,9 @@
 import { getTranslations } from 'next-intl/server';
+import { Suspense } from 'react';
 
 import { TimelinePortfolio } from '@/components/pages/projects/timeline';
 import { PageTitle } from '@/components/ui/page-title';
+import { buildAlternates } from '@/utils/functions/alternates';
 
 type Params = Promise<{ locale: string }>;
 
@@ -11,7 +13,8 @@ export async function generateMetadata({ params }: { params: Params }) {
 
   return {
     title: t('title'),
-    description: t('description')
+    description: t('description'),
+    alternates: buildAlternates(locale, '/projects')
   };
 }
 
@@ -25,20 +28,19 @@ export default async function ProjectsPage() {
 
       <div className="relative z-10">
         <PageTitle
-          badge={t('badge')}
-          badgeColor="purple"
           title={t.rich('title', {
             highlight: (chunks) => (
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-400 to-purple-300 animate-gradient-x">
-                {chunks}
-              </span>
+              <span className="text-primary-text">{chunks}</span>
             ),
             br: () => <br />
           })}
           subtitle={t('subtitle')}
         />
 
-        <TimelinePortfolio />
+        {/* useSearchParams (filtro na URL) exige um limite de Suspense */}
+        <Suspense>
+          <TimelinePortfolio />
+        </Suspense>
       </div>
     </div>
   );

@@ -12,10 +12,14 @@ import {
   FolderOpen,
   Search
 } from 'lucide-react';
-import Link from 'next/link';
+
+import { Link } from '@/lib/i18n/navigation';
+
+import { useTranslations } from 'next-intl';
 import { useState, useMemo } from 'react';
 
 import { cn } from '@/utils/functions/tw-merge';
+import { postDate } from '@/utils/functions/post-date';
 
 // --- Tipos ---
 type FileNode = {
@@ -38,7 +42,7 @@ function buildFileTree(posts: Post[]): FolderNode[] {
   // 1. Agrupar posts por Ano
   const postsByYear: Record<string, Post[]> = {};
   posts.forEach((post) => {
-    const year = new Date(post.date).getFullYear().toString();
+    const year = postDate(post.date).getFullYear().toString();
     if (!postsByYear[year]) postsByYear[year] = [];
     postsByYear[year].push(post);
   });
@@ -151,7 +155,7 @@ function filterTree(nodes: FolderNode[], query: string): FolderNode[] {
 const FileItem = ({ node }: { node: FileNode }) => (
   <Link
     href={`/blog/${node.post.slugAsParams}`}
-    className="group flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-xs text-muted-foreground transition-all duration-200 hover:bg-primary/10 hover:text-primary"
+    className="group flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-xs text-muted-foreground transition-all duration-200 hover:bg-primary/10 hover:text-primary-text"
   >
     <FileCode2
       size={14}
@@ -159,7 +163,7 @@ const FileItem = ({ node }: { node: FileNode }) => (
     />
     <span className="font-mono truncate relative top-px">{node.name}</span>
     <span className="ml-auto text-[10px] opacity-0 group-hover:opacity-60 transition-opacity whitespace-nowrap font-mono text-muted-foreground/80">
-      {format(new Date(node.post.date), 'MM/dd')}
+      {format(postDate(node.post.date), 'MM/dd')}
     </span>
   </Link>
 );
@@ -233,6 +237,7 @@ export function FileExplorer({
   posts: Post[];
   className?: string;
 }) {
+  const t = useTranslations('Components.Pages.Blog.List');
   const [searchQuery, setSearchQuery] = useState('');
 
   const fullTree = useMemo(() => buildFileTree(posts), [posts]);
@@ -258,15 +263,20 @@ export function FileExplorer({
         </span>
 
         {/* Input de Pesquisa */}
-        <div className="flex flex-1 items-center gap-2 rounded-md bg-black/40 px-2.5 py-1.5 border border-white/5 focus-within:border-primary/30 focus-within:bg-black/60 transition-all">
-          <Search size={12} className="text-muted-foreground" />
+        <div className="flex flex-1 items-center gap-2 rounded-md bg-black/40 px-2.5 py-1.5 border border-white/5 focus-within:border-primary-text focus-within:bg-black/60 transition-colors">
+          <Search
+            size={12}
+            className="text-muted-foreground"
+            aria-hidden="true"
+          />
           <input
-            type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search..."
-            aria-label="Search posts"
-            className="w-full bg-transparent text-[11px] text-foreground placeholder:text-muted-foreground/40 focus:outline-none font-mono"
+            type="search"
+            name="search"
+            placeholder={t('search_placeholder')}
+            aria-label={t('search_label')}
+            className="w-full bg-transparent text-xs text-foreground placeholder:text-muted-foreground/60 outline-none font-mono"
           />
         </div>
 
@@ -296,7 +306,7 @@ export function FileExplorer({
       {/* Footer / Status Bar */}
       <div className="flex h-7 shrink-0 items-center border-t border-white/5 bg-white/2 px-3 text-[10px] text-muted-foreground font-mono select-none">
         <div className="flex items-center gap-3">
-          <span className="flex items-center gap-1.5 text-primary/80">
+          <span className="flex items-center gap-1.5 text-primary-text/80">
             <span className="w-1.5 h-1.5 rounded-full bg-primary/80 animate-pulse" />
             master*
           </span>

@@ -6,6 +6,7 @@ import {
   motion
 } from 'framer-motion';
 import {
+  Archive,
   ArrowUpRight,
   Github,
   MessageSquarePlus,
@@ -16,10 +17,10 @@ import {
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRef, useState } from 'react';
 
 import { StatusDot } from '@/components/ui/status-dot';
+import { Link } from '@/lib/i18n/navigation';
 import { LIST_PROJECTS, TECH_ICONS } from '@/utils/constants/projects';
 import { cn } from '@/utils/functions/tw-merge';
 
@@ -72,7 +73,9 @@ const CardProject = ({
     <motion.article
       layout
       ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
+      // O 1º card fica acima da dobra no celular: sem entrada animada, para o
+      // print (LCP da página) aparecer sem esperar a hidratação
+      initial={index === 0 ? false : { opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.6 }}
@@ -95,21 +98,21 @@ const CardProject = ({
             >
               <ProjectIcon size={24} />
             </div>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-muted-foreground">
-              {t(`projects.${project.key}.category`) || 'Case Study'}
+            <span className="text-sm font-medium text-muted-foreground">
+              {t(`projects.${project.key}.category`)}
             </span>
           </div>
 
           {/* TÍTULO + BOTÃO DE ENTREVISTA */}
           <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-            <h3 className="font-space text-3xl font-black leading-tight text-white md:text-5xl">
+            <h2 className="font-space text-3xl font-black leading-tight text-white md:text-5xl">
               {t(`projects.${project.key}.title`)}
-            </h3>
+            </h2>
 
             {hasInterview && (
               <Link
                 href={project.interviewLink!}
-                className="group/interview relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-white/5 px-4 py-1.5 transition-all hover:border-white/20 hover:bg-white/10"
+                className="group/interview relative inline-flex min-h-11 items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-white/5 px-4 transition-colors hover:border-white/20 hover:bg-white/10"
               >
                 {/* Background Glow sutil baseado na cor do projeto */}
                 <div
@@ -144,11 +147,12 @@ const CardProject = ({
                 />
 
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90 group-hover/interview:text-white">
+                  <span className="text-sm font-bold text-white/90 group-hover/interview:text-white">
                     {t('cta_read_interview')}
                   </span>
                   <ArrowUpRight
-                    size={12}
+                    size={14}
+                    aria-hidden="true"
                     className="text-white/70 transition-transform group-hover/interview:-translate-y-0.5 group-hover/interview:translate-x-0.5 group-hover/interview:text-white"
                   />
                 </div>
@@ -162,41 +166,53 @@ const CardProject = ({
         </div>
 
         {/* Grid de Métricas de Impacto */}
-        <div className="grid grid-cols-1 gap-4 border-y border-white/5 py-6 md:grid-cols-3">
+        <div className="grid grid-cols-3 gap-3 border-y border-white/5 py-6 md:gap-4">
           {project.metrics?.map((metricId, i) => (
             <div key={i} className="flex flex-col gap-1">
-              <span className="text-2xl font-bold text-foreground">
+              <span className="text-lg font-bold leading-tight text-foreground md:text-2xl">
                 {t(`projects.${project.key}.metrics_data.${i}.value`)}
               </span>
-              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+              <span className="text-xs text-muted-foreground">
                 {t(`projects.${project.key}.metrics_data.${i}.label`)}
               </span>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-4">
+        {/* Lista de tecnologias: não interativa (sem paradas de Tab); o nome vai
+            para o leitor de tela e aparece em tooltip no hover */}
+        <ul
+          aria-label={t('tech_stack_label')}
+          className="flex flex-wrap items-center gap-4"
+        >
           {project.tags.map((tag) => {
             const Icon = TECH_ICONS[tag] || CheckCircle2;
             return (
-              <div
+              <li
                 key={tag}
-                tabIndex={0}
-                aria-label={tag}
-                className="group/icon relative flex items-center justify-center p-2 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-colors cursor-help outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="group/icon relative flex items-center justify-center p-2 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-colors"
               >
-                <Icon size={18} className="text-slate-300" />
-                <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black text-[10px] text-white rounded opacity-0 transition-opacity whitespace-nowrap pointer-events-none group-hover/icon:opacity-100 group-focus-visible/icon:opacity-100">
+                <Icon size={18} className="text-slate-300" aria-hidden="true" />
+                <span className="sr-only">{tag}</span>
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black text-xs text-white rounded opacity-0 transition-opacity whitespace-nowrap pointer-events-none group-hover/icon:opacity-100"
+                >
                   {tag}
                 </span>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
         {/* Botões de Ação */}
         <div className="flex flex-wrap items-center gap-4 pt-2">
-          {project.isProduct ? (
+          {project.discontinued ? (
+            <div className="flex items-center gap-2 rounded-full bg-white/5 px-6 py-3 text-sm font-bold text-muted-foreground ring-1 ring-white/10">
+              <Archive size={16} aria-hidden="true" />
+              <span>{t('status_discontinued')}</span>
+            </div>
+          ) : project.isProduct ? (
             hasLink ? (
               <a
                 href={project.link}
@@ -231,10 +247,10 @@ const CardProject = ({
 
           <Link
             href="/contact"
-            className="ml-auto flex items-center gap-2 text-xs font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"
+            className="ml-auto flex min-h-11 items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary-text transition-colors"
           >
-            <MessageSquarePlus size={16} />
-            {t('cta_want_similar') || 'I want this'}
+            <MessageSquarePlus size={16} aria-hidden="true" />
+            {t('cta_want_similar')}
           </Link>
         </div>
       </div>
@@ -242,8 +258,10 @@ const CardProject = ({
       {/* --- COLUNA DA IMAGEM --- */}
       <div
         className={cn(
-          'relative w-full overflow-hidden rounded-2xl border border-white/10 bg-card shadow-2xl transition-all hover:border-white/20',
-          index % 2 === 1 ? 'lg:order-1' : '',
+          'relative w-full overflow-hidden rounded-2xl border border-white/10 bg-card shadow-2xl transition-colors hover:border-white/20',
+          // No celular o print vem primeiro (antes ficava depois de ~1,5 tela de texto)
+          'order-first',
+          index % 2 === 1 ? 'lg:order-1' : 'lg:order-0',
           'h-[350px] md:h-[450px] lg:h-[600px]'
         )}
       >
@@ -272,7 +290,7 @@ const CardProject = ({
             <span className="size-2.5 rounded-full bg-white/15" />
             <span className="size-2.5 rounded-full bg-white/15" />
             <span className="size-2.5 rounded-full bg-white/15" />
-            <span className="mx-auto truncate rounded bg-white/5 px-3 py-0.5 font-mono text-[10px] text-white/40">
+            <span className="mx-auto truncate rounded bg-white/5 px-3 py-0.5 font-mono text-xs text-white/70">
               {hostname}
             </span>
           </div>
@@ -285,6 +303,7 @@ const CardProject = ({
                 width={1280}
                 height={1600}
                 quality={90}
+                preload={index === 0}
                 sizes="(min-width: 1024px) 560px, (min-width: 768px) 85vw, 90vw"
                 className="h-auto w-full"
                 onError={() => setImageError(true)}

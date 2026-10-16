@@ -3,8 +3,7 @@ import { MetadataRoute } from 'next';
 import { posts } from '.velite';
 
 import { routing } from '@/lib/i18n/routing';
-
-import { HOST } from './utils/constants/host';
+import { HOST } from '@/utils/constants/host';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ['', '/projects', '/blog', '/contact'];

@@ -160,7 +160,7 @@ export function ShapeShifterSection() {
     <section
       id="shape-shifter"
       ref={containerRef}
-      className="hidden relative md:flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-background"
+      className="hidden relative lg:flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-background"
     >
       <div className="relative z-10 flex w-full flex-col items-center justify-center">
         <PriorityNotification

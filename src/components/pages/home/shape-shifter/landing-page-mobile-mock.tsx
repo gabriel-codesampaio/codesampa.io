@@ -13,10 +13,17 @@ import {
   MousePointer2,
   ArrowRight
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function LandingPageMobileMock() {
+  const t = useTranslations('Components.Pages.Home.ShapeShifter.Mock');
+
+  // Wireframe decorativo do 'site da sua empresa': oculto do leitor de tela
   return (
-    <div className="relative mx-auto flex aspect-[9/19] h-[70vh] max-h-[700px] w-full max-w-[340px] flex-col overflow-hidden rounded-[2.5rem] border-[8px] border-[#1a1a1a] bg-[#0A0A0A] shadow-2xl ring-1 ring-white/10 select-none font-sans">
+    <div
+      aria-hidden="true"
+      className="relative mx-auto flex aspect-[9/19] h-[70vh] max-h-[700px] w-full max-w-[340px] flex-col overflow-hidden rounded-[2.5rem] border-[8px] border-[#1a1a1a] bg-[#0A0A0A] shadow-2xl ring-1 ring-white/10 select-none font-sans"
+    >
       {/* --- STATUS BAR (iOS Style) --- */}
       <div className="absolute top-0 z-40 flex h-12 w-full items-end justify-between px-6 pb-2 pointer-events-none">
         <span className="text-[10px] font-medium text-white/90">9:41</span>
@@ -62,8 +69,8 @@ export function LandingPageMobileMock() {
             className="flex w-fit self-center items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 backdrop-blur-sm"
           >
             <span className="flex h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_currentColor]" />
-            <span className="text-[9px] font-bold text-primary tracking-widest uppercase">
-              New Release v2.4
+            <span className="text-[9px] font-bold text-primary-text tracking-widest uppercase">
+              {t('badge')}
             </span>
           </motion.div>
 
@@ -113,7 +120,7 @@ export function LandingPageMobileMock() {
               transition={{ delay: 0.8 }}
               className="h-9 px-5 flex-1 rounded-lg bg-white text-black font-bold text-[10px] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.15)]"
             >
-              Start Building <ArrowRight size={10} />
+              {t('cta_primary')} <ArrowRight size={10} />
             </motion.div>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -140,7 +147,7 @@ export function LandingPageMobileMock() {
                   <div className="h-1.5 w-12 rounded bg-white/20" />
                 </div>
                 <div className="h-5 w-5 rounded bg-primary/20 flex items-center justify-center">
-                  <Zap size={8} className="text-primary" />
+                  <Zap size={8} className="text-primary-text" />
                 </div>
               </div>
 

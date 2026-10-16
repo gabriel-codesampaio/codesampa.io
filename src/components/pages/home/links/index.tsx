@@ -25,7 +25,7 @@ export function Links() {
       <div className="container mx-auto px-6 pt-12 pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-8 md:mb-16">
           {/* Coluna 1: Sobre */}
-          <div className="md:col-span-4 flex flex-col gap-2 md:gap-6">
+          <div className="md:col-span-12 lg:col-span-4 flex flex-col gap-2 md:gap-6">
             <Link
               href="/"
               className="flex items-center gap-2 group w-fit cursor-pointer"
@@ -40,18 +40,18 @@ export function Links() {
             <div className="flex gap-3 pt-2 mb-2">
               <SocialLink
                 href="https://github.com/gabriel-codesampaio"
-                icon={<Github size={18} />}
-                label="GitHub Profile"
+                icon={<Github size={18} aria-hidden="true" />}
+                label={t('social.github')}
               />
               <SocialLink
                 href="https://www.linkedin.com/in/gabriel-codesampaio/"
-                icon={<Linkedin size={18} />}
-                label="LinkedIn Profile"
+                icon={<Linkedin size={18} aria-hidden="true" />}
+                label={t('social.linkedin')}
               />
             </div>
 
             {/* Bloco de Informações da Empresa com Tradução */}
-            <div className="flex flex-col gap-1 mt-2 text-xs text-muted-foreground/50 font-mono">
+            <div className="flex flex-col gap-1 mt-2 text-xs text-muted-foreground font-mono">
               <p>CNPJ: 64.197.469/0001-45</p>
               <p>&copy; {currentYear} codesampa.io</p>
               <p>{t('legal.rights')}</p>
@@ -59,34 +59,34 @@ export function Links() {
           </div>
 
           {/* Coluna 2: Blog Posts */}
-          <div className="md:col-span-4 hidden md:flex flex-col gap-6 md:items-start md:pl-8 lg:pl-16 min-w-0">
-            <h4 className="font-space font-semibold text-white flex items-center gap-2 shrink-0">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+          <div className="md:col-span-6 lg:col-span-4 hidden md:flex flex-col gap-6 md:items-start lg:pl-16 min-w-0">
+            <h2 className="font-space text-base font-semibold text-white flex items-center gap-2 shrink-0">
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-violet-500"
+              />
               {t('columns.blog')}
-            </h4>
+            </h2>
 
-            <ul className="flex flex-col gap-3 w-full">
-              {latestPosts.length > 0 ? (
-                latestPosts.map((post) => (
-                  <LiLink key={post.slug} href={`/blog/${post.slugAsParams}`}>
-                    {post.title}
-                  </LiLink>
-                ))
-              ) : (
-                <li className="text-sm text-muted-foreground italic opacity-50">
-                  ...
-                </li>
-              )}
+            <ul className="flex flex-col gap-1 w-full">
+              {latestPosts.map((post) => (
+                <LiLink key={post.slug} href={`/blog/${post.slugAsParams}`}>
+                  {post.title}
+                </LiLink>
+              ))}
             </ul>
           </div>
 
           {/* Coluna 3: Explore */}
-          <div className="md:col-span-4 flex flex-col gap-3 md:gap-6 md:items-start md:pl-8 lg:pl-16">
-            <h4 className="font-space font-semibold text-white flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          <div className="md:col-span-6 lg:col-span-4 flex flex-col gap-3 md:gap-6 md:items-start lg:pl-16">
+            <h2 className="font-space text-base font-semibold text-white flex items-center gap-2">
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-primary"
+              />
               {t('columns.explore')}
-            </h4>
-            <ul className="flex flex-col gap-3">
+            </h2>
+            <ul className="flex flex-col gap-1">
               <LiLink href="/">{t('links.home')}</LiLink>
               <LiLink href="/blog">{t('links.blog')}</LiLink>
               <LiLink href="/projects">{t('links.projects')}</LiLink>
@@ -109,16 +109,14 @@ const LiLink = ({
   <li className="w-full">
     <Link
       href={href}
-      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors w-full"
+      className="group flex min-h-11 items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors w-full"
     >
-      <span className="h-px w-0 bg-primary group-hover:w-3 transition-all duration-300 shrink-0" />
-
       <span
-        className="truncate flex-1 min-w-0 text-left"
-        title={typeof children === 'string' ? children : undefined}
-      >
-        {children}
-      </span>
+        aria-hidden="true"
+        className="h-px w-0 bg-primary group-hover:w-3 transition-[width] duration-300 shrink-0"
+      />
+
+      <span className="line-clamp-2 flex-1 min-w-0 text-left">{children}</span>
     </Link>
   </li>
 );
@@ -137,7 +135,7 @@ const SocialLink = ({
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/5 bg-white/2 text-muted-foreground hover:scale-110 hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-300"
+    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/5 bg-white/2 text-muted-foreground hover:bg-primary/10 hover:text-primary-text hover:border-primary/20 transition-colors duration-300"
   >
     {icon}
   </a>

@@ -15,26 +15,33 @@ export function HeaderNewsletter() {
   const [isPending, startTransition] = useTransition();
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
+  // Momento em que o formulário apareceu: o servidor descarta envios rápidos demais
+  const [renderedAt] = useState(() => Date.now());
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return;
+
+    const honeypot = new FormData(e.currentTarget).get('company') ?? '';
 
     startTransition(async () => {
       try {
         const formData = new FormData();
         formData.append('email', email);
+        formData.append('company', honeypot);
+        formData.append('rendered_at', String(renderedAt));
         const result = await subscribeToNewsletter(null, formData);
 
-        if (result?.success || result?.message === 'success') {
+        if (result?.success) {
           setStatus('success');
           setStatusMessage(t('messages.success'));
           toast.success(t('messages.success'));
           setEmail('');
         } else {
+          const message = result?.message || t('messages.error');
           setStatus('error');
-          setStatusMessage(t('messages.error'));
-          toast.error(t('messages.error'));
+          setStatusMessage(message);
+          toast.error(message);
         }
       } catch (error) {
         setStatus('error');
@@ -55,13 +62,13 @@ export function HeaderNewsletter() {
         {/* Lado Esquerdo */}
         <div className="flex flex-col gap-2 md:max-w-lg">
           <div className="flex items-center gap-2">
-            <Terminal size={16} className="text-primary" />
+            <Terminal size={16} className="text-primary-text" />
             <h3
               id="newsletter-heading"
               className="text-lg font-bold font-space text-foreground md:text-xl"
             >
               {t('title_prefix')}{' '}
-              <span className="text-primary">{t('title_highlight')}</span>
+              <span className="text-primary-text">{t('title_highlight')}</span>
             </h3>
           </div>
           <p className="text-sm text-muted-foreground/80 leading-relaxed">
@@ -74,9 +81,28 @@ export function HeaderNewsletter() {
           onSubmit={handleSubmit}
           className="flex w-full items-stretch gap-2 md:w-auto md:min-w-[340px]"
         >
+          {/* Campo-isca: invisível para pessoas, preenchido por robôs */}
+          <div
+            aria-hidden="true"
+            className="absolute -left-[9999px] h-px w-px overflow-hidden"
+          >
+            <label>
+              {t('honeypot_label')}
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </label>
+          </div>
+
           <div className="relative flex-1">
             <input
               type="email"
+              name="email"
+              autoComplete="email"
+              spellCheck={false}
               aria-labelledby="newsletter-heading"
               aria-invalid={status === 'error'}
               aria-describedby="newsletter-status"
@@ -84,10 +110,15 @@ export function HeaderNewsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={isPending || status === 'success'}
-              className="h-10 w-full rounded-lg border border-white/10 bg-black/20 px-3 text-sm text-white placeholder:text-muted-foreground/50 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all font-mono"
+              className="h-10 w-full rounded-lg border border-white/10 bg-black/20 px-3 text-sm text-white placeholder:text-muted-foreground/50 outline-none focus-visible:border-primary-text focus-visible:ring-2 focus-visible:ring-primary-text/60 transition-[border-color,box-shadow] font-mono"
               required
             />
-            <span id="newsletter-status" role="status" aria-live="polite" className="sr-only">
+            <span
+              id="newsletter-status"
+              role="status"
+              aria-live="polite"
+              className="sr-only"
+            >
               {statusMessage}
             </span>
           </div>
@@ -99,7 +130,7 @@ export function HeaderNewsletter() {
               'flex h-10 items-center justify-center rounded-lg px-4 text-sm font-bold uppercase tracking-wider transition-all min-w-[100px]',
               status === 'success'
                 ? 'bg-green-500/20 text-green-400 border border-green-500/50'
-                : 'bg-primary text-black hover:bg-primary/90 hover:shadow-[0_0_15px_color-mix(in_oklab,var(--color-primary)_30%,transparent)]'
+                : 'bg-primary text-white hover:bg-primary/90 hover:shadow-[0_0_15px_color-mix(in_oklab,var(--color-primary)_30%,transparent)]'
             )}
           >
             <AnimatePresence mode="wait">

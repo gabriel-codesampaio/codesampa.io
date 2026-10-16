@@ -139,10 +139,11 @@ export const LIST_PROJECTS = [
     color: 'from-red-300 to-rose-600',
     icon: FaEnvelope,
     link: 'https://mycard4you.com',
+    // Produto fora do ar: o card mostra 'Projeto encerrado' em vez do link
+    discontinued: true,
     repo: '#',
     metrics: ['metric_1', 'metric_2', 'metric_3'],
-    image: '/assets/projects/mycard4you-cover.webp',
-    interviewLink: '/blog/case-mycard4you'
+    image: '/assets/projects/mycard4you-cover.webp'
   }
 ];
 
@@ -156,7 +157,7 @@ export const LIST_SECONDARY_PROJECTS = [
       'Prisma',
       'Asaas',
       'OpenAPI',
-      'Cloudeflare',
+      'Cloudflare',
       'Tailwind',
       'RHF',
       'Zod'
@@ -195,9 +196,10 @@ export const LIST_SECONDARY_PROJECTS = [
   }
 ];
 
+// Rótulos traduzidos em Pages.Projects.categories.<id>
 export const CATEGORIES = [
-  { id: 'all', label: 'Todos' },
-  { id: 'mobile', label: 'Mobile App' },
-  { id: 'saas', label: 'SaaS' },
-  { id: 'web', label: 'Web & Brand' }
+  { id: 'all' },
+  { id: 'mobile' },
+  { id: 'saas' },
+  { id: 'web' }
 ];

@@ -15,7 +15,10 @@ export default defineConfig([
     '.next/**',
     'out/**',
     'build/**',
-    'next-env.d.ts'
+    'next-env.d.ts',
+    // Skills do Claude Code / agentes (fora do git)
+    '.claude/**',
+    '.agents/**'
   ]),
 
   {

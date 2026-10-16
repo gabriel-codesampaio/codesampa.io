@@ -10,7 +10,7 @@ export const codeSymbols = [
     top: '20%',
     left: '10%',
     size: 'text-2xl md:text-4xl',
-    color: 'text-primary/30'
+    color: 'text-primary-text/30'
   },
   // 2. Meio Esquerdo Superior (~9h)
   {

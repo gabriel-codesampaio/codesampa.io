@@ -21,7 +21,7 @@ export function BracketSelector({
         className="cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
         aria-label="Previous mode"
       >
-        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary group-hover:-translate-x-2 transition-all duration-300 ease-out block">
+        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary-text group-hover:-translate-x-2 transition-all duration-300 ease-out block">
           &lt;
         </span>
       </button>
@@ -39,7 +39,7 @@ export function BracketSelector({
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
             transition={{ duration: 0.3 }}
-            className="block font-space font-black tracking-tight bg-linear-to-r from-primary via-blue-300 to-violet-600 bg-clip-text text-transparent pb-2 whitespace-nowrap text-5xl md:text-8xl"
+            className="block font-space font-black tracking-tight bg-linear-to-r from-primary-text via-blue-300 to-violet-600 bg-clip-text text-transparent pb-2 whitespace-nowrap text-5xl md:text-8xl"
           >
             {text}
           </motion.span>
@@ -52,7 +52,7 @@ export function BracketSelector({
         className="cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
         aria-label="Next mode"
       >
-        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300 ease-out block">
+        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary-text group-hover:translate-x-2 transition-all duration-300 ease-out block">
           &gt;
         </span>
       </button>

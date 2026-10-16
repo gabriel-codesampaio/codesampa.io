@@ -105,7 +105,7 @@ export function SystemDesktopMock({
 
             <button
               onClick={() => setIsXRay(true)}
-              className="group flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[9px] font-bold text-primary transition-all hover:bg-primary/20 cursor-pointer"
+              className="group flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[9px] font-bold text-primary-text transition-all hover:bg-primary/20 cursor-pointer"
             >
               <Code size={12} />
               <span className="hidden sm:inline">VIEW CODE</span>
@@ -189,8 +189,8 @@ export function SystemDesktopMock({
                   {activeFeature === 'analytics'
                     ? 'revenue-chart.tsx'
                     : activeFeature === 'crm'
-                    ? 'kanban-board.tsx'
-                    : 'chat-client.ts'}
+                      ? 'kanban-board.tsx'
+                      : 'chat-client.ts'}
                 </motion.span>
               </AnimatePresence>
             </div>

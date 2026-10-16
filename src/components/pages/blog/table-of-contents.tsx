@@ -63,7 +63,7 @@ export function TableOfContents() {
   return (
     <nav className="sticky top-32 w-full max-w-[260px] hidden xl:block">
       <div className="mb-4 flex items-center gap-2 text-sm font-bold text-white/80 uppercase tracking-wider">
-        <ListVideo size={16} className="text-primary" />
+        <ListVideo size={16} className="text-primary-text" />
         <span>{t('inThisArticle')}</span>
       </div>
 
@@ -94,7 +94,7 @@ export function TableOfContents() {
                 className={cn(
                   'block text-sm transition-all duration-200 line-clamp-2 hover:text-white',
                   isActive
-                    ? 'text-primary font-medium translate-x-1'
+                    ? 'text-primary-text font-medium translate-x-1'
                     : 'text-muted-foreground'
                 )}
               >

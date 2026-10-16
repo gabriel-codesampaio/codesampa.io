@@ -78,7 +78,7 @@ export function HeroShowcaseSection() {
           <motion.div variants={itemVariants} className="mb-8">
             <AnimatedBadge>
               <div className="flex items-center gap-2">
-                <Terminal size={12} className="text-primary" />
+                <Terminal size={12} className="text-primary-text" />
                 <span>{t('badge')}</span>
               </div>
             </AnimatedBadge>
@@ -95,13 +95,15 @@ export function HeroShowcaseSection() {
             <motion.div variants={itemVariants}>
               {isMobile ? (
                 <span className="block mt-2">
-                  <span className="bg-linear-to-r from-primary via-blue-300 to-violet-600 bg-clip-text text-transparent font-black tracking-tight text-5xl">
+                  <span className="bg-linear-to-r from-primary-text via-blue-300 to-violet-600 bg-clip-text text-transparent font-black tracking-tight text-5xl">
                     {t('mobile_title_suffix')}
                   </span>
                 </span>
               ) : (
                 <BracketSelector
-                  text={mode === 'systems' ? t('title_suffix') : 'Landing Pages'}
+                  text={
+                    mode === 'systems' ? t('title_suffix') : 'Landing Pages'
+                  }
                   onToggle={toggleMode}
                   onScroll={toggleMode}
                 />

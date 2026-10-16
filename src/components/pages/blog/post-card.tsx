@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl';
 
 import { Link } from '@/lib/i18n/navigation';
 import { estimateReadingTime } from '@/utils/functions/estimate-reading-time';
+import { postDate } from '@/utils/functions/post-date';
 
 export function PostCard({
   post,
@@ -40,23 +41,23 @@ export function PostCard({
         {/* Metadados: Data e Tempo */}
         <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground uppercase tracking-wider">
           <div className="flex items-center gap-1.5">
-            <Calendar size={12} className="text-primary" />
+            <Calendar size={12} className="text-primary-text" />
             <time dateTime={post.date}>
-              {format(new Date(post.date), 'dd MMM, yyyy', {
+              {format(postDate(post.date), 'dd MMM, yyyy', {
                 locale: dateLocale
               })}
             </time>
           </div>
           <span className="text-white/10">|</span>
           <div className="flex items-center gap-1.5">
-            <Clock size={12} className="text-primary" />
+            <Clock size={12} className="text-primary-text" />
             <span>{readingTime} min read</span>
           </div>
         </div>
 
         {/* Título e Link */}
         <Link href={`/blog/${post.slugAsParams}`} className="group/link">
-          <h3 className="mb-3 font-space text-2xl font-bold leading-tight text-white transition-colors group-hover/link:text-primary md:text-3xl">
+          <h3 className="mb-3 font-space text-2xl font-bold leading-tight text-white transition-colors group-hover/link:text-primary-text md:text-3xl">
             {post.title}
           </h3>
         </Link>
@@ -71,7 +72,7 @@ export function PostCard({
           {post.tags?.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1 rounded-md border border-white/5 bg-white/5 px-2 py-1 text-[10px] font-medium text-muted-foreground transition-colors hover:border-primary/20 hover:text-primary"
+              className="inline-flex items-center gap-1 rounded-md border border-white/5 bg-white/5 px-2 py-1 text-[10px] font-medium text-muted-foreground transition-colors hover:border-primary/20 hover:text-primary-text"
             >
               <Hash size={10} />
               {tag}
@@ -84,7 +85,7 @@ export function PostCard({
       <div className="relative z-10 mt-8 flex items-center justify-between border-t border-white/5 pt-6">
         <Link
           href={`/blog/${post.slugAsParams}`}
-          className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:text-primary"
+          className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:text-primary-text"
         >
           {t('read_more')}
           <ArrowRight

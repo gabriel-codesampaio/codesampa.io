@@ -11,10 +11,10 @@ import useIsMobile from '@/utils/hooks/use-mobile';
 import { FloatingSymbol } from './components';
 import { HeroActions } from './hero-actions';
 
+// Só coordena a cascata; sem opacity, para não esconder o título no primeiro paint
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.15,
       delayChildren: 0.2
@@ -28,6 +28,19 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
+    transition: {
+      duration: 0.8,
+      ease: [0.21, 0.47, 0.32, 0.98] as const
+    }
+  }
+};
+
+// Título e subtítulo nascem visíveis (só deslizam): com opacity 0 no HTML do
+// servidor, o LCP esperava a hidratação inteira (~8 s em celular com rede lenta).
+const textVariants: Variants = {
+  hidden: { y: 20 },
+  visible: {
+    y: 0,
     transition: {
       duration: 0.8,
       ease: [0.21, 0.47, 0.32, 0.98] as const
@@ -73,7 +86,7 @@ export function HeroSection() {
           <motion.div variants={itemVariants} className="mb-8">
             <AnimatedBadge>
               <div className="flex items-center gap-2">
-                <Terminal size={12} className="text-primary" />
+                <Terminal size={12} className="text-primary-text" />
                 <span>{t('badge')}</span>
               </div>
             </AnimatedBadge>
@@ -82,14 +95,14 @@ export function HeroSection() {
           {/* Título Principal */}
           <h1 className="font-space mb-6 flex flex-col items-center leading-[1.1]">
             <motion.span
-              variants={itemVariants}
+              variants={textVariants}
               className="block mb-2 text-5xl md:text-8xl font-black tracking-tight drop-shadow-2xl"
             >
               {t('title_prefix')}
             </motion.span>
 
-            <motion.span variants={itemVariants} className="block mt-2">
-              <span className="bg-linear-to-r from-primary via-blue-300 to-violet-600 bg-clip-text text-transparent font-black tracking-tight text-5xl md:text-8xl">
+            <motion.span variants={textVariants} className="block mt-2">
+              <span className="text-primary-text font-black tracking-tight text-5xl md:text-8xl">
                 {t('mobile_title_suffix')}
               </span>
             </motion.span>
@@ -97,7 +110,7 @@ export function HeroSection() {
 
           {/* Subtítulo */}
           <motion.p
-            variants={itemVariants}
+            variants={textVariants}
             className="max-w-xl text-lg text-muted-foreground mb-4 md:mb-8"
           >
             {t('subtitle')}

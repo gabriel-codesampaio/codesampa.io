@@ -12,7 +12,9 @@ import { ShareButton } from '@/components/pages/blog/share-button';
 import { TableOfContents } from '@/components/pages/blog/table-of-contents';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/i18n/navigation';
+import { buildAlternates } from '@/utils/functions/alternates';
 import { cn } from '@/utils/functions/tw-merge';
+import { postDate } from '@/utils/functions/post-date';
 import { estimateReadingTime } from '@/utils/functions/estimate-reading-time';
 import { ReadMore } from '@/components/pages/blog/read-more';
 import { ScrollProgress } from '@/components/pages/blog/scroll-progress';
@@ -45,10 +47,16 @@ export async function generateMetadata({
 
   if (!post) return {};
 
+  // hreflang só para os idiomas em que o post existe
+  const translatedLocales = posts
+    .filter((p) => p.slugAsParams === slug)
+    .map((p) => p.locale);
+
   return {
     title: `${post.title} | codesampa.io`,
     description: post.description,
     keywords: post.tags,
+    alternates: buildAlternates(locale, `/blog/${slug}`, translatedLocales),
     openGraph: {
       title: post.title,
       description: post.description,
@@ -105,7 +113,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="text-muted-foreground hover:text-primary -ml-4 gap-2 font-mono group transition-colors"
+            className="text-muted-foreground hover:text-primary-text -ml-4 gap-2 font-mono group transition-colors"
             asChild
           >
             <Link href="/blog">
@@ -120,16 +128,16 @@ export default async function PostPage({ params }: PostPageProps) {
 
         <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-muted-foreground mb-6 uppercase tracking-wider">
           <div className="flex items-center gap-2">
-            <Calendar size={14} className="text-primary/70" />
+            <Calendar size={14} className="text-primary-text/70" />
             <time dateTime={post.date} className="text-foreground/80">
-              {format(new Date(post.date), "dd 'de' MMMM, yyyy", {
+              {format(postDate(post.date), "dd 'de' MMMM, yyyy", {
                 locale: dateLocale
               })}
             </time>
           </div>
           <span className="text-white/10">|</span>
           <div className="flex items-center gap-2">
-            <Clock size={14} className="text-primary/70" />
+            <Clock size={14} className="text-primary-text/70" />
             <span className="text-foreground/80">
               {t('reading_time', { minutes: readingTime })}
             </span>
@@ -138,16 +146,14 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
 
         <h1 className="font-space text-4xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight mb-8 leading-[1.1] max-w-4xl">
-          <span className="bg-linear-to-b from-white via-white to-white/70 bg-clip-text text-transparent">
-            {post.title}
-          </span>
+          {post.title}
         </h1>
 
         <div className="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
             <div
               key={tag}
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors cursor-default"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-muted-foreground hover:text-primary-text hover:border-primary/30 transition-colors cursor-default"
             >
               <Hash size={10} className="opacity-50" />
               {tag}
@@ -172,15 +178,17 @@ export default async function PostPage({ params }: PostPageProps) {
             // Text
             '[&_p]:text-muted-foreground [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-lg',
             '[&_strong]:text-foreground [&_strong]:font-semibold',
-            '[&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-primary/30 [&_a]:transition-colors hover:[&_a]:decoration-primary',
+            '[&_a]:text-primary-text [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-primary-text/30 [&_a]:transition-colors hover:[&_a]:decoration-primary-text',
+            // Âncoras dos títulos (rehype-autolink-headings) herdam a cor do título
+            '[&_:is(h1,h2,h3,h4)_a]:text-inherit [&_:is(h1,h2,h3,h4)_a]:no-underline',
             // Lists
             '[&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-6 [&_ul]:text-muted-foreground',
             '[&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-6 [&_ol]:text-muted-foreground',
-            '[&_li]:mb-2 [&_li::marker]:text-primary/50',
+            '[&_li]:mb-2 [&_li::marker]:text-primary-text/50',
             // Blockquotes
             '[&_blockquote]:border-l-4 [&_blockquote]:border-primary/50 [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-foreground/80 [&_blockquote]:bg-white/5 [&_blockquote]:py-4 [&_blockquote]:pr-4 [&_blockquote]:rounded-r-lg [&_blockquote]:my-8',
             // Inline Code
-            '[&_code]:bg-white/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono [&_code]:text-primary/90 [&_code]:border [&_code]:border-white/5'
+            '[&_code]:bg-white/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono [&_code]:text-primary-text/90 [&_code]:border [&_code]:border-white/5'
             // Code Blocks (Rehype Pretty Code)
             // '[&_pre]:bg-[#0d1117] [&_pre]:border [&_pre]:border-white/10 [&_pre]:rounded-xl [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:mb-8 [&_pre]:shadow-2xl',
             // '[&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-sm [&_pre_code]:text-inherit [&_pre_code]:border-none'

@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { ContactHub } from '@/components/pages/contact/contact-hub';
 import { PageTitle } from '@/components/ui/page-title';
+import { buildAlternates } from '@/utils/functions/alternates';
 
 type Params = Promise<{ locale: string }>;
 
@@ -11,7 +12,8 @@ export async function generateMetadata({ params }: { params: Params }) {
 
   return {
     title: t('title'),
-    description: t('description')
+    description: t('description'),
+    alternates: buildAlternates(locale, '/contact')
   };
 }
 
@@ -30,9 +32,7 @@ export default async function ContactPage() {
           title={
             <>
               {t('title_prefix')} <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-emerald-400 to-green-400 animate-gradient-x">
-                {t('title_highlight')}
-              </span>
+              <span className="text-primary-text">{t('title_highlight')}</span>
             </>
           }
           subtitle={t('subtitle')}

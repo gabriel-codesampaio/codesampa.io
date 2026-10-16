@@ -32,7 +32,10 @@
         },
         "language_selector": "Change language",
         "open_menu": "Open menu",
-        "skip_to_content": "Skip to main content"
+        "skip_to_content": "Skip to main content",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "social": "Social & Code"
       },
       "Footer": {
         "rights": "All rights reserved."
@@ -42,24 +45,36 @@
       "Home": {
         "ShapeShifter": {
           "Notification": {
-            "time": "1 min ago",
-            "priority": "High Priority",
+            "label": "Booking open",
             "systems": {
-              "title": "Complex System Project?",
-              "message": "We opened a slot for Q1. If you're looking for scalability, let's talk."
+              "title": "Have a system in mind?",
+              "message": "We are taking on new projects. In a 30-minute call we understand the idea and send you a proposal within 3 business days."
             },
             "landing": {
-              "title": "High-Ticket Landing Page?",
-              "message": "We opened a slot for Q1. If you're looking for high conversion, let's talk."
+              "title": "Need a landing page that sells?",
+              "message": "We are taking on new projects. In a 30-minute call we understand your business and send you a proposal within 3 business days."
             },
             "actions": {
-              "dismiss": "Not now",
-              "cta": "View Calendar"
+              "dismiss": "Close notice",
+              "cta": "Book a call"
             }
+          },
+          "Mock": {
+            "domain": "yourcompany.com",
+            "badge": "New",
+            "cta_primary": "Contact us",
+            "cta_secondary": "Learn more"
+          },
+          "Controls": {
+            "desktop": "Show desktop version",
+            "mobile": "Show mobile version",
+            "replay": "Replay animation",
+            "see_also": "See also:",
+            "suggest_landing": "Landing page",
+            "suggest_systems": "Web system"
           }
         },
         "Manifesto": {
-          "badge": "The Vision",
           "text": "Software is not just code. It is about *solving* real problems. We build resilient *systems* and interfaces that *inspire*, bridging precision engineering with *strategic* design to scale your business."
         }
       },
@@ -88,16 +103,17 @@
           "inThisArticle": "In This Article"
         },
         "Newsletter": {
-          "title_prefix": "Receive",
-          "title_highlight": "Weekly Logs",
-          "description": "Subscribe to get the latest updates on architecture, frontend, and technology directly to your inbox.",
+          "title_prefix": "Get",
+          "title_highlight": "Weekly Updates",
+          "description": "Articles on architecture, frontend and technology, straight to your inbox.",
           "placeholder": "your@email.com",
           "button_label": "Subscribe",
           "messages": {
             "success": "Subscription successful.",
-            "error": "Connection error.",
-            "critical_error": "System failure."
-          }
+            "error": "We couldn't save your email. Try again in a few minutes.",
+            "critical_error": "Can't reach the server. Check your connection and try again."
+          },
+          "honeypot_label": "Leave this field empty"
         },
         "List": {
           "categories": {
@@ -106,15 +122,30 @@
             "design": "Design",
             "career": "Career"
           },
-          "search_placeholder": "Search articles...",
+          "search_placeholder": "Search articles…",
           "empty_state": "No articles found matching your criteria.",
           "clear_filters": "Clear filters",
-          "read_article": "Read Article"
+          "read_article": "Read Article",
+          "search_label": "Search articles"
         },
         "AuthorProfile": {
           "role": "Author",
           "bio": "Software Engineer focused on scalable systems and high-performance interfaces."
         }
+      }
+    },
+    "UI": {
+      "FilterBar": {
+        "open_search": "Open search",
+        "clear_search": "Clear search",
+        "search_label": "Search"
+      },
+      "CodeBlock": {
+        "copy": "Copy",
+        "copied": "Copied",
+        "copy_label": "Copy code",
+        "copied_toast": "Code copied.",
+        "copy_error": "Couldn't copy the code."
       }
     }
   },
@@ -123,12 +154,12 @@
       "Hero": {
         "badge": "Available for new projects",
         "title_prefix": "Building",
-        "title_suffix": "Complex Systems",
         "mobile_title_suffix": "Software That Scales With Your Business",
         "subtitle": "Systems, high-converting landing pages, and AI automations built by someone who understands both code and results.",
         "cta_primary": "Let's Talk About Your Project",
         "cta_secondary": "View Projects",
-        "scroll_indicator": "Scroll to compile"
+        "scroll_indicator": "Scroll to compile",
+        "title_suffix": "Complex Systems"
       },
       "Stats": {
         "revenue": "Revenue",
@@ -136,7 +167,6 @@
         "churn": "Churn"
       },
       "Services": {
-        "badge": "What We Deliver",
         "title": "Complete Digital Solutions.",
         "subtitle": "From the first line of code to the first paying customer, we cover the whole journey.",
         "cards": {
@@ -145,20 +175,18 @@
             "description": "Development of complex applications, dashboards, and SaaS platforms. Focus on scalable architecture and fluid user experience.",
             "feature1": "React, Next.js, React Native (Web/App)",
             "feature2": "Admin Panels & Dashboards",
-            "feature3": "Multi-tenant SaaS Platforms",
+            "feature3": "SaaS platforms with subscriptions",
             "feature4": "API & Payment Integration",
-            "feature5": "Micro-frontend Architecture",
-            "cta": "View Systems"
+            "cta": "See system projects"
           },
           "landing": {
             "title": "High-Converting Pages",
             "description": "Pages designed to sell. Extreme SEO optimization, instant loading, and design focused on converting visitors into customers.",
-            "feature1": "Max Performance (100 Lighthouse)",
+            "feature1": "Fast Loading on Mobile",
             "feature2": "Technical & Semantic SEO",
             "feature3": "Conversion Focused Design (CRO)",
             "feature4": "Animations & Motion Design",
-            "feature5": "A/B Testing & CRM Integration",
-            "cta": "View Landing Pages"
+            "cta": "See landing pages"
           },
           "ai": {
             "title": "AI Integration",
@@ -167,57 +195,18 @@
             "feature2": "OpenAI / LLMs Integration",
             "feature3": "Customer Service Automation",
             "feature4": "AI Data Analysis",
-            "feature5": "RAG & Model Fine-tuning",
-            "cta": "View Automations",
+            "cta": "Read about AI automation",
             "visual": {
               "user_query": "How to increase sales?",
-              "bot_processing": "Analyzing data..."
+              "bot_processing": "Analyzing data…"
             }
           }
         }
       },
-      "Pipeline": {
-        "badge": "The Process",
-        "title": "Full-Cycle Engineering Flow.",
-        "scroll_hint": "Scroll to explore the pipeline",
-        "steps": {
-          "01": {
-            "title": "UI/UX Design",
-            "subtitle": "Prototyping & Design System",
-            "description": "Creating intuitive interfaces and scalable Design Systems in Figma before writing a single line of code."
-          },
-          "02": {
-            "title": "Frontend",
-            "subtitle": "React & Next.js Ecosystem",
-            "description": "Developing high-performance reactive interfaces, focused on SEO and fluid interactivity."
-          },
-          "03": {
-            "title": "Backend",
-            "subtitle": "Node.js & Clean Architecture",
-            "description": "Robust RESTful and GraphQL APIs, built for scale, security, and efficient data handling."
-          },
-          "04": {
-            "title": "AI & Automation",
-            "subtitle": "LLM Integration",
-            "description": "Implementing generative artificial intelligence to create predictive features and automate processes."
-          },
-          "05": {
-            "title": "Quality Assurance",
-            "subtitle": "Automated Testing",
-            "description": "Ensuring stability with E2E (Cypress) and unit tests, guaranteeing zero regression in production."
-          },
-          "06": {
-            "title": "DevOps",
-            "subtitle": "Infrastructure & CI/CD",
-            "description": "Automated deployment pipeline and scalable cloud infrastructure orchestration (AWS)."
-          }
-        }
-      },
       "ReadyToBuild": {
-        "badge": "Ready to Start?",
-        "title": "Take your idea off paper. <highlight>Build the future.</highlight>",
-        "subtitle": "Don't wait for the perfect moment. Technology moves fast, and your project should too.",
-        "cta": "Start Project",
+        "title": "Let's take your project <highlight>off the ground.</highlight>",
+        "subtitle": "Tell us what you need. The first conversation and the proposal are free, with no commitment.",
+        "cta": "Let's Talk About Your Project",
         "note": "Or send a direct email to"
       },
       "Links": {
@@ -242,11 +231,89 @@
         "newsletter": {
           "title": "Stay Updated",
           "placeholder": "Enter your email"
+        },
+        "social": {
+          "github": "GitHub (opens in a new tab)",
+          "linkedin": "LinkedIn (opens in a new tab)"
+        }
+      },
+      "Process": {
+        "title": "How we work",
+        "subtitle": "From the first contact to a live product, you know what happens at each stage and what you get at the end of it.",
+        "deliverable_label": "You get:",
+        "steps": [
+          {
+            "title": "Discovery",
+            "duration": "30-minute call",
+            "description": "We learn about your business, the goal of the project and your time and budget constraints.",
+            "deliverable": "clarity on the problem and the next steps."
+          },
+          {
+            "title": "Proposal & scope",
+            "duration": "Within 3 business days",
+            "description": "We turn the conversation into a detailed scope: what is in, what is out, and the timeline.",
+            "deliverable": "a proposal with scope, timeline and investment."
+          },
+          {
+            "title": "Development",
+            "duration": "Sprints with a weekly demo",
+            "description": "Every week you see the product working and can change course before it turns into rework.",
+            "deliverable": "a testable version every week."
+          },
+          {
+            "title": "Launch & support",
+            "duration": "30 days of support",
+            "description": "We go live, follow the first days of real use and fix whatever comes up.",
+            "deliverable": "a live product and 30 days of support included."
+          }
+        ],
+        "faq_title": "Frequently asked questions",
+        "faq": [
+          {
+            "question": "How much does a project cost?",
+            "answer": "It depends on the scope. After the discovery call, we send a proposal with defined scope, timeline and investment within 3 business days. The call and the proposal are free and with no commitment."
+          },
+          {
+            "question": "What happens after I get in touch?",
+            "answer": "We book a 30-minute call to understand the project. If it makes sense for both sides, you get the proposal and, once it is approved, we start with weekly demos."
+          },
+          {
+            "question": "Do you work with companies outside Brazil?",
+            "answer": "Yes. KingFix, for example, is an on-demand car repair platform in Toronto, Canada. Our site and our communication work in both Portuguese and English."
+          },
+          {
+            "question": "What happens after delivery?",
+            "answer": "The first 30 days of support are included. After that, we can agree on ongoing maintenance and product evolution."
+          }
+        ]
+      },
+      "Cases": {
+        "title": "Live projects",
+        "subtitle": "Some of the products we have built for our clients.",
+        "all_projects": "See all projects",
+        "items": {
+          "psialexia": {
+            "client": "Psi Aléxia Marques · Landing page",
+            "result": "Two weeks after launch, patient demand let the psychologist quit her day job and work full time at her practice.",
+            "cta": "Read the story",
+            "image_alt": "Home page of psychologist Aléxia Marques's website"
+          },
+          "kingfix": {
+            "client": "KingFix · Platform, Canada",
+            "result": "On-demand car repair in Toronto, with booking, travel-distance pricing and online payment in production.",
+            "cta": "See the live product",
+            "image_alt": "KingFix home page, on-demand mechanic in Toronto"
+          },
+          "mycard4you": {
+            "client": "MyCard4You · Web platform",
+            "result": "Personalized virtual cards with photos, music and scheduled delivery, with integrated checkout.",
+            "cta": "See in projects",
+            "image_alt": "MyCard4You home page showing the virtual card templates"
+          }
         }
       }
     },
     "Projects": {
-      "badge": "Portfolio",
       "title": "Featured <highlight>Projects.</highlight>",
       "subtitle": "A selection of projects demonstrating technical capability, scalable design systems, and complex problem-solving.",
       "cta_case_study": "View Details",
@@ -255,14 +322,13 @@
       "cta_read_interview": "Read the story",
       "cta_coming_soon": "Coming soon",
       "cta_repo": "Private Repository",
-      "cta_want_similar": "I want this",
-      "empty": "No projects found, try a different filter.",
-      "placeholder": "Search project",
+      "cta_want_similar": "I want one like this",
+      "empty": "No projects match this filter.",
+      "placeholder": "Search projects…",
       "cta_footer": {
-        "badge": "Next Step",
         "title": "Your project could be the next <highlight>Highlight.</highlight>",
-        "subtitle": "Didn't find exactly what you're looking for? Custom engineering is our specialty. Let's turn your most complex challenge into high-end software.",
-        "button": "Start Project Now"
+        "subtitle": "Didn't find something like what you need? Custom projects are what we do. Tell us the challenge and we'll send a proposal.",
+        "button": "Let's Talk About Your Project"
       },
       "more_projects": "Other Projects",
       "projects": {
@@ -271,9 +337,9 @@
           "category": "Mobile Mechanic Platform",
           "description": "More than a system: a sales engine. Intelligent scheduling with automatic distance calculation (Google Maps API) and location-based pricing. The customer chooses, the system handles logistics. Integrated checkout (Stripe), complete financial and administrative management. The definitive Mobile-First solution to scale mobile mechanic services.",
           "metrics_data": [
-            { "value": "Intelligent", "label": "Logistics" },
-            { "value": "Real-Time", "label": "Scheduling" },
-            { "value": "Production", "label": "Status" }
+            { "value": "Toronto", "label": "Live in Canada" },
+            { "value": "Stripe", "label": "Online payment" },
+            { "value": "Maps", "label": "Travel-distance pricing" }
           ]
         },
         "devrex": {
@@ -298,12 +364,12 @@
         },
         "codesampa": {
           "title": "codesampa.io",
-          "category": "High-Performance Portfolio",
-          "description": "Engineering at the bleeding edge. Built on the Next.js 16 and React 19 (RC) ecosystem. Features native internationalization, file-based CMS (Velite), and an atomic Design System. Flawless performance (100/100) and fluid 60fps animations.",
+          "category": "Company website",
+          "description": "The site you are looking at. Built with Next.js 16 and React 19, in two languages, with an MDX blog (Velite) and its own design system.",
           "metrics_data": [
-            { "value": "100", "label": "Lighthouse" },
-            { "value": "v16", "label": "Next.js" },
-            { "value": "Global", "label": "i18n Ready" }
+            { "value": "Next.js 16", "label": "React 19" },
+            { "value": "PT · EN", "label": "Two languages" },
+            { "value": "MDX", "label": "Blog with Velite" }
           ]
         },
         "psialexia": {
@@ -328,38 +394,77 @@
           "title": "LoneWolf",
           "description": "Responsive Landing Page developed as a Front-end study. Absolute focus on modern design, SEO best practices, and visual refinement (Pixel Perfect)."
         }
-      }
+      },
+      "categories": {
+        "all": "All",
+        "mobile": "Mobile app",
+        "saas": "SaaS",
+        "web": "Web & brand"
+      },
+      "clear_filters": "See all projects",
+      "tech_stack_label": "Technologies used",
+      "status_discontinued": "Project discontinued"
     },
     "Contact": {
       "Hub": {
-        "badge": "Open for Opportunities",
-        "title_prefix": "Let's build the",
-        "title_highlight": "Impossible.",
-        "subtitle": "Have a project in mind or just want to chat about tech? Our channel is open.",
+        "badge": "Booking new projects",
+        "title_prefix": "Let's talk about",
+        "title_highlight": "your project.",
+        "subtitle": "Tell us what you need. After a 30-minute call, you get a proposal with scope, timeline and investment within 3 business days.",
         "email": {
           "label": "Email",
-          "action": "Copy Address",
-          "toast_success": "Email copied to clipboard!"
-        },
-        "whatsapp": {
-          "label": "WhatsApp",
-          "sub": "Fast response"
+          "action": "Copy email address",
+          "toast_success": "Email copied.",
+          "toast_error": "Couldn't copy. Select the address and copy it manually.",
+          "response_time": "Prefer writing? Tell us as much as you can about the project."
         },
         "schedule": {
-          "badge": "Schedule",
-          "title": "Book a Call",
-          "desc": "Let's talk about your project in a 30 min meeting."
+          "title": "Book a call",
+          "desc": "Pick a time for a 30-minute conversation about the project."
+        }
+      },
+      "Form": {
+        "title": "Send a message",
+        "subtitle": "We reply to the email address you provide.",
+        "name": "Name",
+        "name_placeholder": "Your name",
+        "email": "Email",
+        "email_placeholder": "you@company.com",
+        "company": "Company",
+        "company_placeholder": "Company name",
+        "optional": "optional",
+        "project_type": "Project type",
+        "project_types": {
+          "system": "System or SaaS",
+          "landing": "Landing page",
+          "ai": "AI automation",
+          "other": "Other"
+        },
+        "message": "About the project",
+        "message_placeholder": "What you want to build, for whom, and whether something exists today…",
+        "submit": "Send message",
+        "sending": "Sending…",
+        "success_title": "Message sent",
+        "success": "We got your message and will reply to the email you provided.",
+        "honeypot_label": "Leave this field empty",
+        "errors": {
+          "invalid": "Please check the highlighted fields.",
+          "name": "Enter your name.",
+          "email": "Enter a valid email, like you@company.com.",
+          "project_type": "Choose a project type.",
+          "message": "Tell us a bit more about the project (at least 10 characters).",
+          "rate_limited": "Too many messages in a row. Wait a bit or write to gabriel@codesampa.io.",
+          "send": "We couldn't send it right now. Try again in a few minutes or write to gabriel@codesampa.io."
         }
       }
     },
     "Blog": {
-      "badge": "Engineering Log",
       "title_prefix": "Technical",
       "title_highlight": "Insights.",
       "subtitle": "Deep dives into software architecture, design systems, and the bleeding edge of web development.",
       "read_more": "Read Article",
       "no_posts": "No signals found.",
-      "no_posts_sub": "Initializing knowledge base for this sector...",
+      "no_posts_sub": "Initializing knowledge base for this sector…",
       "Post": {
         "back": "Back",
         "reading_time": "{minutes} min read",
@@ -370,10 +475,17 @@
     "Booking": {
       "Success": {
         "title": "Booking Confirmed!",
-        "subtitle": "Connection established. Mission details have been sent to your email. We will speak soon.",
+        "subtitle": "You'll get the invite with the call link in your email. On the call, we'll understand the project and agree on the next steps.",
         "button_blog": "Read the Blog",
         "button_portfolio": "Explore Projects"
       }
+    },
+    "NotFound": {
+      "title_label": "Page not found",
+      "title": "Page not found",
+      "description": "The address may have changed or no longer exists.",
+      "cta": "Back to Home",
+      "cta_projects": "See Projects"
     }
   },
   "Newsletter": {
@@ -382,9 +494,9 @@
     },
     "actions": {
       "success": "Subscription successful! 🚀 Check your email.",
-      "error_exists": "This email is already subscribed!",
-      "error_generic": "Failed to subscribe. Please try again later.",
-      "error_server": "Internal server error."
+      "error_generic": "We couldn't save your email right now. Try again in a few minutes or write to gabriel@codesampa.io.",
+      "error_server": "Something went wrong on our side. Try again in a few minutes or write to gabriel@codesampa.io.",
+      "error_rate_limited": "Too many attempts in a row. Wait a few minutes and try again."
     },
     "email": {
       "subject": "Welcome to CodeSampa! 🚀",

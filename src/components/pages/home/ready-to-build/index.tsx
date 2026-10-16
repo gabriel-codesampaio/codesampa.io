@@ -3,10 +3,9 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Terminal } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-import { StatusDot } from '@/components/ui/status-dot';
+import { Link } from '@/lib/i18n/navigation';
 import { CONTACT_EMAIL } from '@/utils/constants/contact';
 
 export function ReadyToBuildSection() {
@@ -57,32 +56,17 @@ export function ReadyToBuildSection() {
       </div>
 
       <div className="container relative z-10 px-6 text-center">
-        {/* Badge "Status" */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto mb-4 flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1"
-        >
-          <StatusDot dotClassName="bg-success" />
-          <span className="text-xs font-bold uppercase tracking-widest text-primary">
-            {t('badge')}
-          </span>
-        </motion.div>
-
         {/* Título Principal */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="mx-auto mb-6 max-w-3xl font-space text-4xl font-black leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl"
+          className="mx-auto mb-6 max-w-3xl font-space text-4xl font-black leading-tight tracking-tight text-foreground md:text-6xl"
         >
           {t.rich('title', {
             highlight: (chunks) => (
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-400 to-primary animate-gradient-x">
-                {chunks}
-              </span>
+              <span className="text-primary-text">{chunks}</span>
             ),
             br: () => <br />
           })}

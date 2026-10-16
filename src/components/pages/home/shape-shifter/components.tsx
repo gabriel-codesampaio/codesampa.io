@@ -62,7 +62,7 @@ export const DesktopSidebar = ({
             className={cn(
               'flex w-full cursor-pointer items-center gap-3 rounded-md border border-transparent px-3 py-2 transition-all',
               activeTab === item.id
-                ? 'bg-white/5 text-primary border-white/5 shadow-inner'
+                ? 'bg-white/5 text-primary-text border-white/5 shadow-inner'
                 : 'hover:bg-white/5 hover:text-slate-200'
             )}
           >
@@ -74,7 +74,7 @@ export const DesktopSidebar = ({
     </div>
     <div className="relative z-10 rounded-xl border border-white/10 bg-linear-to-br from-violet-900/50 to-blue-900/50 p-4">
       <Zap size={16} className="mb-2 text-blue-400" />
-      <h4 className="mb-1 text-xs font-bold text-white">Pro Plan</h4>
+      <p className="mb-1 text-xs font-bold text-white">Pro Plan</p>
       <button className="mt-2 w-full rounded border border-white/5 bg-white/10 py-1.5 text-[10px] font-bold text-white transition-colors hover:bg-white/20">
         Upgrade
       </button>
@@ -95,7 +95,9 @@ export const MobileBottomNav = ({
       onClick={() => onTabChange('analytics')}
       className={cn(
         'rounded-full p-3 transition-colors',
-        activeTab === 'analytics' ? 'text-primary bg-white/5' : 'text-slate-500'
+        activeTab === 'analytics'
+          ? 'text-primary-text bg-white/5'
+          : 'text-slate-500'
       )}
     >
       <LayoutGrid size={20} />
@@ -150,12 +152,12 @@ export const ResponsiveHeader = ({
           <div className="mb-0.5 flex items-center gap-2 text-[10px] font-medium uppercase tracking-wide text-slate-500">
             <span>App</span>
             <span className="text-slate-700">/</span>
-            <span className="text-primary">{activeTab}</span>
+            <span className="text-primary-text">{activeTab}</span>
           </div>
         )}
-        <h2 className="text-lg font-bold leading-tight text-white">
+        <p className="text-lg font-bold leading-tight text-white">
           {titles[activeTab]}
-        </h2>
+        </p>
       </div>
       <div className="flex items-center gap-4">
         {!isMobile && (
@@ -179,7 +181,7 @@ export const DarkChart = () => (
     <div className="absolute inset-0 bg-linear-to-t from-primary/5 to-transparent opacity-50 pointer-events-none" />
 
     <div className="z-10 mb-4 flex items-center justify-between">
-      <h3 className="text-sm font-bold text-white">Revenue Trend</h3>
+      <p className="text-sm font-bold text-white">Revenue Trend</p>
       <div className="flex gap-1">
         <div className="h-1.5 w-1.5 rounded-full bg-slate-700" />
         <div className="h-1.5 w-1.5 rounded-full bg-slate-700" />
@@ -233,16 +235,16 @@ export const AnalyticsView = ({ isMobile }: { isMobile: boolean }) => (
             <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
               Revenue
             </p>
-            <h3
+            <p
               className={cn(
                 'mt-1 font-bold text-white',
                 isMobile ? 'text-lg' : 'text-2xl'
               )}
             >
               $42K
-            </h3>
+            </p>
           </div>
-          <Activity size={16} className="text-primary" />
+          <Activity size={16} className="text-primary-text" />
         </div>
         <div className="mt-2 text-[10px] text-emerald-400 flex items-center gap-1">
           <ArrowUpRight size={10} /> +12%
@@ -259,14 +261,14 @@ export const AnalyticsView = ({ isMobile }: { isMobile: boolean }) => (
             <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
               Users
             </p>
-            <h3
+            <p
               className={cn(
                 'mt-1 font-bold text-white',
                 isMobile ? 'text-lg' : 'text-2xl'
               )}
             >
               8.5K
-            </h3>
+            </p>
           </div>
           <Users size={16} className="text-violet-400" />
         </div>
@@ -281,7 +283,7 @@ export const AnalyticsView = ({ isMobile }: { isMobile: boolean }) => (
               <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                 Churn
               </p>
-              <h3 className="mt-1 font-bold text-white text-2xl">0.8%</h3>
+              <p className="mt-1 font-bold text-white text-2xl">0.8%</p>
             </div>
             <Activity size={16} className="text-fuchsia-400" />
           </div>

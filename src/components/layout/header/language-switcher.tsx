@@ -25,7 +25,7 @@ export function LanguageSwitcher() {
           size="icon"
           disabled={isPending}
           aria-label={t('language_selector')}
-          className="text-muted-foreground hover:text-foreground"
+          className="h-11 w-11 text-muted-foreground hover:text-foreground"
         >
           <Globe className="h-[1.2rem] w-[1.2rem]" />
         </Button>

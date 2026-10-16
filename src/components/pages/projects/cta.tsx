@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
@@ -23,22 +23,13 @@ export const Cta = () => {
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-64 w-64 rounded-full bg-blue-600/10 blur-[80px] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-          <Sparkles size={12} />
-          <span className="uppercase tracking-wider">
-            {t('cta_footer.badge')}
-          </span>
-        </div>
-
-        <h3 className="mb-6 font-space text-3xl font-black text-white md:text-5xl max-w-3xl leading-tight">
+        <h2 className="mb-6 font-space text-3xl font-black text-white md:text-5xl max-w-3xl leading-tight">
           {t.rich('cta_footer.title', {
             highlight: (chunks) => (
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-blue-400">
-                {chunks}
-              </span>
+              <span className="text-primary-text">{chunks}</span>
             )
           })}
-        </h3>
+        </h2>
 
         <p className="mb-10 max-w-xl text-muted-foreground text-lg leading-relaxed">
           {t('cta_footer.subtitle')}

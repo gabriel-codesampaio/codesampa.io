@@ -49,14 +49,14 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="text-muted-foreground hover:text-foreground hidden sm:flex h-9 w-9"
+            className="text-muted-foreground hover:text-foreground hidden sm:flex h-11 w-11"
             asChild
           >
             <a
               href="https://github.com/gabriel-codesampaio"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub Profile"
+              aria-label={t('github')}
             >
               <Github className="h-4 w-4" />
             </a>
@@ -72,7 +72,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="-mr-2 text-foreground hover:bg-primary/10 h-9 w-9"
+                  className="-mr-2 text-foreground hover:bg-primary/10 h-11 w-11"
                   aria-label={t('open_menu')}
                 >
                   <Menu className="h-5 w-5" />
@@ -111,8 +111,8 @@ export function Header() {
                 {/* Rodapé do Menu */}
                 <div className="p-6 border-t border-white/5 bg-white/2">
                   <div className="flex flex-col gap-4">
-                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1">
-                      Social & Code
+                    <p className="text-sm font-medium text-muted-foreground mb-1">
+                      {t('social')}
                     </p>
 
                     {/* Botão GitHub */}
@@ -127,8 +127,8 @@ export function Header() {
                         rel="noopener noreferrer"
                       >
                         <div className="flex items-center gap-3">
-                          <Github className="h-5 w-5" />
-                          <span className="font-semibold">GitHub Profile</span>
+                          <Github className="h-5 w-5" aria-hidden="true" />
+                          <span className="font-semibold">{t('github')}</span>
                         </div>
                         <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                       </a>
@@ -146,17 +146,15 @@ export function Header() {
                         rel="noopener noreferrer"
                       >
                         <div className="flex items-center gap-3">
-                          <Linkedin className="h-5 w-5" />
-                          <span className="font-semibold">
-                            LinkedIn Profile
-                          </span>
+                          <Linkedin className="h-5 w-5" aria-hidden="true" />
+                          <span className="font-semibold">{t('linkedin')}</span>
                         </div>
                         <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                       </a>
                     </Button>
                   </div>
 
-                  <div className="mt-8 flex justify-between items-center text-[10px] text-muted-foreground/50 font-mono">
+                  <div className="mt-8 flex justify-between items-center text-xs text-muted-foreground font-mono">
                     <span>v1.0.0</span>
                     <span>© {new Date().getFullYear()} codesampa.io</span>
                   </div>

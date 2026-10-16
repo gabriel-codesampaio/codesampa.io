@@ -1,6 +1,7 @@
 'use client';
 
 import { Check, Copy, Terminal } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import React, { useRef, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -17,6 +18,7 @@ export function CodeBlock({
   'data-language': language = 'text',
   ...props
 }: CodeBlockProps) {
+  const t = useTranslations('Components.UI.CodeBlock');
   const [isCopied, setIsCopied] = useState(false);
   const preRef = useRef<HTMLPreElement>(null);
 
@@ -28,13 +30,13 @@ export function CodeBlock({
     try {
       await navigator.clipboard.writeText(code);
       setIsCopied(true);
-      toast.success('Código copiado para a área de transferência!');
+      toast.success(t('copied_toast'));
 
       setTimeout(() => {
         setIsCopied(false);
       }, 2000);
     } catch {
-      toast.error('Erro ao copiar código.');
+      toast.error(t('copy_error'));
     }
   };
 
@@ -58,18 +60,20 @@ export function CodeBlock({
         {/* Copy Button */}
         <button
           onClick={copyToClipboard}
-          className="flex items-center gap-1.5 rounded-md p-1 md:p-1.5 text-[10px] md:text-xs font-medium text-muted-foreground transition-colors hover:bg-white/10 hover:text-white"
-          aria-label="Copy code"
+          className="flex items-center gap-1.5 rounded-md p-1 md:p-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-white/10 hover:text-white"
+          aria-label={t('copy_label')}
         >
           {isCopied ? (
             <>
               <Check size={12} className="md:w-3.5 md:h-3.5 text-emerald-400" />
-              <span className="hidden sm:inline text-emerald-400">Copied</span>
+              <span className="hidden sm:inline text-emerald-400">
+                {t('copied')}
+              </span>
             </>
           ) : (
             <>
               <Copy size={12} className="md:w-3.5 md:h-3.5" />
-              <span className="hidden sm:inline">Copy</span>
+              <span className="hidden sm:inline">{t('copy')}</span>
             </>
           )}
         </button>

@@ -10,10 +10,17 @@ import {
   Check,
   ArrowRight
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function LandingPageDesktopMock() {
+  const t = useTranslations('Components.Pages.Home.ShapeShifter.Mock');
+
+  // Wireframe decorativo do 'site da sua empresa': oculto do leitor de tela
   return (
-    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-xl bg-[#09090b] ring-1 ring-white/10 shadow-2xl font-sans select-none">
+    <div
+      aria-hidden="true"
+      className="relative flex h-full w-full flex-col overflow-hidden rounded-xl bg-[#09090b] ring-1 ring-white/10 shadow-2xl font-sans select-none"
+    >
       {/* === NOISE TEXTURE OVERLAY === */}
       {/* Esta camada adiciona a granulação estilo 'filme' sobre todo o componente */}
       <div
@@ -32,7 +39,7 @@ export function LandingPageDesktopMock() {
         </div>
         <div className="flex h-6 w-full max-w-[240px] items-center justify-center rounded-md border border-white/5 bg-white/5 px-3 text-[9px] text-muted-foreground/60 font-mono transition-colors hover:bg-white/10 hover:text-muted-foreground/80">
           <Lock size={8} className="mr-1.5 opacity-50" />
-          acme.com
+          {t('domain')}
         </div>
       </div>
 
@@ -73,8 +80,8 @@ export function LandingPageDesktopMock() {
               className="flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 backdrop-blur-sm"
             >
               <span className="flex h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_currentColor]" />
-              <span className="text-[9px] font-bold text-primary tracking-widest uppercase">
-                New Release v2.4
+              <span className="text-[9px] font-bold text-primary-text tracking-widest uppercase">
+                {t('badge')}
               </span>
             </motion.div>
 
@@ -125,7 +132,7 @@ export function LandingPageDesktopMock() {
                   transition={{ delay: 0.8 }}
                   className="h-10 px-6 rounded-lg bg-white text-black font-bold text-xs flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform"
                 >
-                  Start Building <ArrowRight size={12} />
+                  {t('cta_primary')} <ArrowRight size={12} />
                 </motion.div>
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
@@ -133,7 +140,7 @@ export function LandingPageDesktopMock() {
                   transition={{ delay: 0.9 }}
                   className="h-10 px-6 rounded-lg border border-white/10 bg-white/5 text-white/70 font-bold text-xs flex items-center hover:bg-white/10 transition-colors"
                 >
-                  Documentation
+                  {t('cta_secondary')}
                 </motion.div>
               </div>
 
@@ -176,7 +183,7 @@ export function LandingPageDesktopMock() {
                   </div>
                   <div className="flex gap-2">
                     <div className="h-6 w-6 rounded bg-primary/20 flex items-center justify-center">
-                      <Zap size={10} className="text-primary" />
+                      <Zap size={10} className="text-primary-text" />
                     </div>
                   </div>
                 </div>

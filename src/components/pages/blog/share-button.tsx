@@ -55,7 +55,7 @@ export function ShareButton({ title, text }: ShareButtonProps) {
       ) : (
         <Share2
           size={14}
-          className="group-hover:text-primary transition-colors"
+          className="group-hover:text-primary-text transition-colors"
         />
       )}
       <span>{copied ? t('share_copied') : t('share')}</span>

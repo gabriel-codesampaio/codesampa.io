@@ -24,7 +24,7 @@ const badgeStyles = {
     dot: 'bg-purple-500'
   },
   primary: {
-    container: 'border-primary/20 bg-primary/5 text-primary',
+    container: 'border-primary/20 bg-primary/5 text-primary-text',
     ping: 'bg-primary/80',
     dot: 'bg-primary'
   }
@@ -49,10 +49,11 @@ export function PageTitle({
   className,
   align = 'center'
 }: PageTitleProps) {
+  // Sem opacity no container e no texto: o título é o LCP da página e precisa
+  // aparecer no primeiro paint, sem esperar a hidratação
   const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.1
@@ -70,6 +71,14 @@ export function PageTitle({
         stiffness: 100,
         damping: 20
       }
+    }
+  };
+
+  const textVariants: Variants = {
+    hidden: { y: 20 },
+    visible: {
+      y: 0,
+      transition: { type: 'spring', stiffness: 100, damping: 20 }
     }
   };
 
@@ -110,7 +119,7 @@ export function PageTitle({
       )}
 
       <motion.h1
-        variants={itemVariants}
+        variants={textVariants}
         className="font-space text-4xl font-black text-foreground md:text-6xl leading-tight tracking-tight mb-6 max-w-4xl"
       >
         {title}
@@ -118,7 +127,7 @@ export function PageTitle({
 
       {subtitle && (
         <motion.p
-          variants={itemVariants}
+          variants={textVariants}
           className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl"
         >
           {subtitle}

@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
-import { useState, useEffect } from 'react'; // useRef removido
+import { useTranslations } from 'next-intl';
+import { useState, useEffect, useId } from 'react';
 
 import { cn } from '@/utils/functions/tw-merge';
 import useIsMobile from '@/utils/hooks/use-mobile';
@@ -16,6 +17,8 @@ interface FilterBarProps {
   categories: FilterCategory[];
   activeCategory: string;
   onCategoryChange: (id: string) => void;
+  /** Busca controlada pelo pai, para que ele possa limpar o filtro */
+  searchQuery: string;
   onSearch: (query: string) => void;
   className?: string;
   placeholder?: string;
@@ -25,13 +28,15 @@ export function FilterBar({
   categories,
   activeCategory,
   onCategoryChange,
+  searchQuery,
   onSearch,
   className,
-  placeholder = 'Buscar...'
+  placeholder
 }: FilterBarProps) {
+  const t = useTranslations('Components.UI.FilterBar');
+  const inputId = useId();
   const isMobile = useIsMobile();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
   // Força a abertura no mobile assim que detectado
   useEffect(() => {
@@ -41,31 +46,21 @@ export function FilterBar({
   }, [isMobile]);
 
   const handleCloseSearch = () => {
-    if (isMobile) return;
-    setIsSearchOpen(false);
-    setSearchQuery('');
     onSearch('');
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchQuery(value);
-    onSearch(value);
+    if (!isMobile) setIsSearchOpen(false);
   };
 
   const handleInputBlur = () => {
-    if (!isMobile) {
+    // Só recolhe se estiver vazio; senão a lista ficaria filtrada por uma busca invisível
+    if (!isMobile && searchQuery === '') {
       setIsSearchOpen(false);
     }
   };
 
-  const showExpandedSearch = isMobile || isSearchOpen;
+  const showExpandedSearch = isMobile || isSearchOpen || searchQuery !== '';
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      animate="visible"
+    <div
       className={cn(
         'mb-8 flex flex-col-reverse gap-4 md:mb-16 md:flex-row md:items-center md:justify-center md:gap-6',
         className
@@ -91,10 +86,12 @@ export function FilterBar({
           {categories.map((cat) => (
             <button
               key={cat.id}
+              type="button"
               onClick={() => onCategoryChange(cat.id)}
               aria-pressed={activeCategory === cat.id}
               className={cn(
-                'relative shrink-0 snap-start rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 whitespace-nowrap',
+                'relative min-h-11 shrink-0 snap-start rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 whitespace-nowrap',
+                'focus-visible:outline-2 focus-visible:outline-offset-2',
                 activeCategory === cat.id
                   ? 'text-white'
                   : 'text-muted-foreground hover:bg-white/5 hover:text-white'
@@ -118,14 +115,15 @@ export function FilterBar({
       <div className="hidden h-6 w-px bg-white/10 md:block shrink-0" />
 
       {/* --- PESQUISA EXPANSÍVEL --- */}
-      <div className="relative flex h-10 w-full md:w-auto shrink-0">
+      <div className="relative flex h-11 w-full md:w-auto shrink-0">
         <motion.div
           layout
           className={cn(
-            'flex items-center overflow-hidden rounded-full border border-white/10 bg-white/5 transition-all',
+            'flex items-center overflow-hidden rounded-full border border-white/10 bg-white/5 transition-colors',
+            'focus-within:border-primary-text focus-within:ring-2 focus-within:ring-primary-text/40',
             showExpandedSearch
               ? 'w-full border-primary/30 bg-black/50 md:w-64'
-              : 'w-10 hover:border-white/20 hover:bg-white/10'
+              : 'w-11 hover:border-white/20 hover:bg-white/10'
           )}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         >
@@ -133,14 +131,15 @@ export function FilterBar({
             {!showExpandedSearch ? (
               <motion.button
                 key="search-icon"
+                type="button"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setIsSearchOpen(true)}
-                className="flex h-10 w-10 shrink-0 items-center justify-center text-muted-foreground hover:text-white"
-                aria-label="Open search"
+                className="flex h-11 w-11 shrink-0 items-center justify-center text-muted-foreground hover:text-white"
+                aria-label={t('open_search')}
               >
-                <Search size={18} />
+                <Search size={18} aria-hidden="true" />
               </motion.button>
             ) : (
               <motion.div
@@ -148,38 +147,45 @@ export function FilterBar({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex h-10 w-full items-center px-3"
+                className="flex h-11 w-full items-center px-3"
               >
+                <label htmlFor={inputId} className="sr-only">
+                  {t('search_label')}
+                </label>
                 <Search
                   size={16}
+                  aria-hidden="true"
                   className="mr-2 shrink-0 text-muted-foreground"
                 />
                 <input
-                  type="text"
+                  id={inputId}
+                  name="search"
+                  type="search"
+                  autoComplete="off"
                   value={searchQuery}
-                  onChange={handleInputChange}
+                  onChange={(e) => onSearch(e.target.value)}
                   onBlur={handleInputBlur}
-                  // [ATUALIZADO] Foca automaticamente ao abrir no desktop
+                  // Foca ao abrir no desktop (o usuário acabou de clicar na lupa)
                   autoFocus={!isMobile}
                   placeholder={placeholder}
-                  className="flex-1 bg-transparent text-sm text-white placeholder:text-muted-foreground/50 focus:outline-none min-w-0"
+                  className="flex-1 bg-transparent text-sm text-white placeholder:text-muted-foreground/60 outline-none min-w-0 [&::-webkit-search-cancel-button]:hidden"
                 />
-                <button
-                  onClick={handleCloseSearch}
-                  onMouseDown={(e) => e.preventDefault()}
-                  aria-label="Close search"
-                  className={cn(
-                    'ml-2 shrink-0 items-center justify-center rounded-full bg-white/10 text-muted-foreground hover:bg-white/20 hover:text-white h-5 w-5',
-                    'hidden md:flex'
-                  )}
-                >
-                  <X size={12} />
-                </button>
+                {searchQuery !== '' && (
+                  <button
+                    type="button"
+                    onClick={handleCloseSearch}
+                    onMouseDown={(e) => e.preventDefault()}
+                    aria-label={t('clear_search')}
+                    className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-white/10 hover:text-white"
+                  >
+                    <X size={14} aria-hidden="true" />
+                  </button>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }

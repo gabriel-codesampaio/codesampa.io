@@ -7,9 +7,11 @@ import { Toaster } from 'sonner';
 
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
+import { ReducedMotion } from '@/components/providers/reduced-motion';
 import { ThemeProvider } from '@/components/providers/theme';
 import { HOST } from '@/utils/constants/host';
 import { EN_US, PT_BR } from '@/utils/constants/languages';
+import { buildAlternates } from '@/utils/functions/alternates';
 
 import '../../utils/styles/globals.css';
 
@@ -45,12 +47,6 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  const languages = {
-    'pt-BR': `${HOST}/pt-BR`,
-    'en-US': `${HOST}/en-US`,
-    'x-default': '/pt-BR'
-  };
-
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
@@ -60,10 +56,8 @@ export async function generateMetadata({
     keywords: t('keywords'),
     metadataBase: new URL(HOST),
     // manifest: `/${locale}/manifest.webmanifest`,
-    alternates: {
-      canonical: `${HOST}/${locale}`,
-      languages: languages
-    },
+    // Vale para a home; as demais páginas declaram o próprio canonical
+    alternates: buildAlternates(locale, ''),
     icons: {
       icon: [
         { url: '/favicons/favicon.ico' },
@@ -83,7 +77,7 @@ export async function generateMetadata({
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: HOST,
+      url: `${HOST}/${locale}`,
       siteName: 'codesampa.io',
       images: [
         {
@@ -142,6 +136,7 @@ export default async function RootLayout({
               >
                 {t('skip_to_content')}
               </a>
+              <ReducedMotion />
               <Header />
               <Toaster />
               <main id="main-content" className="grow">
