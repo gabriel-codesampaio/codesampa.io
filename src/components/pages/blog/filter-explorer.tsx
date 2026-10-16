@@ -2,7 +2,6 @@
 
 import { Post } from '.velite';
 
-import { format } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ChevronDown,
@@ -19,7 +18,7 @@ import { useTranslations } from 'next-intl';
 import { useState, useMemo } from 'react';
 
 import { cn } from '@/utils/functions/tw-merge';
-import { postDate } from '@/utils/functions/post-date';
+import { formatPostDate, postDate } from '@/utils/functions/post-date';
 
 // --- Tipos ---
 type FileNode = {
@@ -163,7 +162,7 @@ const FileItem = ({ node }: { node: FileNode }) => (
     />
     <span className="font-mono truncate relative top-px">{node.name}</span>
     <span className="ml-auto text-[10px] opacity-0 group-hover:opacity-60 transition-opacity whitespace-nowrap font-mono text-muted-foreground/80">
-      {format(postDate(node.post.date), 'MM/dd')}
+      {formatPostDate(node.post.date, node.post.locale, 'dayMonth')}
     </span>
   </Link>
 );

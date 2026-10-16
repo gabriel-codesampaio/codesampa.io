@@ -2,15 +2,13 @@
 
 import { Post } from '.velite';
 
-import { format } from 'date-fns';
-import { enUS, ptBR } from 'date-fns/locale';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Clock, Hash } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/lib/i18n/navigation';
 import { estimateReadingTime } from '@/utils/functions/estimate-reading-time';
-import { postDate } from '@/utils/functions/post-date';
+import { formatPostDate } from '@/utils/functions/post-date';
 
 export function PostCard({
   post,
@@ -22,7 +20,6 @@ export function PostCard({
   locale: string;
 }) {
   const t = useTranslations('Pages.Blog');
-  const dateLocale = locale === 'pt-BR' ? ptBR : enUS;
 
   const readingTime = estimateReadingTime(post.content || '');
 
@@ -43,15 +40,13 @@ export function PostCard({
           <div className="flex items-center gap-1.5">
             <Calendar size={12} className="text-primary-text" />
             <time dateTime={post.date}>
-              {format(postDate(post.date), 'dd MMM, yyyy', {
-                locale: dateLocale
-              })}
+              {formatPostDate(post.date, locale, 'short')}
             </time>
           </div>
           <span className="text-white/10">|</span>
           <div className="flex items-center gap-1.5">
             <Clock size={12} className="text-primary-text" />
-            <span>{readingTime} min read</span>
+            <span>{t('Post.reading_time', { minutes: readingTime })}</span>
           </div>
         </div>
 

@@ -109,7 +109,7 @@ export function List({ posts }: { posts: Post[] }) {
         >
           <Hash size={16} className="text-primary-text" />
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground">
-            Latest Entries
+            {t('latest_entries')}
           </span>
           <div className="h-px flex-1 bg-linear-to-r from-white/10 to-transparent" />
         </motion.div>

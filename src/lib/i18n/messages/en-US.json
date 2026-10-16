@@ -126,7 +126,8 @@
           "empty_state": "No articles found matching your criteria.",
           "clear_filters": "Clear filters",
           "read_article": "Read Article",
-          "search_label": "Search articles"
+          "search_label": "Search articles",
+          "latest_entries": "Latest articles"
         },
         "AuthorProfile": {
           "role": "Author",

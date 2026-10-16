@@ -126,7 +126,8 @@
           "empty_state": "Nenhum artigo encontrado para os filtros selecionados.",
           "clear_filters": "Limpar filtros",
           "read_article": "Ler artigo",
-          "search_label": "Buscar artigos"
+          "search_label": "Buscar artigos",
+          "latest_entries": "Últimos artigos"
         },
         "AuthorProfile": {
           "role": "Autor",

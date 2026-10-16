@@ -1,7 +1,5 @@
 import { posts } from '.velite';
 
-import { format } from 'date-fns';
-import { ptBR, enUS } from 'date-fns/locale';
 import { ArrowLeft, Calendar, Clock, Hash } from 'lucide-react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -14,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/i18n/navigation';
 import { buildAlternates } from '@/utils/functions/alternates';
 import { cn } from '@/utils/functions/tw-merge';
-import { postDate } from '@/utils/functions/post-date';
+import { formatPostDate } from '@/utils/functions/post-date';
 import { estimateReadingTime } from '@/utils/functions/estimate-reading-time';
 import { ReadMore } from '@/components/pages/blog/read-more';
 import { ScrollProgress } from '@/components/pages/blog/scroll-progress';
@@ -78,7 +76,6 @@ export async function generateStaticParams() {
 export default async function PostPage({ params }: PostPageProps) {
   const { slug, locale } = await params;
   const t = await getTranslations('Pages.Blog.Post');
-  const dateLocale = locale === 'pt-BR' ? ptBR : enUS;
 
   const post = posts.find(
     (p) => p.slugAsParams === slug && p.locale === locale
@@ -130,9 +127,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <div className="flex items-center gap-2">
             <Calendar size={14} className="text-primary-text/70" />
             <time dateTime={post.date} className="text-foreground/80">
-              {format(postDate(post.date), "dd 'de' MMMM, yyyy", {
-                locale: dateLocale
-              })}
+              {formatPostDate(post.date, locale)}
             </time>
           </div>
           <span className="text-white/10">|</span>

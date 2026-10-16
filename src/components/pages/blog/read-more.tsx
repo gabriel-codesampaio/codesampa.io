@@ -2,15 +2,13 @@
 
 import { posts } from '.velite';
 
-import { format } from 'date-fns';
-import { enUS, ptBR } from 'date-fns/locale';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/utils/functions/tw-merge';
-import { postDate } from '@/utils/functions/post-date';
+import { formatPostDate } from '@/utils/functions/post-date';
 
 interface ReadMoreProps {
   currentSlug: string;
@@ -20,7 +18,6 @@ interface ReadMoreProps {
 
 export function ReadMore({ currentSlug, currentTags, locale }: ReadMoreProps) {
   const t = useTranslations('Components.Pages.Blog.ReadMore');
-  const dateLocale = locale === 'pt-BR' ? ptBR : enUS;
 
   const relatedPosts = posts
     .filter(
@@ -75,9 +72,7 @@ export function ReadMore({ currentSlug, currentTags, locale }: ReadMoreProps) {
                 <div className="mb-4 flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
                   <Calendar size={12} className="text-primary-text/70" />
                   <time dateTime={post.date}>
-                    {format(postDate(post.date), 'MMM dd, yyyy', {
-                      locale: dateLocale
-                    })}
+                    {formatPostDate(post.date, locale, 'short')}
                   </time>
                 </div>
 
