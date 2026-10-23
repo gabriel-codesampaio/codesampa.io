@@ -13,11 +13,15 @@ import { cn } from '@/utils/functions/tw-merge';
 
 export function ManifestoSection() {
   const t = useTranslations('Components.Pages.Home.Manifesto');
-  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLHeadingElement>(null);
 
+  // Mede o próprio texto, não a seção (o padding dela atrasava tudo): começa
+  // quando o texto entra por baixo da tela e termina quando ele chega ao meio,
+  // ou seja, revela enquanto a pessoa lê. Antes ficava em 10% até passar da
+  // metade de cima e então aparecia de uma vez em ~240px de rolagem.
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start 0.4', 'end 0.7']
+    target: textRef,
+    offset: ['start 0.95', 'end 0.75']
   });
 
   // Com movimento reduzido o texto aparece inteiro (sem revelação por rolagem,
@@ -34,12 +38,14 @@ export function ManifestoSection() {
 
   return (
     <section
-      ref={containerRef}
       className="relative flex items-center justify-center bg-background py-24 md:py-32"
     >
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <h2 className="relative text-2xl md:text-4xl font-bold font-space leading-snug text-center">
+          <h2
+            ref={textRef}
+            className="relative text-2xl md:text-4xl font-bold font-space leading-snug text-center"
+          >
             {/* Frase inteira para leitor de tela: os spans animados não têm
                 espaços no texto e eram lidos como uma palavra só */}
             <span className="sr-only">{t('text').replace(/\*/g, '')}</span>
