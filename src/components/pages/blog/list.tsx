@@ -128,7 +128,7 @@ export function List({ posts }: { posts: Post[] }) {
             </div>
           </div>
 
-          <aside className="sticky top-24 max-h-[calc(100vh-120px)] flex flex-col">
+          <aside className="sticky top-24 max-h-[calc(100dvh-120px)] flex flex-col">
             <FileExplorer posts={posts} className="h-full" />
           </aside>
         </div>

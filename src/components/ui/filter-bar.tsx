@@ -122,7 +122,7 @@ export function FilterBar({
             'flex items-center overflow-hidden rounded-full border border-white/10 bg-white/5 transition-colors',
             'focus-within:border-primary-text focus-within:ring-2 focus-within:ring-primary-text/40',
             showExpandedSearch
-              ? 'w-full border-primary/30 bg-black/50 md:w-64'
+              ? 'w-full border-muted-foreground/60 bg-black/50 md:w-64'
               : 'w-11 hover:border-white/20 hover:bg-white/10'
           )}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}

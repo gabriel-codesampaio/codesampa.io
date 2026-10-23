@@ -59,14 +59,14 @@ export function ContactHub() {
       >
         <div className="absolute right-4 top-4 rounded-full bg-white/10 p-2 transition-colors group-hover:bg-white/20">
           {copied ? (
-            <Check size={20} className="text-emerald-400" />
+            <Check size={20} className="text-success-soft" />
           ) : (
             <Copy size={20} />
           )}
         </div>
 
         <div className="space-y-2">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/20 text-blue-400">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-info/20 text-info-soft">
             <Mail size={24} />
           </div>
           <h3 className="text-2xl font-bold text-foreground">
@@ -80,7 +80,7 @@ export function ContactHub() {
           </p>
         </div>
 
-        <div className="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-blue-500/20 blur-[80px] transition-colors group-hover:bg-blue-500/30" />
+        <div className="absolute -right-[240px] -bottom-[240px] h-[576px] w-[576px] glow-info opacity-20 transition-opacity group-hover:opacity-30" />
       </motion.button>
 
       {/* <motion.a
@@ -92,12 +92,12 @@ export function ContactHub() {
         initial={isMobile ? 'visible' : 'hidden'}
         whileInView="visible"
         viewport={{ once: true }}
-        className="group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-emerald-500/10 to-transparent p-6 md:p-8 transition-colors hover:border-emerald-500/30 hover:from-emerald-500/20"
+        className="group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-emerald-500/10 to-transparent p-6 md:p-8 transition-colors hover:border-success/30 hover:from-emerald-500/20"
       >
         <div className="absolute right-4 top-4 opacity-50 transition-opacity group-hover:opacity-100">
           <ArrowUpRight size={20} />
         </div>
-        <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-400">
+        <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-success/20 text-success-soft">
           <MessageCircle size={24} />
         </div>
         <div>
@@ -106,7 +106,7 @@ export function ContactHub() {
             {t('whatsapp.sub')}
           </p>
         </div>
-        <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-emerald-500/10 blur-[50px] group-hover:bg-emerald-500/20" />
+        <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-success/10 blur-[50px] group-hover:bg-success/20" />
       </motion.a> */}
 
       <motion.a
@@ -127,7 +127,7 @@ export function ContactHub() {
               {t('schedule.badge')}
             </span>
           </div>
-          <h3 className="text-2xl md:text-3xl font-black font-space">
+          <h3 className="text-2xl md:text-3xl font-bold font-space">
             {t('schedule.title')}
           </h3>
           <p className="text-muted-foreground text-sm max-w-sm">

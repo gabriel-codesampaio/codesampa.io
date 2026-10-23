@@ -9,19 +9,19 @@ import { cn } from '@/utils/functions/tw-merge';
 // Mapeamento de cores para garantir que o Tailwind gere as classes corretas
 const badgeStyles = {
   blue: {
-    container: 'border-blue-500/20 bg-blue-500/5 text-blue-500',
-    ping: 'bg-blue-400',
-    dot: 'bg-blue-500'
+    container: 'border-info/20 bg-info/5 text-info',
+    ping: 'bg-info-soft',
+    dot: 'bg-info'
   },
   emerald: {
-    container: 'border-emerald-500/20 bg-emerald-500/5 text-emerald-500',
-    ping: 'bg-emerald-400',
-    dot: 'bg-emerald-500'
+    container: 'border-success/20 bg-success/5 text-success',
+    ping: 'bg-success-soft',
+    dot: 'bg-success'
   },
   purple: {
-    container: 'border-purple-500/20 bg-purple-500/5 text-purple-500',
-    ping: 'bg-purple-400',
-    dot: 'bg-purple-500'
+    container: 'border-highlight/20 bg-highlight/5 text-highlight',
+    ping: 'bg-highlight-soft',
+    dot: 'bg-highlight'
   },
   primary: {
     container: 'border-primary/20 bg-primary/5 text-primary-text',
@@ -120,7 +120,7 @@ export function PageTitle({
 
       <motion.h1
         variants={textVariants}
-        className="font-space text-4xl font-black text-foreground md:text-6xl leading-tight tracking-tight mb-6 max-w-4xl"
+        className="font-space text-4xl font-bold text-foreground md:text-6xl leading-tight tracking-tight mb-6 max-w-4xl"
       >
         {title}
       </motion.h1>

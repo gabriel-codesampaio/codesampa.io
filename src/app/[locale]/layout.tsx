@@ -28,7 +28,7 @@ const geistMono = Geist_Mono({
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700']
+  weight: ['400', '500', '700']
 });
 
 export const viewport = {
@@ -117,11 +117,14 @@ export default async function RootLayout({
     <html
       lang={locale}
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}
+      // `dark` já no HTML do servidor: o site é sempre escuro e, sem isso, a
+      // página nascia clara até o script do next-themes rodar (ou se o JS falhasse)
+      className={`dark ${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}
+      style={{ colorScheme: 'dark' }}
     >
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased flex flex-col min-h-svh`}
       >
         <NextIntlClientProvider>
           <MotionConfig reducedMotion="user">

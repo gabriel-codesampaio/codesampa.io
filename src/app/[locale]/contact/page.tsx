@@ -23,7 +23,7 @@ export default async function ContactPage() {
   return (
     <div className="relative flex h-full flex-1 flex-col items-center justify-center overflow-hidden">
       {/* Background Effect */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-full max-w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500/10 blur-[100px] md:blur-[130px]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[920px] w-[calc(100%+520px)] max-w-[min(1320px,100%)] -translate-x-1/2 -translate-y-1/2 glow-success opacity-10" />
 
       <div className="container mx-auto px-4 py-12 md:py-24 relative z-10 max-w-5xl">
         <PageTitle

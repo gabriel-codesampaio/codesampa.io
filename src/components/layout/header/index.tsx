@@ -83,8 +83,8 @@ export function Header() {
                 side="right"
                 className="w-full sm:w-[400px] border-l border-white/10 bg-black/80 backdrop-blur-2xl p-0 flex flex-col shadow-2xl"
               >
-                <div className="absolute top-[-10%] right-[-10%] -z-10 h-[300px] w-[300px] rounded-full bg-primary/20 blur-[100px] pointer-events-none opacity-50" />
-                <div className="absolute bottom-[-10%] left-[-10%] -z-10 h-[300px] w-[300px] rounded-full bg-blue-600/20 blur-[100px] pointer-events-none opacity-50" />
+                <div className="absolute top-[calc(-10%-200px)] right-[calc(-10%-200px)] -z-10 h-[700px] w-[700px] glow-primary pointer-events-none opacity-10" />
+                <div className="absolute bottom-[calc(-10%-200px)] left-[calc(-10%-200px)] -z-10 h-[700px] w-[700px] glow-info pointer-events-none opacity-10" />
 
                 <SheetHeader className="text-center border-b border-white/5">
                   <div className="flex flex-row gap-2 items-center justify-center">
@@ -118,7 +118,7 @@ export function Header() {
                     {/* Botão GitHub */}
                     <Button
                       variant="outline"
-                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-primary/50 text-slate-300 h-12 rounded-xl group transition-colors"
+                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-primary/50 text-foreground/80 h-12 rounded-xl group transition-colors"
                       asChild
                     >
                       <a
@@ -128,7 +128,7 @@ export function Header() {
                       >
                         <div className="flex items-center gap-3">
                           <Github className="h-5 w-5" aria-hidden="true" />
-                          <span className="font-semibold">{t('github')}</span>
+                          <span className="font-bold">{t('github')}</span>
                         </div>
                         <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition" />
                       </a>
@@ -137,7 +137,7 @@ export function Header() {
                     {/* Botão LinkedIn */}
                     <Button
                       variant="outline"
-                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-blue-500/50 text-slate-300 h-12 rounded-xl group transition-colors"
+                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-info/50 text-foreground/80 h-12 rounded-xl group transition-colors"
                       asChild
                     >
                       <a
@@ -147,7 +147,7 @@ export function Header() {
                       >
                         <div className="flex items-center gap-3">
                           <Linkedin className="h-5 w-5" aria-hidden="true" />
-                          <span className="font-semibold">{t('linkedin')}</span>
+                          <span className="font-bold">{t('linkedin')}</span>
                         </div>
                         <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition" />
                       </a>

@@ -55,14 +55,14 @@ export function HeroSection() {
   const visibleSymbols = isMobile ? codeSymbols.slice(0, 8) : codeSymbols;
 
   return (
-    <section className="relative flex min-h-[calc(100dvh-3.5rem)] w-full flex-col items-center justify-center pt-0 overflow-hidden bg-background text-foreground md:min-h-dvh">
+    <section className="relative flex min-h-[calc(100dvh-3.5rem)] w-full flex-col items-center justify-center pt-0 overflow-hidden bg-background text-foreground">
       {/* 1. Background Grid */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,var(--grid-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line)_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       <div
-        className="absolute z-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/40 
-        top-1/2 h-[500px] w-[500px] blur-[80px] 
-        md:top-[40%] md:h-[600px] md:w-[600px] md:blur-[130px]"
+        className="absolute z-0 left-1/2 -translate-x-1/2 -translate-y-1/2 glow-primary opacity-40 pointer-events-none
+        top-1/2 h-[820px] w-[820px]
+        md:top-[40%] md:h-[1120px] md:w-[1120px]"
       />
 
       {/* 3. Ícones Voando */}
@@ -96,13 +96,13 @@ export function HeroSection() {
           <h1 className="font-space mb-6 flex flex-col items-center leading-[1.1]">
             <motion.span
               variants={textVariants}
-              className="block mb-2 text-5xl md:text-8xl font-black tracking-tight drop-shadow-2xl"
+              className="block mb-2 text-5xl md:text-8xl font-bold tracking-tight drop-shadow-2xl"
             >
               {t('title_prefix')}
             </motion.span>
 
             <motion.span variants={textVariants} className="block mt-2">
-              <span className="text-primary-text font-black tracking-tight text-5xl md:text-8xl">
+              <span className="text-primary-text font-bold tracking-tight text-5xl md:text-8xl">
                 {t('mobile_title_suffix')}
               </span>
             </motion.span>
@@ -129,7 +129,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 md:bottom-10 flex flex-col items-center gap-3 text-slate-400 pointer-events-none"
+          className="absolute bottom-12 md:bottom-10 flex flex-col items-center gap-3 text-muted-foreground pointer-events-none"
         >
           <span className="hidden md:flex text-xs uppercase tracking-widest font-mono opacity-80">
             {t('scroll_indicator')}

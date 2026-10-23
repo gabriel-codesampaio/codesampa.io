@@ -27,7 +27,7 @@ export function ProcessSection({ showFaq = false }: { showFaq?: boolean }) {
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <h2
             id="process-title"
-            className="mb-4 font-space text-4xl font-black md:text-5xl"
+            className="mb-4 font-space text-4xl font-bold md:text-5xl"
           >
             {t('title')}
           </h2>
@@ -53,7 +53,7 @@ export function ProcessSection({ showFaq = false }: { showFaq?: boolean }) {
                 {step.description}
               </p>
               <p className="border-t border-border/60 pt-4 text-sm text-foreground/90">
-                <span className="font-semibold">{t('deliverable_label')}</span>{' '}
+                <span className="font-bold">{t('deliverable_label')}</span>{' '}
                 {step.deliverable}
               </p>
             </li>
@@ -62,14 +62,14 @@ export function ProcessSection({ showFaq = false }: { showFaq?: boolean }) {
 
         {showFaq && (
           <div className="mx-auto mt-24 max-w-3xl">
-            <h2 className="mb-8 text-center font-space text-3xl font-black md:text-4xl">
+            <h2 className="mb-8 text-center font-space text-3xl font-bold md:text-4xl">
               {t('faq_title')}
             </h2>
 
             <div className="divide-y divide-border rounded-3xl border border-border bg-card">
               {faq.map((item) => (
                 <details key={item.question} className="group px-6">
-                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-left font-semibold [&::-webkit-details-marker]:hidden">
+                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-left font-bold [&::-webkit-details-marker]:hidden">
                     {item.question}
                     <ChevronDown
                       size={20}

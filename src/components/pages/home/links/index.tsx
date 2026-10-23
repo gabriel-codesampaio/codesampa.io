@@ -59,11 +59,11 @@ export function Links() {
           </div>
 
           {/* Coluna 2: Blog Posts */}
-          <div className="md:col-span-6 lg:col-span-4 hidden md:flex flex-col gap-6 md:items-start lg:pl-16 min-w-0">
-            <h2 className="font-space text-base font-semibold text-white flex items-center gap-2 shrink-0">
+          <div className="md:col-span-6 lg:col-span-4 flex flex-col gap-3 md:gap-6 md:items-start lg:pl-16 min-w-0">
+            <h2 className="font-space text-base font-bold text-white flex items-center gap-2 shrink-0">
               <span
                 aria-hidden="true"
-                className="h-1.5 w-1.5 rounded-full bg-violet-500"
+                className="h-1.5 w-1.5 rounded-full bg-highlight"
               />
               {t('columns.blog')}
             </h2>
@@ -79,7 +79,7 @@ export function Links() {
 
           {/* Coluna 3: Explore */}
           <div className="md:col-span-6 lg:col-span-4 flex flex-col gap-3 md:gap-6 md:items-start lg:pl-16">
-            <h2 className="font-space text-base font-semibold text-white flex items-center gap-2">
+            <h2 className="font-space text-base font-bold text-white flex items-center gap-2">
               <span
                 aria-hidden="true"
                 className="h-1.5 w-1.5 rounded-full bg-primary"

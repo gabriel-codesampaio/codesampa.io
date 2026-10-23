@@ -105,7 +105,7 @@ const CardProject = ({
 
           {/* TÍTULO + BOTÃO DE ENTREVISTA */}
           <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-            <h2 className="font-space text-3xl font-black leading-tight text-white md:text-5xl">
+            <h2 className="font-space text-3xl font-bold leading-tight text-white md:text-5xl">
               {t(`projects.${project.key}.title`)}
             </h2>
 
@@ -127,20 +127,20 @@ const CardProject = ({
                     'shadow-[0_0_8px_currentColor]',
                     // Extrai a cor primária da classe do projeto para o ponto brilhante
                     project.color?.includes('blue')
-                      ? 'text-blue-400'
+                      ? 'text-info-soft'
                       : project.color?.includes('emerald')
-                        ? 'text-emerald-400'
+                        ? 'text-success-soft'
                         : project.color?.includes('purple')
-                          ? 'text-purple-400'
+                          ? 'text-highlight-soft'
                           : 'text-white'
                   )}
                   dotClassName={
                     project.color?.includes('blue')
-                      ? 'bg-blue-400'
+                      ? 'bg-info-soft'
                       : project.color?.includes('emerald')
-                        ? 'bg-emerald-400'
+                        ? 'bg-success-soft'
                         : project.color?.includes('purple')
-                          ? 'bg-purple-400'
+                          ? 'bg-highlight-soft'
                           : 'bg-white'
                   }
                   pingClassName="bg-current"
@@ -192,7 +192,7 @@ const CardProject = ({
                 key={tag}
                 className="group/icon relative flex items-center justify-center p-2 rounded-md bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-colors"
               >
-                <Icon size={18} className="text-slate-300" aria-hidden="true" />
+                <Icon size={18} className="text-foreground/80" aria-hidden="true" />
                 <span className="sr-only">{tag}</span>
                 <span
                   aria-hidden="true"
@@ -285,7 +285,7 @@ const CardProject = ({
         </motion.div>
 
         {/* Janela de navegador com o print do site */}
-        <div className="absolute -bottom-px left-[6%] right-[6%] top-[8%] z-10 flex flex-col overflow-hidden rounded-t-xl border border-b-0 border-white/10 bg-[#0B0C10] shadow-2xl transition-transform duration-500 group-hover:-translate-y-3 md:left-[8%] md:right-[8%]">
+        <div className="absolute -bottom-px left-[6%] right-[6%] top-[8%] z-10 flex flex-col overflow-hidden rounded-t-xl border border-b-0 border-white/10 bg-surface-code transition-transform duration-500 group-hover:-translate-y-3 md:left-[8%] md:right-[8%]">
           <div className="flex h-8 shrink-0 items-center gap-1.5 border-b border-white/5 px-3">
             <span className="size-2.5 rounded-full bg-white/15" />
             <span className="size-2.5 rounded-full bg-white/15" />
@@ -295,7 +295,7 @@ const CardProject = ({
             </span>
           </div>
 
-          <div className="relative flex-1 overflow-hidden bg-slate-900/80">
+          <div className="relative flex-1 overflow-hidden bg-card/80">
             {hasImage ? (
               <Image
                 src={project.image!}

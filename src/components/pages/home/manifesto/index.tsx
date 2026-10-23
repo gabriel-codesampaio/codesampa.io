@@ -96,7 +96,7 @@ const Word = ({
         style={isStatic ? undefined : { opacity, y }}
         className={cn(
           'transition-colors duration-200',
-          isHighlight ? 'text-primary-text font-black' : 'text-foreground'
+          isHighlight ? 'text-primary-text font-bold' : 'text-foreground'
         )}
       >
         {text}

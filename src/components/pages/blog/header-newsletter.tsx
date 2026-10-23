@@ -110,7 +110,7 @@ export function HeaderNewsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={isPending || status === 'success'}
-              className="h-11 w-full rounded-lg border border-white/10 bg-black/20 px-3 text-sm text-white placeholder:text-muted-foreground/50 outline-none focus-visible:border-primary-text focus-visible:ring-2 focus-visible:ring-primary-text/60 transition-[border-color,box-shadow] font-mono"
+              className="h-11 w-full rounded-lg border border-muted-foreground/60 bg-black/20 px-3 text-sm text-white placeholder:text-muted-foreground/50 outline-none focus-visible:border-primary-text focus-visible:ring-2 focus-visible:ring-primary-text/60 transition-[border-color,box-shadow] font-mono"
               required
             />
             <span
@@ -129,7 +129,7 @@ export function HeaderNewsletter() {
             className={cn(
               'flex h-11 items-center justify-center rounded-lg px-4 text-sm font-bold uppercase tracking-wider transition min-w-[100px]',
               status === 'success'
-                ? 'bg-green-500/20 text-green-400 border border-green-500/50'
+                ? 'bg-success/20 text-success-soft border border-success/50'
                 : 'bg-primary text-white hover:bg-primary/90 hover:shadow-[0_0_15px_color-mix(in_oklab,var(--color-primary)_30%,transparent)]'
             )}
           >

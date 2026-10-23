@@ -8,17 +8,17 @@ export default function NotFoundContent() {
   const t = useTranslations('Pages.NotFound');
 
   return (
-    <section className="relative flex min-h-[70vh] w-full flex-col items-center justify-center overflow-hidden px-4 py-24 text-center">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-size-[32px_32px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
+    <section className="relative flex min-h-[70svh] w-full flex-col items-center justify-center overflow-hidden px-4 py-24 text-center">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line-strong)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line-strong)_1px,transparent_1px)] bg-size-[32px_32px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
 
       <div className="relative z-10 flex flex-col items-center">
         <p
           aria-hidden="true"
-          className="mb-2 font-space text-8xl font-black tracking-tighter text-white/80 md:text-9xl"
+          className="mb-2 font-space text-8xl font-bold tracking-tighter text-white/80 md:text-9xl"
         >
           404
         </p>
-        <h1 className="mb-4 font-space text-3xl font-black md:text-4xl">
+        <h1 className="mb-4 font-space text-3xl font-bold md:text-4xl">
           {t('title')}
         </h1>
         <p className="mb-8 max-w-md text-lg text-muted-foreground">
@@ -28,7 +28,7 @@ export default function NotFoundContent() {
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button
             size="lg"
-            className="h-12 rounded-full bg-white px-8 font-bold text-black hover:bg-slate-200"
+            className="h-12 rounded-full bg-white px-8 font-bold text-black hover:bg-foreground"
             asChild
           >
             <Link href="/" className="flex items-center gap-2">

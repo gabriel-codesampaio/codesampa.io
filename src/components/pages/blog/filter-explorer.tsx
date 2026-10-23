@@ -158,7 +158,7 @@ const FileItem = ({ node }: { node: FileNode }) => (
   >
     <FileCode2
       size={14}
-      className="shrink-0 text-blue-400/80 group-hover:text-blue-400"
+      className="shrink-0 text-info-soft/80 group-hover:text-info-soft"
     />
     <span className="font-mono truncate relative top-px">{node.name}</span>
     <span className="ml-auto text-xs opacity-0 group-hover:opacity-60 transition-opacity whitespace-nowrap font-mono text-muted-foreground/80">
@@ -193,7 +193,7 @@ const FolderItem = ({
         <span
           className={cn(
             'shrink-0 transition-colors',
-            depth === 0 ? 'text-purple-400/90' : 'text-yellow-400/90'
+            depth === 0 ? 'text-highlight-soft/90' : 'text-window-minimize/90'
           )}
         >
           {isOpen ? <FolderOpen size={14} /> : <Folder size={14} />}
@@ -262,7 +262,7 @@ export function FileExplorer({
         </span>
 
         {/* Input de Pesquisa */}
-        <div className="flex flex-1 items-center gap-2 rounded-md bg-black/40 px-2.5 py-1.5 border border-white/5 focus-within:border-primary-text focus-within:bg-black/60 transition-colors">
+        <div className="flex flex-1 items-center gap-2 rounded-md bg-black/40 px-2.5 py-1.5 border border-muted-foreground/60 focus-within:border-primary-text focus-within:bg-black/60 transition-colors">
           <Search
             size={12}
             className="text-muted-foreground"
@@ -281,9 +281,9 @@ export function FileExplorer({
 
         {/* Traffic Lights */}
         <div className="flex gap-1.5 shrink-0 opacity-80 hover:opacity-100 transition-opacity">
-          <div className="h-2.5 w-2.5 rounded-full bg-red-500/20 border border-red-500/30" />
-          <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/30" />
-          <div className="h-2.5 w-2.5 rounded-full bg-green-500/20 border border-green-500/30" />
+          <div className="h-2.5 w-2.5 rounded-full bg-window-close/20 border border-window-close/30" />
+          <div className="h-2.5 w-2.5 rounded-full bg-window-minimize/20 border border-window-minimize/30" />
+          <div className="h-2.5 w-2.5 rounded-full bg-window-maximize/20 border border-window-maximize/30" />
         </div>
       </div>
 

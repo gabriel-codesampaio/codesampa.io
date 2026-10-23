@@ -39,7 +39,7 @@ export function BracketSelector({
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
             transition={{ duration: 0.3 }}
-            className="block font-space font-black tracking-tight bg-linear-to-r from-primary-text via-blue-300 to-violet-600 bg-clip-text text-transparent pb-2 whitespace-nowrap text-5xl md:text-8xl"
+            className="block font-space font-bold tracking-tight bg-linear-to-r from-primary-text via-blue-300 to-violet-600 bg-clip-text text-transparent pb-2 whitespace-nowrap text-5xl md:text-8xl"
           >
             {text}
           </motion.span>

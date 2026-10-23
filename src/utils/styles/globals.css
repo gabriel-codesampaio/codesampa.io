@@ -65,6 +65,12 @@
   --shadow-2xl: 0px 4px 10px 0px hsl(0 0 0 / 0.13);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
+  /* Malha quadriculada dos fundos (hero, rodapé, CTA, 404) */
+  --grid-line-faint: rgb(0 0 0 / 3%);
+  --grid-line: rgb(0 0 0 / 6%);
+  --grid-line-strong: rgb(0 0 0 / 10%);
+  /* Fundo de blocos de código e da janela com o print dos projetos */
+  --surface-code: #0d1117;
 }
 
 .dark {
@@ -123,6 +129,9 @@
   --shadow-xl: 0px 4px 10px 0px hsl(0 0 0 / 0.2),
     0px 8px 10px -1px hsl(0 0 0 / 0.2);
   --shadow-2xl: 0px 4px 10px 0px hsl(0 0 0 / 0.5);
+  --grid-line-faint: #ffffff05;
+  --grid-line: #ffffff10;
+  --grid-line-strong: #222;
 }
 
 @theme inline {
@@ -162,6 +171,25 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-space: var(--font-space), 'Space Grotesk', sans-serif;
+
+  /* Papéis de cor além do primary. Os valores são os mesmos tons da paleta
+     do Tailwind que o site já usava; trocar a paleta é mudar só aqui.
+     info: sistemas, e-mail, destaques azuis · success: landing pages,
+     confirmações, WhatsApp · highlight: IA · warning: ícones de destaque */
+  --color-info: var(--color-blue-500);
+  --color-info-soft: var(--color-blue-400);
+  --color-info-pale: var(--color-blue-300);
+  --color-success-soft: var(--color-emerald-400);
+  --color-highlight: var(--color-purple-500);
+  --color-highlight-soft: var(--color-purple-400);
+  --color-highlight-pale: var(--color-purple-200);
+  --color-warning: var(--color-yellow-400);
+  --color-warning-pale: var(--color-yellow-300);
+  /* Bolinhas de janela (fechar, minimizar, maximizar) nos mocks de editor */
+  --color-window-close: var(--color-red-500);
+  --color-window-minimize: var(--color-yellow-500);
+  --color-window-maximize: var(--color-green-500);
+  --color-surface-code: var(--surface-code);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -210,6 +238,10 @@
     @apply bg-background text-foreground font-sans;
   }
 
+  ::selection {
+    @apply bg-primary/40 text-foreground;
+  }
+
   h1,
   h2,
   h3,
@@ -243,6 +275,20 @@
     scrollbar-width: thin;
     scrollbar-color: var(--muted-foreground) transparent;
   }
+}
+
+/* Brilho difuso desenhado com gradiente radial, no lugar de um círculo com
+   blur de 80-130px (filtro caro de rasterizar em celular). Para manter o
+   alcance do blur, a caixa é o círculo antigo + 2x o raio do blur de cada lado.
+   A intensidade vem do opacity-* do elemento. */
+@utility glow-* {
+  --glow: --value(--color-*);
+  background-image: radial-gradient(
+    closest-side,
+    var(--glow) 25%,
+    color-mix(in oklab, var(--glow) 50%, transparent) 52%,
+    transparent
+  );
 }
 
 @layer utilities {

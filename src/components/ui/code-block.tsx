@@ -41,14 +41,14 @@ export function CodeBlock({
   };
 
   return (
-    <div className="relative my-6 md:my-8 w-full max-w-full overflow-hidden rounded-xl border border-white/10 bg-[#0d1117] shadow-2xl">
+    <div className="relative my-6 md:my-8 w-full max-w-full overflow-hidden rounded-xl border border-white/10 bg-surface-code">
       {/* --- Terminal Header --- */}
       <div className="flex h-9 md:h-10 items-center justify-between border-b border-white/5 bg-white/5 px-3 md:px-4 shrink-0">
         {/* Window Controls */}
         <div className="flex gap-1.5 md:gap-2">
-          <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-red-500/80" />
-          <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-yellow-500/80" />
-          <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-green-500/80" />
+          <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-window-close/80" />
+          <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-window-minimize/80" />
+          <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-window-maximize/80" />
         </div>
 
         {/* Filename / Language Label */}
@@ -65,8 +65,8 @@ export function CodeBlock({
         >
           {isCopied ? (
             <>
-              <Check size={12} className="md:w-3.5 md:h-3.5 text-emerald-400" />
-              <span className="hidden sm:inline text-emerald-400">
+              <Check size={12} className="md:w-3.5 md:h-3.5 text-success-soft" />
+              <span className="hidden sm:inline text-success-soft">
                 {t('copied')}
               </span>
             </>

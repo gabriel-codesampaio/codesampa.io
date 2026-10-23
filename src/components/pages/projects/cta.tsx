@@ -19,11 +19,11 @@ export const Cta = () => {
       className="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-b from-white/5 to-transparent p-8 md:p-16 text-center"
     >
       {/* Background Effects */}
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 rounded-full bg-primary/10 blur-[80px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-64 w-64 rounded-full bg-blue-600/10 blur-[80px] pointer-events-none" />
+      <div className="absolute top-0 right-0 -mr-[240px] -mt-[240px] h-[576px] w-[576px] glow-primary opacity-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 -ml-[240px] -mb-[240px] h-[576px] w-[576px] glow-info opacity-10 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
-        <h2 className="mb-6 font-space text-3xl font-black text-white md:text-5xl max-w-3xl leading-tight">
+        <h2 className="mb-6 font-space text-3xl font-bold text-white md:text-5xl max-w-3xl leading-tight">
           {t.rich('cta_footer.title', {
             highlight: (chunks) => (
               <span className="text-primary-text">{chunks}</span>

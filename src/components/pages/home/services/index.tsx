@@ -44,9 +44,9 @@ export function ServicesSection() {
   // Classes estáticas (o Tailwind não gera classes montadas com template string).
   // Tons 400: os 500 ficavam abaixo de 4,5:1 sobre o card escuro.
   const accentText: Record<string, string> = {
-    blue: 'text-blue-400',
-    emerald: 'text-emerald-400',
-    purple: 'text-purple-400'
+    blue: 'text-info-soft',
+    emerald: 'text-success-soft',
+    purple: 'text-highlight-soft'
   };
 
   const cardVariants: Variants = {
@@ -69,7 +69,7 @@ export function ServicesSection() {
   return (
     <section className="relative bg-background overflow-hidden py-24 md:py-32">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[980px] w-[1280px] glow-primary opacity-5 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header da Seção */}
@@ -79,7 +79,7 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black font-space mb-4"
+            className="text-4xl md:text-5xl font-bold font-space mb-4"
           >
             {t('title')}
           </motion.h2>
@@ -106,11 +106,11 @@ export function ServicesSection() {
             );
 
             const colorMap: Record<string, string> = {
-              blue: 'group-hover:border-blue-500/50 hover:shadow-blue-500/10',
+              blue: 'group-hover:border-info/50 hover:shadow-info/10',
               emerald:
-                'group-hover:border-emerald-500/50 hover:shadow-emerald-500/10',
+                'group-hover:border-success/50 hover:shadow-success/10',
               purple:
-                'group-hover:border-purple-500/50 hover:shadow-purple-500/10'
+                'group-hover:border-highlight/50 hover:shadow-highlight/10'
             };
 
             return (

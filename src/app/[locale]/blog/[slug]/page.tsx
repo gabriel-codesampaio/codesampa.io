@@ -102,7 +102,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <ScrollProgress />
 
       {/* Background Effect */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-full max-w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-300/10 blur-[100px] md:blur-[130px]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[920px] w-[calc(100%+520px)] max-w-[min(1320px,100%)] -translate-x-1/2 -translate-y-1/2 glow-info-pale opacity-10" />
 
       {/* Header Centralizado */}
       <header className="mb-16 relative z-10 mx-auto">
@@ -140,7 +140,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <ShareButton title={post.title} text={post.description || ''} />
         </div>
 
-        <h1 className="font-space text-4xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight mb-8 leading-[1.1] max-w-4xl">
+        <h1 className="font-space text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-8 leading-[1.1] max-w-4xl">
           {post.title}
         </h1>
 
@@ -172,7 +172,7 @@ export default async function PostPage({ params }: PostPageProps) {
             '[&_h3]:text-xl [&_h3]:font-bold [&_h3]:font-space [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-foreground/90',
             // Text
             '[&_p]:text-muted-foreground [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-lg',
-            '[&_strong]:text-foreground [&_strong]:font-semibold',
+            '[&_strong]:text-foreground [&_strong]:font-bold',
             '[&_a]:text-primary-text [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-primary-text/30 [&_a]:transition-colors hover:[&_a]:decoration-primary-text',
             // Âncoras dos títulos (rehype-autolink-headings) herdam a cor do título
             '[&_:is(h1,h2,h3,h4)_a]:text-inherit [&_:is(h1,h2,h3,h4)_a]:no-underline',

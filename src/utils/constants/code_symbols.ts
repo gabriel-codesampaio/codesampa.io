@@ -30,7 +30,7 @@ export const codeSymbols = [
     top: '60%',
     left: '5%',
     size: 'text-xs md:text-xl',
-    color: 'text-slate-700'
+    color: 'text-muted-foreground/40'
   },
   // 4. Baixo Centro (~6h)
   {
@@ -40,7 +40,7 @@ export const codeSymbols = [
     top: '80%',
     left: '40%',
     size: 'text-3xl md:text-6xl',
-    color: 'text-slate-800'
+    color: 'text-muted-foreground/25'
   },
   // 5. Baixo Direito (~4h)
   {
@@ -50,7 +50,7 @@ export const codeSymbols = [
     top: '70%',
     left: '85%',
     size: 'text-2xl md:text-5xl',
-    color: 'text-blue-500/20'
+    color: 'text-info/20'
   },
   // 6. Meio Direito (~3h)
   {
@@ -60,7 +60,7 @@ export const codeSymbols = [
     top: '40%',
     left: '90%',
     size: 'text-sm md:text-2xl',
-    color: 'text-slate-600'
+    color: 'text-muted-foreground/50'
   },
   // 7. Topo Direito (~1h) - Fim do ciclo
   {
@@ -70,6 +70,6 @@ export const codeSymbols = [
     top: '15%',
     left: '80%',
     size: 'text-3xl md:text-6xl',
-    color: 'text-blue-500/20'
+    color: 'text-info/20'
   }
 ];

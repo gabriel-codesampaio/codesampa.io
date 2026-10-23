@@ -25,13 +25,13 @@ export function ReadyToBuildSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[60vh] flex-col items-center justify-center overflow-hidden border-t border-white/5 bg-background py-24">
+    <section className="relative flex min-h-[60svh] flex-col items-center justify-center overflow-hidden border-t border-white/5 bg-background py-24">
       {/* === BACKGROUND EFFECTS === */}
       {/* Grid Sutil */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line)_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
       {/* Glow Central (Aurora) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] bg-primary/20 blur-[120px] rounded-full pointer-events-none opacity-40" />
+      <div className="absolute -top-[240px] left-1/2 -translate-x-1/2 w-[calc(100%+480px)] h-[880px] glow-primary pointer-events-none opacity-[0.08]" />
 
       {/* Particles/Stars (Opcional - pontos flutuantes) */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -62,7 +62,7 @@ export function ReadyToBuildSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="mx-auto mb-6 max-w-3xl font-space text-4xl font-black leading-tight tracking-tight text-foreground md:text-6xl"
+          className="mx-auto mb-6 max-w-3xl font-space text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl"
         >
           {t.rich('title', {
             highlight: (chunks) => (
