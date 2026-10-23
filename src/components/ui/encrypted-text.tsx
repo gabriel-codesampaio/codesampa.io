@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/refs */
 'use client';
 
-import { motion, useInView } from 'motion/react';
+import { motion, useInView } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { cn } from '@/utils/functions/tw-merge';

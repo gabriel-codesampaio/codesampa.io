@@ -40,7 +40,7 @@ When adding user-facing text, add keys to **both** message JSON files and read t
 
 ### App Router layout
 
-- `src/app/[locale]/layout.tsx` is the root layout: sets up fonts, `NextIntlClientProvider`, `ThemeProvider` (dark by default), global `Header`/`Footer`, and `Toaster` (sonner).
+- `src/app/[locale]/layout.tsx` is the root layout: sets up fonts, `NextIntlClientProvider`, `MotionConfig`, global `Header`/`Footer`, and `Toaster` (`@/components/ui/sonner`). The site is always dark: `dark` is hardcoded on `<html>` (no theme library).
 - Route groups: `(home)` for `/`, plus `blog`, `blog/[slug]`, `contact`, `projects`, `schedule-success`.
 - Server Actions live in `src/app/actions/` (e.g. `newsletter.ts` — validates with Zod, then talks to Resend for both audience-list signup and transactional email; requires `RESEND_API_KEY`/`RESEND_AUDIENCE_ID` env vars).
 
@@ -49,8 +49,8 @@ When adding user-facing text, add keys to **both** message JSON files and read t
 - `src/components/pages/<page>/` — page-specific sections, one subfolder per page section (e.g. `home/hero`, `home/pipeline`, `home/shape-shifter`). Each section is generally `index.tsx` plus co-located helper files (`components.tsx`, `*-visuals.tsx`, etc.) in the same folder — keep that pattern when adding new sections rather than pulling files out to a shared location prematurely.
 - `src/components/layout/` — global chrome (`header`, `footer`).
 - `src/components/ui/` — shadcn/ui-style primitives (`new-york` style, no Tailwind prefix, base color `neutral`; see `components.json`). Icons come from `lucide-react`.
-- `src/components/providers/` — context providers (theme, etc).
-- Heavier 3D/animated pieces (e.g. `shape-shifter`) use `three` / `@react-three/fiber` / `@react-three/rapier` / `framer-motion` — check for existing patterns in that folder before adding new 3D primitives.
+- `src/components/providers/` — client-side providers (e.g. `reduced-motion`).
+- Animated pieces (e.g. `shape-shifter`) use `framer-motion` (always import from `framer-motion`, not `motion/react`); there is no 3D library in the project — check for existing patterns in that folder before adding new animated primitives.
 
 ### Utils
 

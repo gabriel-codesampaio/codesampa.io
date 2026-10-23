@@ -44,9 +44,8 @@ export function List({ posts }: { posts: Post[] }) {
     return matchesCategory && matchesSearch;
   });
 
-  const desktopPosts = posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  // A página já entrega os posts do mais novo para o mais antigo
+  const desktopPosts = posts;
 
   return (
     <div className="flex flex-col gap-10 mx-auto">

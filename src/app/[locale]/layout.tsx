@@ -3,12 +3,11 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google';
-import { Toaster } from 'sonner';
 
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { ReducedMotion } from '@/components/providers/reduced-motion';
-import { ThemeProvider } from '@/components/providers/theme';
+import { Toaster } from '@/components/ui/sonner';
 import { HOST } from '@/utils/constants/host';
 import { EN_US, PT_BR } from '@/utils/constants/languages';
 import { buildAlternates } from '@/utils/functions/alternates';
@@ -117,8 +116,8 @@ export default async function RootLayout({
     <html
       lang={locale}
       suppressHydrationWarning
-      // `dark` já no HTML do servidor: o site é sempre escuro e, sem isso, a
-      // página nascia clara até o script do next-themes rodar (ou se o JS falhasse)
+      // O site é sempre escuro: o tema vem fixo no HTML do servidor, sem
+      // depender de script (antes a página nascia clara se o JS falhasse)
       className={`dark ${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}
       style={{ colorScheme: 'dark' }}
     >
@@ -128,25 +127,19 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider>
           <MotionConfig reducedMotion="user">
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              disableTransitionOnChange
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
             >
-              <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
-              >
-                {t('skip_to_content')}
-              </a>
-              <ReducedMotion />
-              <Header />
-              <Toaster />
-              <main id="main-content" className="grow">
-                {children}
-              </main>
-              <Footer />
-            </ThemeProvider>
+              {t('skip_to_content')}
+            </a>
+            <ReducedMotion />
+            <Header />
+            <Toaster />
+            <main id="main-content" className="grow">
+              {children}
+            </main>
+            <Footer />
           </MotionConfig>
         </NextIntlClientProvider>
       </body>

@@ -22,21 +22,9 @@ const containerVariants: Variants = {
   }
 };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: {
-      duration: 0.8,
-      ease: [0.21, 0.47, 0.32, 0.98] as const
-    }
-  }
-};
-
-// Título e subtítulo nascem visíveis (só deslizam): com opacity 0 no HTML do
-// servidor, o LCP esperava a hidratação inteira (~8 s em celular com rede lenta).
+// Tudo no hero nasce visível e só desliza: com opacity 0 no HTML do servidor,
+// o LCP esperava a hidratação inteira (~8 s em celular com rede lenta) e, se o
+// JS falhasse, o badge e os botões de ação nunca apareciam.
 const textVariants: Variants = {
   hidden: { y: 20 },
   visible: {
@@ -83,7 +71,7 @@ export function HeroSection() {
           className="flex flex-col items-center"
         >
           {/* Badge */}
-          <motion.div variants={itemVariants} className="mb-8">
+          <motion.div variants={textVariants} className="mb-8">
             <AnimatedBadge>
               <div className="flex items-center gap-2">
                 <Terminal size={12} className="text-primary-text" />
@@ -117,7 +105,7 @@ export function HeroSection() {
           </motion.p>
 
           {/* Novos Botões CTA */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={textVariants}>
             <HeroActions />
           </motion.div>
         </motion.div>

@@ -2,12 +2,10 @@
 
 import Giscus from '@giscus/react';
 import { useLocale } from 'next-intl';
-import { useTheme } from 'next-themes';
 
 import { PT_BR } from '@/utils/constants/languages';
 
 export function Comments() {
-  const { theme } = useTheme();
   const locale = useLocale();
   const giscusLang = locale === PT_BR ? 'pt' : 'en';
 
@@ -28,7 +26,8 @@ export function Comments() {
           reactionsEnabled="1"
           emitMetadata="0"
           inputPosition="top"
-          theme={theme === 'dark' ? 'dark' : 'light'}
+          // O site é sempre escuro
+          theme="dark"
           lang={giscusLang}
           loading="lazy"
         />
