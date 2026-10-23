@@ -17,7 +17,7 @@ yarn blog              # `npx velite --watch` — rebuild MDX content only, with
 yarn content:update    # git submodule update --remote --merge — pull latest blog content from the content submodule
 ```
 
-There is no test runner configured in this repo.
+There is no test framework. `yarn test` runs Node's built-in runner (`node:test`) on `src/lib/rate-limit.test.mjs`; the `.mjs` extension keeps it out of the TypeScript build while still importing the `.ts` source via `--experimental-strip-types`.
 
 Package manager is **yarn** (yarn.lock is the source of truth); npm also works per the README but prefer yarn for lockfile consistency.
 
@@ -34,7 +34,7 @@ Key facts about the `posts` collection:
 
 ### Internationalization
 
-Routing is locale-prefixed via `src/app/[locale]/...` using `next-intl`. Supported locales live in `src/utils/constants/languages.ts` (`EN_US`, `PT_BR`); `EN_US` is the default. `src/middleware.ts` wraps `next-intl`'s middleware using the config in `src/lib/i18n/routing.ts`; the matcher excludes `api`, `_next`, `_vercel`, and files with extensions. Translation strings live in `src/lib/i18n/messages/{en-US,pt-BR}.json`; the Next.js plugin config is loaded from `src/lib/i18n/request.ts`.
+Routing is locale-prefixed via `src/app/[locale]/...` using `next-intl`. Supported locales live in `src/utils/constants/languages.ts` (`EN_US`, `PT_BR`); `EN_US` is the default. `src/proxy.ts` (Next 16's name for the old `middleware.ts`) wraps `next-intl`'s middleware using the config in `src/lib/i18n/routing.ts`; the matcher excludes `api`, `_next`, `_vercel`, and files with extensions. Translation strings live in `src/lib/i18n/messages/{en-US,pt-BR}.json`; the Next.js plugin config is loaded from `src/lib/i18n/request.ts`.
 
 When adding user-facing text, add keys to **both** message JSON files and read them with `next-intl`'s `getTranslations`/`useTranslations`, not hardcoded strings.
 

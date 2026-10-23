@@ -49,3 +49,6 @@ next-env.d.ts
 /.claude/
 /.agents/
 skills-lock.json
+
+# velite (gerado no build a partir do submódulo content)
+/.velite
