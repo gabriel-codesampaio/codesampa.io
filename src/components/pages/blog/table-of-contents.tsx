@@ -92,7 +92,7 @@ export function TableOfContents() {
                 onClick={(e) => handleClick(e, heading.id)}
                 aria-current={isActive ? 'location' : undefined}
                 className={cn(
-                  'block text-sm transition-all duration-200 line-clamp-2 hover:text-white',
+                  'block text-sm transition-colors duration-200 line-clamp-2 hover:text-white',
                   isActive
                     ? 'text-primary-text font-medium translate-x-1'
                     : 'text-muted-foreground'

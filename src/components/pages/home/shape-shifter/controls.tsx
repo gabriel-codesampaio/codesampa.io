@@ -49,7 +49,7 @@ export function ShapeShifterControls({
             aria-pressed={currentMode === 'desktop'}
             aria-label={t('desktop')}
             className={cn(
-              'relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all duration-300',
+              'relative flex items-center gap-2 min-h-11 rounded-full px-4 py-2 text-xs font-medium transition duration-300',
               currentMode === 'desktop'
                 ? 'text-white'
                 : 'text-slate-500 hover:text-slate-300',
@@ -82,7 +82,7 @@ export function ShapeShifterControls({
             aria-pressed={currentMode === 'mobile'}
             aria-label={t('mobile')}
             className={cn(
-              'relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all duration-300',
+              'relative flex items-center gap-2 min-h-11 rounded-full px-4 py-2 text-xs font-medium transition duration-300',
               currentMode === 'mobile'
                 ? 'text-white'
                 : 'text-slate-500 hover:text-slate-300'
@@ -102,7 +102,7 @@ export function ShapeShifterControls({
 
         <button
           onClick={onReplay}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/80 text-slate-400 backdrop-blur-xl transition-all hover:bg-white/10 hover:text-white active:scale-95 group"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/80 text-slate-400 backdrop-blur-xl transition hover:bg-white/10 hover:text-white active:scale-95 group"
           title={t('replay')}
           aria-label={t('replay')}
         >
@@ -115,10 +115,10 @@ export function ShapeShifterControls({
 
       <button
         onClick={toggleMode}
-        className="group flex items-center gap-2 rounded-full border border-white/5 bg-white/5 min-h-11 px-4 text-xs font-medium text-slate-300 transition-all hover:border-white/20 hover:bg-white/10 hover:text-white"
+        className="group flex items-center gap-2 rounded-full border border-white/5 bg-white/5 min-h-11 px-4 text-xs font-medium text-slate-300 transition-colors hover:border-white/20 hover:bg-white/10 hover:text-white"
       >
         <span>{t('see_also')}</span>
-        <span className="text-white underline decoration-white/30 underline-offset-4 group-hover:decoration-white/80 transition-all">
+        <span className="text-white underline decoration-white/30 underline-offset-4 group-hover:decoration-white/80 transition-colors">
           {suggestionLabel}
         </span>
         <ArrowRight

@@ -55,7 +55,7 @@ export function ContactHub() {
         whileInView="visible"
         viewport={{ once: true }}
         onClick={handleCopyEmail}
-        className="group relative col-span-1 md:col-span-3 flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-white/10 to-transparent p-6 md:p-8 text-left transition-all hover:border-white/20 hover:from-white/20"
+        className="group relative col-span-1 md:col-span-3 flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-white/10 to-transparent p-6 md:p-8 text-left transition-colors hover:border-white/20 hover:from-white/20"
       >
         <div className="absolute right-4 top-4 rounded-full bg-white/10 p-2 transition-colors group-hover:bg-white/20">
           {copied ? (
@@ -80,7 +80,7 @@ export function ContactHub() {
           </p>
         </div>
 
-        <div className="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-blue-500/20 blur-[80px] transition-all group-hover:bg-blue-500/30" />
+        <div className="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-blue-500/20 blur-[80px] transition-colors group-hover:bg-blue-500/30" />
       </motion.button>
 
       {/* <motion.a
@@ -92,7 +92,7 @@ export function ContactHub() {
         initial={isMobile ? 'visible' : 'hidden'}
         whileInView="visible"
         viewport={{ once: true }}
-        className="group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-emerald-500/10 to-transparent p-6 md:p-8 transition-all hover:border-emerald-500/30 hover:from-emerald-500/20"
+        className="group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-emerald-500/10 to-transparent p-6 md:p-8 transition-colors hover:border-emerald-500/30 hover:from-emerald-500/20"
       >
         <div className="absolute right-4 top-4 opacity-50 transition-opacity group-hover:opacity-100">
           <ArrowUpRight size={20} />
@@ -118,7 +118,7 @@ export function ContactHub() {
         initial={isMobile ? 'visible' : 'hidden'}
         whileInView="visible"
         viewport={{ once: true }}
-        className="group relative col-span-1 md:col-span-3 flex items-center justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-primary/10 to-transparent p-6 md:p-8 transition-all hover:border-primary/40 hover:from-primary/20"
+        className="group relative col-span-1 md:col-span-3 flex items-center justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-primary/10 to-transparent p-6 md:p-8 transition-colors hover:border-primary/40 hover:from-primary/20"
       >
         <div className="flex flex-col gap-2 relative z-10">
           <div className="flex items-center gap-2 text-primary-text mb-2">

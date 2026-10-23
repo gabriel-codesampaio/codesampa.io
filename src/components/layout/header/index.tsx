@@ -118,7 +118,7 @@ export function Header() {
                     {/* Botão GitHub */}
                     <Button
                       variant="outline"
-                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-primary/50 text-slate-300 h-12 rounded-xl group transition-all"
+                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-primary/50 text-slate-300 h-12 rounded-xl group transition-colors"
                       asChild
                     >
                       <a
@@ -130,14 +130,14 @@ export function Header() {
                           <Github className="h-5 w-5" aria-hidden="true" />
                           <span className="font-semibold">{t('github')}</span>
                         </div>
-                        <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                        <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition" />
                       </a>
                     </Button>
 
                     {/* Botão LinkedIn */}
                     <Button
                       variant="outline"
-                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-blue-500/50 text-slate-300 h-12 rounded-xl group transition-all"
+                      className="w-full justify-between border-white/10 bg-white/5 hover:bg-white/10 hover:text-white hover:border-blue-500/50 text-slate-300 h-12 rounded-xl group transition-colors"
                       asChild
                     >
                       <a
@@ -149,7 +149,7 @@ export function Header() {
                           <Linkedin className="h-5 w-5" aria-hidden="true" />
                           <span className="font-semibold">{t('linkedin')}</span>
                         </div>
-                        <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                        <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition" />
                       </a>
                     </Button>
                   </div>

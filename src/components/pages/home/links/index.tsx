@@ -109,14 +109,17 @@ const LiLink = ({
   <li className="w-full">
     <Link
       href={href}
-      className="group flex min-h-11 items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors w-full"
+      className="group relative flex min-h-11 items-center text-sm text-muted-foreground hover:text-white transition-colors w-full"
     >
+      {/* O traço cresce e o texto desliza por transform, sem animar width */}
       <span
         aria-hidden="true"
-        className="h-px w-0 bg-primary group-hover:w-3 transition-[width] duration-300 shrink-0"
+        className="absolute left-0 top-1/2 h-px w-3 -translate-y-1/2 origin-left scale-x-0 bg-primary group-hover:scale-x-100 transition-transform duration-300"
       />
 
-      <span className="line-clamp-2 flex-1 min-w-0 text-left">{children}</span>
+      <span className="line-clamp-2 flex-1 min-w-0 pl-2 text-left transition-transform duration-300 group-hover:translate-x-3">
+        {children}
+      </span>
     </Link>
   </li>
 );

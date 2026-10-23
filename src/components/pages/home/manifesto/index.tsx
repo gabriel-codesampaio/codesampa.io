@@ -7,7 +7,7 @@ import {
   useTransform
 } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { cn } from '@/utils/functions/tw-merge';
 
@@ -23,6 +23,11 @@ export function ManifestoSection() {
   // Com movimento reduzido o texto aparece inteiro (sem revelação por rolagem,
   // que deixaria as palavras com 10% de opacidade até o usuário rolar)
   const reduceMotion = useReducedMotion();
+
+  // O HTML do servidor sai com o texto inteiro visível; a revelação só liga
+  // depois de montar, senão sem JS (ou antes da hidratação) ficava em 10%
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   // Texto dividido em palavras para animação individual
   const words = t('text').split(' ');
@@ -51,7 +56,7 @@ export function ManifestoSection() {
                     key={i}
                     range={[start, end]}
                     progress={scrollYProgress}
-                    static={!!reduceMotion}
+                    static={!!reduceMotion || !mounted}
                   >
                     {word}
                   </Word>

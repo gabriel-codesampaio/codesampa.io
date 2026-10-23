@@ -178,9 +178,32 @@
   --shadow-2xl: var(--shadow-2xl);
 }
 
+@theme {
+  /* Indicador de rolagem: desce e volta com desaceleração suave, sem quique */
+  --animate-scroll-hint: scroll-hint 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+
+  @keyframes scroll-hint {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(6px);
+      opacity: 0.6;
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring;
+  }
+
+  /* clip, não hidden: hidden cria um contêiner de rolagem e quebra o position: sticky */
+  html,
+  body {
+    overflow-x: clip;
   }
 
   body {
@@ -194,6 +217,7 @@
   h5,
   h6 {
     font-family: var(--font-space);
+    text-wrap: balance;
   }
 
   button:not(:disabled),

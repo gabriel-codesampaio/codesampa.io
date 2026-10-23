@@ -52,7 +52,7 @@ export function CodeBlock({
         </div>
 
         {/* Filename / Language Label */}
-        <div className="flex items-center gap-2 text-[10px] md:text-xs font-mono text-muted-foreground/60">
+        <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground/60">
           <Terminal size={12} />
           <span className="uppercase">{language}</span>
         </div>

@@ -1,7 +1,16 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code, Eye, FileCode, Copy, Check, Lock } from 'lucide-react';
+import {
+  Code,
+  Eye,
+  FileCode,
+  Copy,
+  Check,
+  Lock,
+  CircleX,
+  TriangleAlert
+} from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { CODE_SNIPPETS } from '@/utils/constants/code_snippets';
@@ -78,7 +87,7 @@ export function SystemDesktopMock({
   return (
     <div className="relative aspect-16/10 w-[95vw] max-w-6xl perspective-1000">
       <motion.div
-        className="relative h-full w-full transform-style-3d transition-all duration-700"
+        className="relative h-full w-full transform-style-3d transition-transform duration-700"
         animate={{ rotateY: isXRay ? 180 : 0 }}
         transition={{ type: 'spring', stiffness: 60, damping: 12 }}
       >
@@ -105,7 +114,7 @@ export function SystemDesktopMock({
 
             <button
               onClick={() => setIsXRay(true)}
-              className="group flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[9px] font-bold text-primary-text transition-all hover:bg-primary/20 cursor-pointer"
+              className="group flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[9px] font-bold text-primary-text transition-colors hover:bg-primary/20 cursor-pointer"
             >
               <Code size={12} />
               <span className="hidden sm:inline">VIEW CODE</span>
@@ -164,7 +173,7 @@ export function SystemDesktopMock({
           <div className="flex h-10 shrink-0 items-center justify-between border-b border-white/5 bg-[#252526] px-4">
             <div className="flex items-center gap-2">
               <div
-                className="flex gap-1.5 mr-2 opacity-50 grayscale hover:grayscale-0 transition-all group cursor-pointer"
+                className="flex gap-1.5 mr-2 opacity-50 grayscale hover:grayscale-0 transition group cursor-pointer"
                 onClick={() => setIsXRay(false)}
               >
                 <div
@@ -210,7 +219,7 @@ export function SystemDesktopMock({
 
               <button
                 onClick={() => setIsXRay(false)}
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[9px] font-bold text-white transition-all hover:bg-white/10 cursor-pointer"
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[9px] font-bold text-white transition-colors hover:bg-white/10 cursor-pointer"
               >
                 <Eye size={12} />
                 <span className="hidden sm:inline">PREVIEW UI</span>
@@ -250,10 +259,10 @@ export function SystemDesktopMock({
 
           <div className="h-6 bg-blue-600 flex items-center px-3 gap-4 text-[10px] text-white font-medium">
             <span className="flex items-center gap-1">
-              <span className="text-xs">✕</span> 0
+              <CircleX size={12} aria-hidden="true" /> 0
             </span>
             <span className="flex items-center gap-1">
-              <span className="text-xs">⚠</span> 0
+              <TriangleAlert size={12} aria-hidden="true" /> 0
             </span>
             <span className="ml-auto">TypeScript React</span>
             <span>UTF-8</span>

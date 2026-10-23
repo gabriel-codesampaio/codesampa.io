@@ -131,10 +131,10 @@ export function HeroSection() {
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-12 md:bottom-10 flex flex-col items-center gap-3 text-slate-400 pointer-events-none"
         >
-          <span className="hidden md:flex text-[10px] uppercase tracking-widest font-mono opacity-80">
+          <span className="hidden md:flex text-xs uppercase tracking-widest font-mono opacity-80">
             {t('scroll_indicator')}
           </span>
-          <div className="flex flex-col items-center gap-0.5 animate-bounce">
+          <div className="flex flex-col items-center gap-0.5 animate-scroll-hint">
             <Mouse className="h-6 w-6 opacity-80" />
             <ChevronDown className="h-4 w-4 opacity-60" />
           </div>

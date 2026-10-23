@@ -21,7 +21,7 @@ export function BracketSelector({
         className="cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
         aria-label="Previous mode"
       >
-        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary-text group-hover:-translate-x-2 transition-all duration-300 ease-out block">
+        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary-text group-hover:-translate-x-2 transition duration-300 ease-out block">
           &lt;
         </span>
       </button>
@@ -52,7 +52,7 @@ export function BracketSelector({
         className="cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
         aria-label="Next mode"
       >
-        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary-text group-hover:translate-x-2 transition-all duration-300 ease-out block">
+        <span className="font-mono font-light text-5xl text-muted-foreground/40 group-hover:text-primary-text group-hover:translate-x-2 transition duration-300 ease-out block">
           &gt;
         </span>
       </button>

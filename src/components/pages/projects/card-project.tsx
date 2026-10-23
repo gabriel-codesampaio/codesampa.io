@@ -267,7 +267,7 @@ const CardProject = ({
       >
         <div
           className={cn(
-            'absolute inset-0 z-0 bg-linear-to-br opacity-25 blur-3xl filter saturate-150 transition-all duration-500 group-hover:opacity-40',
+            'absolute inset-0 z-0 bg-linear-to-br opacity-25 blur-3xl filter saturate-150 transition-opacity duration-500 group-hover:opacity-40',
             project.color
           )}
         />

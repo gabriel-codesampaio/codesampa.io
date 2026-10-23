@@ -154,14 +154,14 @@ function filterTree(nodes: FolderNode[], query: string): FolderNode[] {
 const FileItem = ({ node }: { node: FileNode }) => (
   <Link
     href={`/blog/${node.post.slugAsParams}`}
-    className="group flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-xs text-muted-foreground transition-all duration-200 hover:bg-primary/10 hover:text-primary-text"
+    className="group flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-xs text-muted-foreground transition-colors duration-200 hover:bg-primary/10 hover:text-primary-text"
   >
     <FileCode2
       size={14}
       className="shrink-0 text-blue-400/80 group-hover:text-blue-400"
     />
     <span className="font-mono truncate relative top-px">{node.name}</span>
-    <span className="ml-auto text-[10px] opacity-0 group-hover:opacity-60 transition-opacity whitespace-nowrap font-mono text-muted-foreground/80">
+    <span className="ml-auto text-xs opacity-0 group-hover:opacity-60 transition-opacity whitespace-nowrap font-mono text-muted-foreground/80">
       {formatPostDate(node.post.date, node.post.locale, 'dayMonth')}
     </span>
   </Link>
@@ -257,7 +257,7 @@ export function FileExplorer({
     >
       {/* Header */}
       <div className="flex h-12 shrink-0 items-center justify-between border-b border-white/5 bg-white/5 px-3 gap-3">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/70 shrink-0 font-mono">
+        <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/70 shrink-0 font-mono">
           Explorer
         </span>
 
@@ -294,7 +294,7 @@ export function FileExplorer({
             visibleTree.map((node, i) => <FolderItem key={i} node={node} />)
           ) : (
             <div className="py-8 text-center">
-              <p className="text-[11px] text-muted-foreground font-mono">
+              <p className="text-xs text-muted-foreground font-mono">
                 No results found.
               </p>
             </div>
@@ -303,7 +303,7 @@ export function FileExplorer({
       </div>
 
       {/* Footer / Status Bar */}
-      <div className="flex h-7 shrink-0 items-center border-t border-white/5 bg-white/2 px-3 text-[10px] text-muted-foreground font-mono select-none">
+      <div className="flex h-7 shrink-0 items-center border-t border-white/5 bg-white/2 px-3 text-xs text-muted-foreground font-mono select-none">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1.5 text-primary-text/80">
             <span className="w-1.5 h-1.5 rounded-full bg-primary/80 animate-pulse" />

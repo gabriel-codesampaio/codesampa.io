@@ -66,10 +66,10 @@ export function ReadMore({ currentSlug, currentTags, locale }: ReadMoreProps) {
           >
             <Link
               href={`/blog/${post.slugAsParams}`}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/30 transition-all hover:border-primary/30 hover:bg-card/50 hover:-translate-y-1"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/30 transition hover:border-primary/30 hover:bg-card/50 hover:-translate-y-1"
             >
               <div className="flex flex-1 flex-col p-6">
-                <div className="mb-4 flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
+                <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider font-mono">
                   <Calendar size={12} className="text-primary-text/70" />
                   <time dateTime={post.date}>
                     {formatPostDate(post.date, locale, 'short')}
@@ -88,7 +88,7 @@ export function ReadMore({ currentSlug, currentTags, locale }: ReadMoreProps) {
                   {post.tags.slice(0, 2).map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-white/5 px-2 py-1 text-[10px] text-muted-foreground group-hover:text-foreground transition-colors"
+                      className="rounded-full bg-white/5 px-2 py-1 text-xs text-muted-foreground group-hover:text-foreground transition-colors"
                     >
                       #{tag}
                     </span>

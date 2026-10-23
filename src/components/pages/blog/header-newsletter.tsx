@@ -56,7 +56,7 @@ export function HeaderNewsletter() {
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="relative w-full max-w-4xl overflow-hidden rounded-xl border border-white/10 bg-card/30 p-5 md:p-6 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-card/40"
+      className="relative w-full max-w-4xl overflow-hidden rounded-xl border border-white/10 bg-card/30 p-5 md:p-6 backdrop-blur-sm transition-colors hover:border-white/20 hover:bg-card/40"
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         {/* Lado Esquerdo */}
@@ -110,7 +110,7 @@ export function HeaderNewsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={isPending || status === 'success'}
-              className="h-10 w-full rounded-lg border border-white/10 bg-black/20 px-3 text-sm text-white placeholder:text-muted-foreground/50 outline-none focus-visible:border-primary-text focus-visible:ring-2 focus-visible:ring-primary-text/60 transition-[border-color,box-shadow] font-mono"
+              className="h-11 w-full rounded-lg border border-white/10 bg-black/20 px-3 text-sm text-white placeholder:text-muted-foreground/50 outline-none focus-visible:border-primary-text focus-visible:ring-2 focus-visible:ring-primary-text/60 transition-[border-color,box-shadow] font-mono"
               required
             />
             <span
@@ -127,7 +127,7 @@ export function HeaderNewsletter() {
             type="submit"
             disabled={isPending || status === 'success'}
             className={cn(
-              'flex h-10 items-center justify-center rounded-lg px-4 text-sm font-bold uppercase tracking-wider transition-all min-w-[100px]',
+              'flex h-11 items-center justify-center rounded-lg px-4 text-sm font-bold uppercase tracking-wider transition min-w-[100px]',
               status === 'success'
                 ? 'bg-green-500/20 text-green-400 border border-green-500/50'
                 : 'bg-primary text-white hover:bg-primary/90 hover:shadow-[0_0_15px_color-mix(in_oklab,var(--color-primary)_30%,transparent)]'

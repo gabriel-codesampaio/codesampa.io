@@ -29,7 +29,7 @@ export function PostCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 transition-all hover:border-white/20 hover:bg-white/10"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 transition-colors hover:border-white/20 hover:bg-white/10"
     >
       {/* Background Hover Effect */}
       <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
@@ -67,7 +67,7 @@ export function PostCard({
           {post.tags?.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1 rounded-md border border-white/5 bg-white/5 px-2 py-1 text-[10px] font-medium text-muted-foreground transition-colors hover:border-primary/20 hover:text-primary-text"
+              className="inline-flex items-center gap-1 rounded-md border border-white/5 bg-white/5 px-2 py-1 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/20 hover:text-primary-text"
             >
               <Hash size={10} />
               {tag}

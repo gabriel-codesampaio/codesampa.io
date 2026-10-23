@@ -181,7 +181,7 @@ export default async function PostPage({ params }: PostPageProps) {
             '[&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-6 [&_ol]:text-muted-foreground',
             '[&_li]:mb-2 [&_li::marker]:text-primary-text/50',
             // Blockquotes
-            '[&_blockquote]:border-l-4 [&_blockquote]:border-primary/50 [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-foreground/80 [&_blockquote]:bg-white/5 [&_blockquote]:py-4 [&_blockquote]:pr-4 [&_blockquote]:rounded-r-lg [&_blockquote]:my-8',
+            '[&_blockquote]:border-l-2 [&_blockquote]:border-primary/50 [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-foreground/80 [&_blockquote]:my-8',
             // Inline Code
             '[&_code]:bg-white/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-md [&_code]:text-sm [&_code]:font-mono [&_code]:text-primary-text/90 [&_code]:border [&_code]:border-white/5'
             // Code Blocks (Rehype Pretty Code)

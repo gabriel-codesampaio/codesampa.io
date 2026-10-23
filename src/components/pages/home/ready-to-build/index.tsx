@@ -92,7 +92,7 @@ export function ReadyToBuildSection() {
         >
           <Link
             href="/contact"
-            className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-foreground px-8 py-2 transition-all hover:scale-105 hover:bg-primary/90"
+            className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-foreground px-8 py-2 transition hover:scale-105 hover:bg-primary/90"
           >
             {/* Efeito de brilho no botão */}
             <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />

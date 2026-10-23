@@ -25,7 +25,7 @@ export const CardProjectSecondary = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/2 p-6 hover:border-white/10 hover:bg-white/4 transition-all"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/2 p-6 hover:border-white/10 hover:bg-white/4 transition-colors"
     >
       <div>
         <div className="mb-4 flex items-center justify-between">

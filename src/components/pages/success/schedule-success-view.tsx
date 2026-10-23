@@ -87,7 +87,7 @@ export function ScheduleSuccessView() {
           <div className="relative group w-full">
             <div className="absolute -inset-0.5 rounded-lg bg-linear-to-r from-emerald-500/50 to-cyan-500/50 opacity-20 group-hover:opacity-60 blur transition duration-500" />
             <Button
-              className="relative w-full bg-background hover:bg-emerald-950/20 text-foreground border border-emerald-500/20 group-hover:border-emerald-500/50 h-12 justify-between px-6 backdrop-blur-md overflow-hidden transition-all"
+              className="relative w-full bg-background hover:bg-emerald-950/20 text-foreground border border-emerald-500/20 group-hover:border-emerald-500/50 h-12 justify-between px-6 backdrop-blur-md overflow-hidden transition-colors"
               asChild
             >
               <Link href="/blog" className="flex items-center">
@@ -106,7 +106,7 @@ export function ScheduleSuccessView() {
           <div className="relative group w-full">
             <Button
               variant="ghost"
-              className="w-full h-12 justify-between px-6 text-muted-foreground hover:text-foreground hover:bg-white/5 border border-transparent hover:border-white/10 transition-all"
+              className="w-full h-12 justify-between px-6 text-muted-foreground hover:text-foreground hover:bg-white/5 border border-transparent hover:border-white/10 transition-colors"
               asChild
             >
               <Link href="/projects" className="flex items-center">
@@ -116,7 +116,7 @@ export function ScheduleSuccessView() {
                     {t('button_portfolio')}
                   </span>
                 </div>
-                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition" />
               </Link>
             </Button>
           </div>

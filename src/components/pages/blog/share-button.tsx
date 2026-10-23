@@ -48,7 +48,7 @@ export function ShareButton({ title, text }: ShareButtonProps) {
       variant="outline"
       size="sm"
       onClick={handleShare}
-      className="gap-2 rounded-full border-white/10 hover:bg-white/5 hover:border-primary/30 transition-all group"
+      className="gap-2 rounded-full border-white/10 hover:bg-white/5 hover:border-primary/30 transition-colors group"
     >
       {copied ? (
         <Check size={14} className="text-emerald-400" />

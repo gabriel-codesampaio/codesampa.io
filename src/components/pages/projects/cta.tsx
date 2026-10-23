@@ -38,7 +38,7 @@ export const Cta = () => {
         <Button
           asChild
           size="lg"
-          className="group relative h-14 rounded-full px-10 text-base font-bold bg-foreground text-background hover:bg-white/90 transition-all hover:scale-105 hover:shadow-xl hover:shadow-primary/20"
+          className="group relative h-14 rounded-full px-10 text-base font-bold bg-foreground text-background hover:bg-white/90 transition hover:scale-105 hover:shadow-xl hover:shadow-primary/20"
         >
           <Link href="/contact" className="flex items-center gap-2">
             {t('cta_footer.button')}

@@ -60,7 +60,7 @@ export const DesktopSidebar = ({
             key={item.id}
             onClick={() => onTabChange(item.id as FeatureType)}
             className={cn(
-              'flex w-full cursor-pointer items-center gap-3 rounded-md border border-transparent px-3 py-2 transition-all',
+              'flex w-full cursor-pointer items-center gap-3 rounded-md border border-transparent px-3 py-2 transition',
               activeTab === item.id
                 ? 'bg-white/5 text-primary-text border-white/5 shadow-inner'
                 : 'hover:bg-white/5 hover:text-slate-200'
@@ -198,7 +198,7 @@ export const DarkChart = () => (
             animate={{ height: `${h}%` }}
             transition={{ duration: 0.8, delay: i * 0.05 }}
             className={cn(
-              'w-full rounded-sm transition-all duration-300',
+              'w-full rounded-sm transition-colors duration-300',
               i === 9
                 ? 'bg-primary shadow-[0_0_15px_rgba(0,71,255,0.5)]'
                 : 'bg-slate-800 group-hover:bg-slate-700'

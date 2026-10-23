@@ -109,6 +109,7 @@ export const LandingPageVisual = () => (
     {/* Gráfico de Vendas */}
     <motion.div className="absolute bottom-0 left-0 right-0 h-32 opacity-20">
       <svg
+        aria-hidden="true"
         viewBox="0 0 100 40"
         className="h-full w-full fill-emerald-500/50 stroke-emerald-500"
       >
