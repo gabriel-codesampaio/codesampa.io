@@ -6,7 +6,7 @@
   },
   "Metadata": {
     "title": "codesampa.io | Software Engineering & Design Studio",
-    "description": "codesampa.io software development studio. Specialists in React, Next.js, and Scalable Architecture. Transforming ideas into high-performance software.",
+    "description": "Software house specialized in React, Next.js and scalable architecture. We build systems, landing pages and AI automations.",
     "keywords": "codesampa.io, Software House, Web Development, Next.js Expert, React, Node.js, Software Architecture, Scalable Systems",
     "Projects": {
       "title": "Projects & Case Studies | codesampa.io",
@@ -14,7 +14,7 @@
     },
     "Blog": {
       "title": "Tech Blog: Engineering & Architecture | codesampa.io",
-      "description": "Technical articles on the Javascript ecosystem, software architecture, and Next.js. Insights straight from our engineering lab."
+      "description": "Technical articles on the JavaScript ecosystem, software architecture, Next.js and real cases from our software house."
     },
     "Contact": {
       "title": "Contact & Quote | codesampa.io",
@@ -75,7 +75,7 @@
           }
         },
         "Manifesto": {
-          "text": "Software is not just code. It is about *solving* real problems. We build resilient *systems* and interfaces that *inspire*, bridging precision engineering with *strategic* design to scale your business."
+          "text": "Good software *solves* a real business problem. We build resilient *systems* and clear interfaces, with the same care for *engineering* and *design*."
         }
       },
       "Contact": {
@@ -156,7 +156,7 @@
         "badge": "Available for new projects",
         "title_prefix": "Building",
         "mobile_title_suffix": "Software That Scales With Your Business",
-        "subtitle": "Systems, high-converting landing pages, and AI automations built by someone who understands both code and results.",
+        "subtitle": "Systems, high-converting landing pages and AI automations, built by people who understand both code and results.",
         "cta_primary": "Let's Talk About Your Project",
         "cta_secondary": "View Projects",
         "scroll_indicator": "Scroll to compile",
@@ -182,7 +182,7 @@
           },
           "landing": {
             "title": "High-Converting Pages",
-            "description": "Pages designed to sell. Extreme SEO optimization, instant loading, and design focused on converting visitors into customers.",
+            "description": "Pages designed to sell: technical SEO, fast loading and design focused on turning visitors into customers.",
             "feature1": "Fast Loading on Mobile",
             "feature2": "Technical & Semantic SEO",
             "feature3": "Conversion Focused Design (CRO)",
@@ -191,7 +191,7 @@
           },
           "ai": {
             "title": "AI Integration",
-            "description": "Empower your business with artificial intelligence. Chatbots, automated data analysis, and predictive functionalities.",
+            "description": "Chatbots, automated data analysis and predictive features built into your business.",
             "feature1": "Chatbots & Smart Assistants",
             "feature2": "OpenAI / LLMs Integration",
             "feature3": "Customer Service Automation",
@@ -211,7 +211,7 @@
         "note": "Or send a direct email to"
       },
       "Links": {
-        "description": "Cutting-edge software engineering for digital products demanding performance, scalability, and impeccable design.",
+        "description": "Software house building systems, landing pages and AI automations for businesses.",
         "rights": "All rights reserved.",
         "made_with": "Engineered by Gabriel Sampaio | codesampa.io",
         "legal": {
@@ -316,7 +316,7 @@
     },
     "Projects": {
       "title": "Featured <highlight>Projects.</highlight>",
-      "subtitle": "A selection of projects demonstrating technical capability, scalable design systems, and complex problem-solving.",
+      "subtitle": "Some of the products we've built: live platforms, landing pages and interface studies.",
       "cta_case_study": "View Details",
       "cta_access_product": "Access Product",
       "cta_view_repo": "View repository",
@@ -327,7 +327,7 @@
       "empty": "No projects match this filter.",
       "placeholder": "Search projects…",
       "cta_footer": {
-        "title": "Your project could be the next <highlight>Highlight.</highlight>",
+        "title": "Your project could be the next <highlight>highlight.</highlight>",
         "subtitle": "Didn't find something like what you need? Custom projects are what we do. Tell us the challenge and we'll send a proposal.",
         "button": "Let's Talk About Your Project"
       },
@@ -336,7 +336,7 @@
         "kingfix": {
           "title": "KingFix",
           "category": "Mobile Mechanic Platform",
-          "description": "More than a system: a sales engine. Intelligent scheduling with automatic distance calculation (Google Maps API) and location-based pricing. The customer chooses, the system handles logistics. Integrated checkout (Stripe), complete financial and administrative management. The definitive Mobile-First solution to scale mobile mechanic services.",
+          "description": "Scheduling with automatic travel-distance calculation (Google Maps API) and location-based pricing. The customer picks a time and the system handles the logistics. Stripe checkout, financial management and an admin panel, built mobile-first.",
           "metrics_data": [
             { "value": "Toronto", "label": "Live in Canada" },
             { "value": "Stripe", "label": "Online payment" },
@@ -346,21 +346,21 @@
         "devrex": {
           "title": "DevRex",
           "category": "Micro-SaaS Platform",
-          "description": "The definitive bridge for your international career. Micro-SaaS platform that uses AI to analyze profiles and automate LinkedIn applications. Find the best global remote jobs with surgical precision and increase your hiring chances.",
+          "description": "A platform for developers to find international remote jobs, with LinkedIn application automation and AI profile analysis.",
           "metrics_data": [
             { "value": "500+", "label": "Jobs" },
-            { "value": "AI", "label": "Powered" },
-            { "value": "Global", "label": "Reach" }
+            { "value": "AI", "label": "Profile analysis" },
+            { "value": "Remote", "label": "International jobs" }
           ]
         },
         "mycard4you": {
           "title": "MyCard4You",
           "category": "Web Platform",
-          "description": "Innovative platform to create, customize, and schedule interactive virtual cards for special occasions. Features photo uploads, soundtracks, and visual effects with integrated payments.",
+          "description": "A platform to create, customize and schedule interactive virtual cards for special occasions, with photo uploads, soundtracks, visual effects and integrated payments.",
           "metrics_data": [
-            { "value": "100%", "label": "Customizable" },
-            { "value": "Stripe", "label": "Secure Checkout" },
-            { "value": "Global", "label": "QR Access" }
+            { "value": "Photos & music", "label": "Customization" },
+            { "value": "Stripe", "label": "Secure checkout" },
+            { "value": "QR code", "label": "Card access" }
           ]
         },
         "codesampa": {
@@ -376,24 +376,24 @@
         "psialexia": {
           "title": "Psi Aléxia Marques",
           "category": "High-Converting Landing Page",
-          "description": "Pure performance focused on results. Built with Vanilla HTML, CSS, JS + Tailwind to achieve maximum Lighthouse scores and flawless SEO. The impact? Just 2 weeks after launch, patient demand was so high that the professional quit her full-time job to focus entirely on her private practice.",
+          "description": "Built with plain HTML, CSS and JavaScript plus Tailwind to reach top Lighthouse scores, SEO included. Two weeks after launch, patient demand was high enough that the psychologist quit her full-time job to focus on her practice.",
           "metrics_data": [
             { "value": "100/100", "label": "Performance" },
             { "value": "Top 1", "label": "Local SEO" },
-            { "value": "2 Weeks", "label": "ROI Time" }
+            { "value": "2 weeks", "label": "To quit her day job" }
           ]
         },
         "codelab": {
           "title": "CodeLab",
-          "description": "Complete learning management system. Fullstack Next.js and Prisma architecture with JSON-based course structuring. Features native payment gateway (Asaas) and AI integration for student support."
+          "description": "A learning and content management platform, fullstack in Next.js and Prisma, with JSON-structured courses, payments through Asaas and AI-assisted student support."
         },
         "finance_ai": {
           "title": "Finance AI",
-          "description": "Personal finance SaaS. Leverages Artificial Intelligence to analyze spending, automatically categorize transactions, and generate personalized saving insights."
+          "description": "A personal finance SaaS that uses AI to analyze spending, categorize transactions automatically and suggest where to save."
         },
         "lonewolf": {
           "title": "LoneWolf",
-          "description": "Responsive Landing Page developed as a Front-end study. Absolute focus on modern design, SEO best practices, and visual refinement (Pixel Perfect)."
+          "description": "A responsive landing page built as a front-end study, focused on design, SEO best practices and a pixel-perfect finish."
         }
       },
       "categories": {
@@ -408,13 +408,13 @@
     },
     "Contact": {
       "Hub": {
-        "badge": "Open for Opportunities",
-        "title_prefix": "Let's build the",
-        "title_highlight": "Impossible.",
-        "subtitle": "Have a project in mind or just want to chat about tech? Our channel is open.",
+        "badge": "Available for new projects",
+        "title_prefix": "Let's talk about",
+        "title_highlight": "your project.",
+        "subtitle": "Have a project in mind or just want to talk it through? Pick the channel you prefer.",
         "email": {
           "label": "Email",
-          "action": "Copy Address",
+          "action": "Copy address",
           "toast_success": "Email copied to clipboard!"
         },
         "whatsapp": {
@@ -424,14 +424,14 @@
         "schedule": {
           "badge": "Schedule",
           "title": "Book a Call",
-          "desc": "Let's talk about your project in a 30 min meeting."
+          "desc": "A 30-minute conversation about your project."
         }
       }
     },
     "Blog": {
       "title_prefix": "Technical",
-      "title_highlight": "Insights.",
-      "subtitle": "Deep dives into software architecture, design systems, and the bleeding edge of web development.",
+      "title_highlight": "articles.",
+      "subtitle": "Software architecture, design systems, applied AI and real cases from our projects.",
       "read_more": "Read Article",
       "no_posts": "No signals found.",
       "no_posts_sub": "Initializing knowledge base for this sector…",
@@ -463,19 +463,19 @@
       "invalid_email": "Please enter a valid email address."
     },
     "actions": {
-      "success": "Subscription successful! 🚀 Check your email.",
+      "success": "You're subscribed. Check your email.",
       "error_generic": "We couldn't save your email right now. Try again in a few minutes or write to gabriel@codesampa.io.",
       "error_server": "Something went wrong on our side. Try again in a few minutes or write to gabriel@codesampa.io.",
       "error_rate_limited": "Too many attempts in a row. Wait a few minutes and try again."
     },
     "email": {
-      "subject": "Welcome to CodeSampa! 🚀",
+      "subject": "Welcome to codesampa.io",
       "title": "Thanks for subscribing!",
       "greeting": "Hey dev!",
-      "content": "I'm thrilled to have you here. From now on, you'll receive exclusive content about <strong>Fullstack development, Next.js, and career</strong>.",
+      "content": "Glad to have you here. From now on, you'll get our articles on <strong>architecture, frontend and technology</strong>.",
       "reply_invite": "If you want to chat, just reply to this email.",
       "closing": "Best,",
-      "footer": "CodeSampa.io"
+      "footer": "codesampa.io"
     }
   }
 }

@@ -42,7 +42,7 @@ export function ReadMore({ currentSlug, currentTags, locale }: ReadMoreProps) {
 
   return (
     <section className="w-full border-t border-white/10 pt-16">
-      <div className="mb-10 flex items-center justify-between">
+      <div className="mb-6 flex items-center justify-between">
         <h3 className="font-space text-2xl font-bold text-white md:text-3xl">
           {t('title')}
         </h3>

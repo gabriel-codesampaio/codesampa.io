@@ -6,7 +6,7 @@
   },
   "Metadata": {
     "title": "codesampa.io | Software House & Design",
-    "description": "Software House codesampa.io. Especialistas em React, Next.js e Arquitetura Escalável. Transformamos ideias em produtos digitais de alta performance.",
+    "description": "Software house especializada em React, Next.js e arquitetura escalável. Construímos sistemas, landing pages e automações com IA.",
     "keywords": "codesampa.io, Software House, Design, Desenvolvimento Web, Next.js Expert, React, Node.js, Arquitetura de Software, Sistemas Escaláveis",
     "Projects": {
       "title": "Projetos e Cases | codesampa.io",
@@ -14,7 +14,7 @@
     },
     "Blog": {
       "title": "Blog Tech: Engenharia e Design | codesampa.io",
-      "description": "Artigos técnicos sobre o ecossistema Javascript, arquitetura de software e design systems. Insights direto da nossa Software House."
+      "description": "Artigos técnicos sobre o ecossistema JavaScript, arquitetura de software, design systems e casos reais da nossa software house."
     },
     "Contact": {
       "title": "Contato e Orçamento | codesampa.io",
@@ -75,7 +75,7 @@
           }
         },
         "Manifesto": {
-          "text": "Software não é apenas código. É sobre *resolver* problemas reais. Como Software House, construímos *sistemas* resilientes e interfaces que *inspiram*, unindo engenharia de precisão com design *estratégico*."
+          "text": "Software bom *resolve* um problema real do negócio. Construímos *sistemas* resilientes e interfaces claras, com o mesmo cuidado na *engenharia* e no *design*."
         }
       },
       "Contact": {
@@ -191,7 +191,7 @@
           },
           "ai": {
             "title": "Integração de IA",
-            "description": "Potencialize seu negócio com inteligência artificial. Chatbots, análise de dados automatizada e funcionalidades preditivas.",
+            "description": "Chatbots, análise automática de dados e recursos preditivos integrados ao seu negócio.",
             "feature1": "Chatbots e assistentes",
             "feature2": "Integração com OpenAI e outros modelos",
             "feature3": "Automação de atendimento",
@@ -211,7 +211,7 @@
         "note": "Ou envie um email direto para"
       },
       "Links": {
-        "description": "Software House focada em produtos digitais que exigem performance, escalabilidade e design impecável.",
+        "description": "Software house que constrói sistemas, landing pages e automações com IA para empresas.",
         "rights": "Todos os direitos reservados.",
         "made_with": "Desenvolvido por codesampa.io",
         "legal": {
@@ -316,7 +316,7 @@
     },
     "Projects": {
       "title": "Projetos em <highlight>destaque.</highlight>",
-      "subtitle": "Uma seleção de projetos que demonstram nossa capacidade técnica, design systems escaláveis e resolução de problemas complexos.",
+      "subtitle": "Alguns dos produtos que construímos: plataformas em produção, landing pages e estudos de interface.",
       "cta_case_study": "Ver detalhes",
       "cta_access_product": "Acessar produto",
       "cta_view_repo": "Ver repositório",
@@ -336,7 +336,7 @@
         "kingfix": {
           "title": "KingFix",
           "category": "Plataforma de mecânica a domicílio",
-          "description": "Muito mais que um sistema: um motor de vendas. Agendamento inteligente com cálculo automático de deslocamento (Google Maps API) e precificação dinâmica. O cliente escolhe, o sistema organiza a logística. Checkout integrado (Stripe), gestão financeira e painel administrativo completo. A solução definitiva Mobile-First para escalar o atendimento mecânico.",
+          "description": "Agendamento com cálculo automático de deslocamento (Google Maps API) e preço conforme a localização. O cliente escolhe o horário e o sistema organiza a logística. Checkout com Stripe, gestão financeira e painel administrativo, pensado primeiro para o celular.",
           "metrics_data": [
             { "value": "Toronto", "label": "Em produção no Canadá" },
             { "value": "Stripe", "label": "Pagamento online" },
@@ -346,21 +346,21 @@
         "devrex": {
           "title": "DevRex",
           "category": "Plataforma micro-SaaS",
-          "description": "Ecossistema para desenvolvedores encontrarem vagas remotas internacionais. Sistema de automação de LinkedIn e análise de perfil com IA.",
+          "description": "Plataforma para desenvolvedores encontrarem vagas remotas internacionais, com automação de candidaturas no LinkedIn e análise de perfil com IA.",
           "metrics_data": [
             { "value": "500+", "label": "Vagas" },
-            { "value": "IA", "label": "Powered" },
-            { "value": "Global", "label": "Alcance" }
+            { "value": "IA", "label": "Análise de perfil" },
+            { "value": "Remoto", "label": "Vagas internacionais" }
           ]
         },
         "mycard4you": {
           "title": "MyCard4You",
           "category": "Plataforma web",
-          "description": "Plataforma inovadora para criar, personalizar e agendar cartões virtuais interativos para datas especiais. Oferece upload de fotos, trilha sonora e efeitos visuais com pagamentos integrados.",
+          "description": "Plataforma para criar, personalizar e agendar cartões virtuais interativos para datas especiais, com upload de fotos, trilha sonora, efeitos visuais e pagamento integrado.",
           "metrics_data": [
-            { "value": "100%", "label": "Personalizável" },
-            { "value": "Stripe", "label": "Checkout Seguro" },
-            { "value": "Global", "label": "Acesso via QR" }
+            { "value": "Fotos e música", "label": "Personalização" },
+            { "value": "Stripe", "label": "Checkout seguro" },
+            { "value": "QR code", "label": "Acesso ao cartão" }
           ]
         },
         "codesampa": {
@@ -376,24 +376,24 @@
         "psialexia": {
           "title": "Psi Aléxia Marques",
           "category": "Landing page de alta conversão",
-          "description": "Performance pura focada em resultados. Desenvolvido com HTML, CSS e JS (Vanilla) + Tailwind para atingir pontuação máxima no Lighthouse e SEO impecável. O impacto? Em apenas 2 semanas no ar, a demanda de pacientes foi tão alta que a profissional optou por dedicação integral ao consultório, saindo de seu emprego CLT.",
+          "description": "Feita em HTML, CSS e JavaScript puro com Tailwind, para chegar à pontuação máxima no Lighthouse, inclusive em SEO. Duas semanas depois do lançamento, a procura de pacientes foi tanta que a psicóloga deixou o emprego CLT para se dedicar só ao consultório.",
           "metrics_data": [
             { "value": "100/100", "label": "Performance" },
             { "value": "Top 1", "label": "SEO Local" },
-            { "value": "2 Semanas", "label": "ROI Tempo" }
+            { "value": "2 semanas", "label": "Até deixar o emprego CLT" }
           ]
         },
         "codelab": {
           "title": "CodeLab",
-          "description": "Plataforma completa de ensino e gestão de conteúdo. Arquitetura Fullstack em Next.js e Prisma com estruturação de cursos via JSON. Conta com gateway de pagamento nativo (Asaas) e integração de IA para suporte."
+          "description": "Plataforma de ensino e gestão de conteúdo, fullstack em Next.js e Prisma, com cursos estruturados em JSON, pagamento pelo Asaas e IA no suporte aos alunos."
         },
         "finance_ai": {
           "title": "Finance AI",
-          "description": "SaaS de gestão financeira pessoal. Utiliza Inteligência Artificial para analisar gastos, categorizar transações automaticamente e gerar insights de economia personalizados."
+          "description": "SaaS de finanças pessoais que usa IA para analisar gastos, categorizar transações automaticamente e sugerir onde economizar."
         },
         "lonewolf": {
           "title": "LoneWolf",
-          "description": "Landing Page responsiva desenvolvida como estudo de Front-end. Foco absoluto em design moderno, melhores práticas de SEO e refinamento visual (Pixel Perfect)."
+          "description": "Landing page responsiva feita como estudo de front-end, com foco em design, boas práticas de SEO e acabamento fiel ao layout (pixel perfect)."
         }
       },
       "categories": {
@@ -408,13 +408,13 @@
     },
     "Contact": {
       "Hub": {
-        "badge": "Disponível para Projetos",
-        "title_prefix": "Vamos construir o",
-        "title_highlight": "Impossível.",
-        "subtitle": "Tem um projeto em mente ou quer apenas trocar uma ideia sobre tech? Nosso canal está aberto.",
+        "badge": "Disponível para novos projetos",
+        "title_prefix": "Vamos conversar sobre o",
+        "title_highlight": "seu projeto.",
+        "subtitle": "Tem um projeto em mente ou quer só trocar uma ideia? Escolha o canal que preferir.",
         "email": {
           "label": "Email",
-          "action": "Copiar Endereço",
+          "action": "Copiar endereço",
           "toast_success": "Email copiado para a área de transferência!"
         },
         "whatsapp": {
@@ -423,15 +423,15 @@
         },
         "schedule": {
           "badge": "Agenda",
-          "title": "Agendar uma Call",
-          "desc": "Vamos conversar sobre seu projeto em uma reunião de 30 min."
+          "title": "Agendar uma call",
+          "desc": "Uma conversa de 30 minutos sobre o seu projeto."
         }
       }
     },
     "Blog": {
-      "title_prefix": "Insights",
-      "title_highlight": "Técnicos.",
-      "subtitle": "Mergulhos profundos em arquitetura de software, design systems e a fronteira do desenvolvimento web.",
+      "title_prefix": "Artigos",
+      "title_highlight": "técnicos.",
+      "subtitle": "Arquitetura de software, design systems, IA aplicada e casos reais dos nossos projetos.",
       "read_more": "Ler artigo",
       "no_posts": "Nenhum sinal encontrado.",
       "no_posts_sub": "Inicializando base de conhecimento para este setor…",
@@ -463,19 +463,19 @@
       "invalid_email": "Por favor, insira um email válido."
     },
     "actions": {
-      "success": "Inscrição realizada com sucesso! 🚀 Verifique seu e-mail.",
+      "success": "Inscrição feita. Confira seu e-mail.",
       "error_generic": "Não conseguimos registrar seu e-mail agora. Tente de novo em alguns minutos ou escreva para gabriel@codesampa.io.",
       "error_server": "Algo deu errado do nosso lado. Tente de novo em alguns minutos ou escreva para gabriel@codesampa.io.",
       "error_rate_limited": "Muitas tentativas seguidas. Aguarde alguns minutos e tente de novo."
     },
     "email": {
-      "subject": "Bem-vindo à CodeSampa! 🚀",
+      "subject": "Boas-vindas à codesampa.io",
       "title": "Obrigado por se inscrever!",
       "greeting": "Fala, dev!",
-      "content": "Fico muito feliz em ter você por aqui. A partir de agora, você vai receber conteúdos exclusivos sobre <strong>desenvolvimento Fullstack, Next.js e carreira</strong>.",
-      "reply_invite": "Se quiser trocar uma ideia, é só responder esse e-mail.",
+      "content": "Que bom ter você por aqui. A partir de agora, você recebe nossos artigos sobre <strong>arquitetura, frontend e tecnologia</strong>.",
+      "reply_invite": "Se quiser trocar uma ideia, é só responder este e-mail.",
       "closing": "Abraço,",
-      "footer": "CodeSampa.io"
+      "footer": "codesampa.io"
     }
   }
 }
