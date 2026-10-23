@@ -17,7 +17,7 @@
     "build": "velite && next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --experimental-strip-types --test src/lib/rate-limit.test.mjs",
+    "test": "node --experimental-strip-types --test src/lib/*.test.mjs",
     "blog": "npx velite --watch",
     "content:update": "git submodule update --remote --merge"
   },

@@ -4,13 +4,11 @@ import { getTranslations } from 'next-intl/server';
 import { headers } from 'next/headers';
 import { z } from 'zod';
 
+import { looksLikeBot } from '@/lib/bot-check';
 import { isRateLimited } from '@/lib/rate-limit';
 import { getResend } from '@/lib/resend';
 
 const audienceId = process.env.RESEND_AUDIENCE_ID;
-
-// Envios mais rápidos que isso a partir do carregamento do formulário são de robôs
-const MIN_FILL_TIME_MS = 2000;
 
 const schema = z.object({
   email: z.string().trim().email().max(254)
@@ -25,12 +23,7 @@ export async function subscribeToNewsletter(
 
   // 1. Proteções anti-abuso: sem elas, qualquer script dispara e-mails
   // em nome do domínio para endereços de terceiros.
-  const honeypot = formData.get('company');
-  const renderedAt = Number(formData.get('rendered_at'));
-  const filledTooFast =
-    !Number.isFinite(renderedAt) || Date.now() - renderedAt < MIN_FILL_TIME_MS;
-
-  if (honeypot || filledTooFast) {
+  if (looksLikeBot(formData)) {
     // Resposta igual à de sucesso para não ensinar o robô a contornar
     return { success: true, message: t('actions.success') };
   }

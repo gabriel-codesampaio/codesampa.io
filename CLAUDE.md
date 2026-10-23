@@ -17,7 +17,7 @@ yarn blog              # `npx velite --watch` — rebuild MDX content only, with
 yarn content:update    # git submodule update --remote --merge — pull latest blog content from the content submodule
 ```
 
-There is no test framework. `yarn test` runs Node's built-in runner (`node:test`) on `src/lib/rate-limit.test.mjs`; the `.mjs` extension keeps it out of the TypeScript build while still importing the `.ts` source via `--experimental-strip-types`.
+There is no test framework. `yarn test` runs Node's built-in runner (`node:test`) on `src/lib/*.test.mjs` (rate limit and bot check); the `.mjs` extension keeps it out of the TypeScript build while still importing the `.ts` source via `--experimental-strip-types`.
 
 Package manager is **yarn** (yarn.lock is the source of truth); npm also works per the README but prefer yarn for lockfile consistency.
 
