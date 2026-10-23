@@ -34,11 +34,18 @@ export function ProcessSection({ showFaq = false }: { showFaq?: boolean }) {
           <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
         </div>
 
-        <ol className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {/* No celular vira carrossel com scroll-snap nativo (sem JS): o card
+            seguinte fica à mostra para indicar que dá para arrastar. Do md
+            em diante volta a ser grid. tabIndex deixa rolar pelas setas. */}
+        <ol
+          tabIndex={0}
+          aria-label={t('title')}
+          className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+        >
           {steps.map((step, i) => (
             <li
               key={step.title}
-              className="flex flex-col rounded-3xl border border-border bg-card p-6"
+              className="flex w-[85%] shrink-0 snap-start flex-col rounded-3xl border border-border bg-card p-6 md:w-auto"
             >
               <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-space text-base font-bold text-primary-text">
                 {i + 1}

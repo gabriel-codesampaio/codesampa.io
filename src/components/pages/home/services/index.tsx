@@ -94,8 +94,19 @@ export function ServicesSection() {
           </motion.p>
         </div>
 
-        {/* Grid de Serviços */}
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+        {/* Abaixo do lg vira carrossel com scroll-snap nativo, com o card
+            seguinte à mostra; no lg volta ao grid de 3 colunas. A entrada é
+            disparada pela lista inteira: se cada card esperasse aparecer, os
+            que estão fora da tela surgiriam com atraso no meio do arrasto. */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          role="region"
+          aria-label={t('title')}
+          tabIndex={0}
+          className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring md:gap-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-0 [&::-webkit-scrollbar]:hidden"
+        >
           {services.map((service) => {
             const title = t(`cards.${service.key}.title`);
             const desc = t(`cards.${service.key}.description`);
@@ -118,12 +129,9 @@ export function ServicesSection() {
                 key={service.key}
                 custom={service.delay}
                 variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
                 whileHover="hover"
-                viewport={{ once: true, margin: '-50px' }}
                 className={cn(
-                  'group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card',
+                  'group relative flex w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-3xl border border-border bg-card md:w-[46%] lg:w-auto',
                   'transition-colors duration-300 hover:shadow-2xl',
                   colorMap[service.accent]
                 )}
@@ -177,7 +185,7 @@ export function ServicesSection() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
