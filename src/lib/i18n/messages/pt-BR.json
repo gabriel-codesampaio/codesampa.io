@@ -363,6 +363,16 @@
             { "value": "QR code", "label": "Acesso ao cartão" }
           ]
         },
+        "explicai": {
+          "title": "Explicaí",
+          "category": "Construtor de manuais open source",
+          "description": "Tira o print e explica: você cola as telas, marca o que importa, escreve os passos e exporta o manual pronto. Roda na sua máquina com um comando, e os manuais ficam numa pasta sua.",
+          "metrics_data": [
+            { "value": "MIT", "label": "Open source e gratuito" },
+            { "value": "npx", "label": "Roda na sua máquina" },
+            { "value": "3 formatos", "label": "PDF, HTML e Markdown" }
+          ]
+        },
         "codesampa": {
           "title": "codesampa.io",
           "category": "Site institucional",
