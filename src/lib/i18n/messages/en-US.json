@@ -363,6 +363,16 @@
             { "value": "QR code", "label": "Card access" }
           ]
         },
+        "explicai": {
+          "title": "Explicaí",
+          "category": "Open source manual builder",
+          "description": "Snap it, explain it: paste your screens, mark what matters, write the steps and export the finished manual. It runs on your machine with one command, and the manuals stay in a folder you own.",
+          "metrics_data": [
+            { "value": "MIT", "label": "Open source and free" },
+            { "value": "npx", "label": "Runs on your machine" },
+            { "value": "3 formats", "label": "PDF, HTML and Markdown" }
+          ]
+        },
         "codesampa": {
           "title": "codesampa.io",
           "category": "Company website",

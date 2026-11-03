@@ -106,6 +106,18 @@ export const LIST_PROJECTS = [
     interviewLink: '/blog/interview-alexia'
   },
   {
+    key: 'explicai',
+    isProduct: true,
+    category: 'web',
+    tags: ['React 19', 'TypeScript', 'Node.js', 'Tailwind v4'],
+    color: 'from-blue-500 to-indigo-700',
+    icon: FileText,
+    link: 'https://gabriel-codesampaio.github.io/explicai-website/',
+    repo: 'https://github.com/gabriel-codesampaio/explicai-studio',
+    metrics: ['metric_1', 'metric_2', 'metric_3'],
+    image: '/assets/projects/explicai-cover.webp'
+  },
+  {
     key: 'codesampa',
     isProduct: false,
     category: 'web',
