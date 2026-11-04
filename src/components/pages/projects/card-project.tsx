@@ -65,9 +65,6 @@ const CardProject = ({
   // Print do site; cai no placeholder se não existir ou falhar ao carregar
   const [imageError, setImageError] = useState(false);
   const hasImage = !!project.image && !imageError;
-  const hostname = hasLink
-    ? new URL(project.link).hostname.replace(/^www\./, '')
-    : t(`projects.${project.key}.title`);
 
   return (
     <motion.article
@@ -284,17 +281,8 @@ const CardProject = ({
           />
         </motion.div>
 
-        {/* Janela de navegador com o print do site */}
+        {/* Moldura com o print do site */}
         <div className="absolute -bottom-px left-[6%] right-[6%] top-[8%] z-10 flex flex-col overflow-hidden rounded-t-xl border border-b-0 border-white/10 bg-surface-code transition-transform duration-500 group-hover:-translate-y-3 md:left-[8%] md:right-[8%]">
-          <div className="flex h-8 shrink-0 items-center gap-1.5 border-b border-white/5 px-3">
-            <span className="size-2.5 rounded-full bg-white/15" />
-            <span className="size-2.5 rounded-full bg-white/15" />
-            <span className="size-2.5 rounded-full bg-white/15" />
-            <span className="mx-auto truncate rounded bg-white/5 px-3 py-0.5 font-mono text-xs text-white/70">
-              {hostname}
-            </span>
-          </div>
-
           <div className="relative flex-1 overflow-hidden bg-card/80">
             {hasImage ? (
               <Image
