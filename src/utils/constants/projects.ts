@@ -81,17 +81,18 @@ export const LIST_PROJECTS = [
     metrics: ['metric_1', 'metric_2', 'metric_3'],
     image: '/assets/projects/kingfix-cover.webp'
   },
-  {
-    key: 'devrex',
-    isProduct: true,
-    category: 'saas',
-    tags: ['Node.js', 'OpenAI API', 'Postgres', 'Stripe'],
-    color: 'from-violet-600 to-fuchsia-600',
-    icon: FaLayerGroup,
-    link: '#',
-    repo: '#',
-    metrics: ['metric_1', 'metric_2', 'metric_3']
-  },
+  // Oculto: DevRex fora da vitrine por enquanto. Para voltar, descomente; os textos seguem nos JSON.
+  // {
+  //   key: 'devrex',
+  //   isProduct: true,
+  //   category: 'saas',
+  //   tags: ['Node.js', 'OpenAI API', 'Postgres', 'Stripe'],
+  //   color: 'from-violet-600 to-fuchsia-600',
+  //   icon: FaLayerGroup,
+  //   link: '#',
+  //   repo: '#',
+  //   metrics: ['metric_1', 'metric_2', 'metric_3']
+  // },
   {
     key: 'psialexia',
     isProduct: true,
