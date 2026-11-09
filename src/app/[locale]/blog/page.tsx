@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { List } from '@/components/pages/blog/list';
 import { PageTitle } from '@/components/ui/page-title';
 import { buildAlternates } from '@/utils/functions/alternates';
+import { buildSocial } from '@/utils/functions/seo';
 
 type Params = Promise<{ locale: string }>;
 
@@ -15,7 +16,13 @@ export async function generateMetadata({ params }: { params: Params }) {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: buildAlternates(locale, '/blog')
+    alternates: buildAlternates(locale, '/blog'),
+    ...buildSocial({
+      locale,
+      path: '/blog',
+      title: t('title'),
+      description: t('description')
+    })
   };
 }
 

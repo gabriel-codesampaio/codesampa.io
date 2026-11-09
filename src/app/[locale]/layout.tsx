@@ -7,6 +7,7 @@ import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { ReducedMotion } from '@/components/providers/reduced-motion';
+import { JsonLd } from '@/components/seo/json-ld';
 import { Toaster } from '@/components/ui/sonner';
 import { HOST } from '@/utils/constants/host';
 import { EN_US, PT_BR } from '@/utils/constants/languages';
@@ -125,6 +126,29 @@ export default async function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased flex flex-col min-h-svh`}
       >
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'Organization',
+                '@id': `${HOST}/#organization`,
+                name: 'codesampa.io',
+                url: HOST,
+                logo: `${HOST}/og-image.png`,
+                email: 'gabriel@codesampa.io'
+              },
+              {
+                '@type': 'WebSite',
+                '@id': `${HOST}/#website`,
+                url: HOST,
+                name: 'codesampa.io',
+                inLanguage: locale,
+                publisher: { '@id': `${HOST}/#organization` }
+              }
+            ]
+          }}
+        />
         <NextIntlClientProvider>
           <MotionConfig reducedMotion="user">
             <a

@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { TimelinePortfolio } from '@/components/pages/projects/timeline';
 import { PageTitle } from '@/components/ui/page-title';
 import { buildAlternates } from '@/utils/functions/alternates';
+import { buildSocial } from '@/utils/functions/seo';
 
 type Params = Promise<{ locale: string }>;
 
@@ -14,7 +15,13 @@ export async function generateMetadata({ params }: { params: Params }) {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: buildAlternates(locale, '/projects')
+    alternates: buildAlternates(locale, '/projects'),
+    ...buildSocial({
+      locale,
+      path: '/projects',
+      title: t('title'),
+      description: t('description')
+    })
   };
 }
 

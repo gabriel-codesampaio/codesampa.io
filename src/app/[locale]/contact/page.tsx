@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { ContactHub } from '@/components/pages/contact/contact-hub';
 import { PageTitle } from '@/components/ui/page-title';
 import { buildAlternates } from '@/utils/functions/alternates';
+import { buildSocial } from '@/utils/functions/seo';
 
 type Params = Promise<{ locale: string }>;
 
@@ -13,7 +14,13 @@ export async function generateMetadata({ params }: { params: Params }) {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: buildAlternates(locale, '/contact')
+    alternates: buildAlternates(locale, '/contact'),
+    ...buildSocial({
+      locale,
+      path: '/contact',
+      title: t('title'),
+      description: t('description')
+    })
   };
 }
 

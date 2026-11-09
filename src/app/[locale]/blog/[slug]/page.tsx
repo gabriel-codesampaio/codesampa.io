@@ -11,6 +11,9 @@ import { TableOfContents } from '@/components/pages/blog/table-of-contents';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/lib/i18n/navigation';
 import { buildAlternates } from '@/utils/functions/alternates';
+import { buildSocial } from '@/utils/functions/seo';
+import { JsonLd } from '@/components/seo/json-ld';
+import { HOST } from '@/utils/constants/host';
 import { cn } from '@/utils/functions/tw-merge';
 import { formatPostDate } from '@/utils/functions/post-date';
 import { estimateReadingTime } from '@/utils/functions/estimate-reading-time';
@@ -55,13 +58,13 @@ export async function generateMetadata({
     description: post.description,
     keywords: post.tags,
     alternates: buildAlternates(locale, `/blog/${slug}`, translatedLocales),
-    openGraph: {
+    ...buildSocial({
+      locale,
+      path: `/blog/${slug}`,
       title: post.title,
       description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      tags: post.tags
-    }
+      article: { publishedTime: post.date, tags: post.tags }
+    })
   };
 }
 
@@ -99,6 +102,49 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="container mx-auto px-4 pt-8 pb-16 relative overflow-visible">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'BlogPosting',
+              headline: post.title,
+              description: post.description,
+              datePublished: post.date,
+              dateModified: post.date,
+              inLanguage: locale,
+              keywords: post.tags.join(', '),
+              image: `${HOST}/og-image.png`,
+              mainEntityOfPage: `${HOST}/${locale}/blog/${slug}`,
+              author: { '@type': 'Person', name: 'Gabriel Sampaio' },
+              publisher: { '@id': `${HOST}/#organization` }
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'codesampa.io',
+                  item: `${HOST}/${locale}`
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'Blog',
+                  item: `${HOST}/${locale}/blog`
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 3,
+                  name: post.title,
+                  item: `${HOST}/${locale}/blog/${slug}`
+                }
+              ]
+            }
+          ]
+        }}
+      />
       <ScrollProgress />
 
       {/* Background Effect */}
